@@ -562,12 +562,14 @@ def start_frontend() -> subprocess.Popen | None:
         warn("frontend/ directory not found — skipping Vite dev server.")
         return None
 
+    npm_cmd = shutil.which('npm') or shutil.which('npm.cmd') or 'npm'
+
     # Auto npm install if node_modules is missing
     node_modules = os.path.join(frontend_dir, 'node_modules')
     if not os.path.isdir(node_modules):
         info("node_modules/ not found — running npm install first...")
         result = subprocess.run(
-            ['npm', 'install'],
+            [npm_cmd, 'install'],
             cwd=frontend_dir,
             shell=(platform.system() == 'Windows'),
         )
@@ -578,7 +580,7 @@ def start_frontend() -> subprocess.Popen | None:
 
     # Launch 'npm run dev' — it stays alive in the background
     proc = subprocess.Popen(
-        ['npm', 'run', 'dev'],
+        [npm_cmd, 'run', 'dev'],
         cwd=frontend_dir,
         shell=(platform.system() == 'Windows'),
         stdout=subprocess.PIPE,
