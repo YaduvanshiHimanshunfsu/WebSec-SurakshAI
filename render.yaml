@@ -1,0 +1,22 @@
+# Render.com Infrastructure Blueprint for WebSec-SurakshAI Backend
+services:
+  - type: web
+    name: websec-surakshai-api
+    runtime: python
+    region: singapore
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn "app:create_app()"
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ADMIN_PASSWORD
+        value: admin123  # Change to your strong password in Render dashboard
+      - key: DATABASE_URL
+        sync: false      # Paste your Supabase PostgreSQL URL here
+      - key: GEMINI_API_KEY
+        sync: false      # Optional: Paste your Gemini API key
+      - key: CORS_ORIGINS
+        value: "*"      # Or set to your Vercel URL
