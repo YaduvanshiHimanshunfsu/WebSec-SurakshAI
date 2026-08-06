@@ -528,9 +528,9 @@ def start_main_app(debug: bool = False) -> None:
     port     = int(os.environ.get('PORT', 5000))
     local_ip = get_local_ip()
 
-    box("WebSec-SurakshAI  —  Server Starting", GREEN)
-    info(f"Local URL   → {c(f'http://localhost:{port}', CYAN, BOLD)}")
-    info(f"Network URL → {c(f'http://{local_ip}:{port}', CYAN)}")
+    box("WebSec-SurakshAI  —  Server Running", GREEN)
+    info(f"Web App URL → {c('http://localhost:5173/', GREEN, BOLD)}   (React SPA + Stitch Design System)")
+    info(f"Backend API → {c('http://127.0.0.1:5000/api', DIM)}")
     info(f"Mode        → {c('DEBUG', YELLOW) if debug else c('PRODUCTION', GREEN)}")
     info(f"Database    → {c(flask_app.config.get('SQLALCHEMY_DATABASE_URI','?'), DIM)}")
 
@@ -766,10 +766,10 @@ def main():
 
     # ── Default / Dev mode: Start Full-Stack System (Frontend + Backend) ─────
     if not args.prod:
-        box("🚀  WebSec-SurakshAI  —  Starting Full-Stack System", GREEN)
-        info(f"Frontend → {c('http://localhost:5173', CYAN, BOLD)}  (Vite + React UI)")
-        info(f"Backend  → {c('http://localhost:5000', CYAN, BOLD)}  (Flask API + Static SPA)")
-        info(f"Database → {c('sqlite:///websec.db', DIM)}")
+        box("🚀  WebSec-SurakshAI  —  Starting System", GREEN)
+        info(f"Web App URL → {c('http://localhost:5173/', GREEN, BOLD)}   ← Open this in your browser")
+        info(f"Backend API → {c('http://127.0.0.1:5000/api', DIM)}")
+        info(f"Database    → {c('sqlite:///websec.db', DIM)}")
         
         print(f"\n  {c('Starting Vite frontend dev server...', DIM)}")
         frontend_process = start_frontend()
