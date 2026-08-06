@@ -764,13 +764,14 @@ def main():
     signal.signal(signal.SIGINT, cleanup)
     signal.signal(signal.SIGTERM, cleanup)
 
-    # ── --dev: Flask backend + Vite frontend together ─────────────────────────
-    if args.dev:
-        box("🚀  Dev Mode  —  Starting Everything", GREEN)
-        info(f"Backend  → {c('http://localhost:5000', CYAN, BOLD)}  (Flask API)")
-        info(f"Frontend → {c('http://localhost:5173', CYAN, BOLD)}  (Vite + React)  ← Open this in your browser")
+    # ── Default / Dev mode: Start Full-Stack System (Frontend + Backend) ─────
+    if not args.prod:
+        box("🚀  WebSec-SurakshAI  —  Starting Full-Stack System", GREEN)
+        info(f"Frontend → {c('http://localhost:5173', CYAN, BOLD)}  (Vite + React UI)")
+        info(f"Backend  → {c('http://localhost:5000', CYAN, BOLD)}  (Flask API + Static SPA)")
         info(f"Database → {c('sqlite:///websec.db', DIM)}")
-        print(f"\n  {c('Starting Vite dev server...', DIM)}")
+        
+        print(f"\n  {c('Starting Vite frontend dev server...', DIM)}")
         frontend_process = start_frontend()
         if args.with_sandbox:
             box("Starting Sandbox", YELLOW)
@@ -778,11 +779,6 @@ def main():
         print(f"\n  {c('Starting Flask backend...', DIM)}")
         start_main_app(debug=True)
         return
-
-    # ── Optionally start sandbox ──────────────────────────────────────────────
-    if args.with_sandbox:
-        box("Starting Sandbox", YELLOW)
-        sandbox_process = start_sandbox()
 
     # ── Production mode via gunicorn ─────────────────────────────────────────
     if args.prod:
@@ -803,12 +799,9 @@ def main():
             '--threads=4',
             '--worker-class=gthread',
             '--timeout=120',
-            'run:app',          # uses the `app` module-level object below
+            'run:app',
         ])
         sys.exit(result.returncode)
-
-    # ── Development mode ─────────────────────────────────────────────────────
-    start_main_app(debug=args.debug)
 
 
 # ─────────────────────────────────────────────────────────────────────────────

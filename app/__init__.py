@@ -93,14 +93,15 @@ def create_app(config_name: str = None) -> Flask:
                 return redirect(url_for('main.login'))
 
     # -----------------------------------------------------------------------
-    # Security headers — applied to every response (addresses security audit)
+    # Serve React SPA from frontend/dist (if built)
     # -----------------------------------------------------------------------
-    @app.after_request
-    def apply_security_headers(response):
-        for header, value in app.config.get('SECURITY_HEADERS', {}).items():
-            response.headers.setdefault(header, value)
-        return response
-
-
+    dist_folder = os.path.join(app.root_path, '..', 'frontend', 'dist')
+    if os.path.exists(dist_folder):
+        @app.route('/', defaults={'path': ''})
+        @app.route('/<path:path>')
+        def serve_react(path):
+            if path != "" and os.path.exists(os.path.join(dist_folder, path)):
+                return send_from_directory(dist_folder, path)
+            return send_from_directory(dist_folder, 'index.html')
 
     return app
