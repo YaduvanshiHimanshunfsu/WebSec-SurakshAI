@@ -108,10 +108,9 @@ def analyze_url():
             pass
 
         if not hops:
+            target_url = result.get('target_url') or url
             hops = [
-                {'url': url, 'status_code': 301, 'reason': 'HTTP 301 Moved Permanently'},
-                {'url': 'https://bit.ly/3xY9zQ' if 'http' in url else url, 'status_code': 302, 'reason': 'HTTP 302 Found'},
-                {'url': result.get('target_url') or url, 'status_code': 200, 'reason': 'Final Target (HTTP 200)'}
+                {'url': target_url, 'status_code': 200, 'reason': 'Direct Access / Final Destination'}
             ]
 
         result['redirection_chain'] = hops
@@ -197,6 +196,38 @@ def ai_remediate():
     except Exception as e:
         current_app.logger.error("AI Remediation generation error: %s", e)
         return jsonify({"error": "Failed to generate remediation plan."}), 500
+
+
+@ai_bp.route("/api/ai/patch", methods=["POST"])
+@limiter.limit("5 per minute")
+def ai_generate_patch():
+    """
+    SurakshAI 2.0: Generate a downloadable code patch for a finding.
+
+    Request JSON:
+        finding (dict, required): Finding dictionary with title and description
+        language (str, optional): Target language ('python', 'javascript', 'go', 'java')
+
+    Returns:
+        JSON with code patch diff and explanation
+    """
+    data = request.get_json(silent=True) or {}
+    finding = data.get("finding", {})
+    language = data.get("language", "python")
+
+    if not finding or not isinstance(finding, dict):
+        return jsonify({"error": "finding dict is required."}), 400
+
+    analyzer = _get_analyzer()
+    if not analyzer:
+        return jsonify({"error": "AI analyzer is not initialized."}), 503
+
+    try:
+        patch_res = analyzer.generate_code_patch(finding, language)
+        return jsonify(patch_res)
+    except Exception as e:
+        current_app.logger.error("AI Patch Generation endpoint error: %s", e)
+        return jsonify({"error": "Failed to generate code patch."}), 500
 
 
 @ai_bp.route("/api/ai/health", methods=["GET"])

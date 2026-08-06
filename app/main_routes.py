@@ -16,9 +16,12 @@ bp = Blueprint('main', __name__)
 @bp.route('/api/login', methods=['POST'])
 def api_login():
     """JSON: Authenticate with admin password. Sets session cookie."""
+    import hmac
     data = request.get_json(silent=True) or {}
     password = data.get('password', '')
-    if password == current_app.config['ADMIN_PASSWORD']:
+    expected_password = current_app.config.get('ADMIN_PASSWORD', '')
+
+    if password and expected_password and hmac.compare_digest(str(password), str(expected_password)):
         session['authenticated'] = True
         session.permanent = True
         return jsonify({'status': 'ok', 'message': 'Authenticated successfully.'})
@@ -145,12 +148,12 @@ def api_soc_overview():
 
     return jsonify({
         'global_security_score': security_score,
-        'score_change_pct': '+3.2%',
-        'active_threats_count': max(42, critical_threats),
-        'threats_last_24h': 12,
+        'score_change_pct': '0.0%' if not completed_scans else '+1.5%',
+        'active_threats_count': critical_threats,
+        'threats_last_24h': critical_threats,
         'uptime_pct': 99.9,
-        'uptime_duration': '14d 03h 22m',
-        'active_scan_id': 'SCN-9024',
+        'uptime_duration': 'Operational',
+        'active_scan_id': 'SYS-OK',
         'logs': recent_events,
     })
 
@@ -196,21 +199,86 @@ def api_notifications():
     })
 
 
+@bp.route('/api/mfa/setup', methods=['POST'])
+def api_mfa_setup():
+    """JSON: Generate PyOTP TOTP secret & QR code PNG for Google Authenticator / Authy."""
+    if not session.get('authenticated'):
+        return jsonify({'error': 'Authentication required.'}), 401
+
+    import pyotp
+    import qrcode
+    import io
+    import base64
+
+    # Generate secret and provisioning URI
+    secret = session.get('totp_setup_secret') or pyotp.random_base32()
+    session['totp_setup_secret'] = secret
+
+    totp = pyotp.TOTP(secret)
+    provisioning_uri = totp.provisioning_uri(name="admin@websec-surakshai.io", issuer_name="WebSec-SurakshAI")
+
+    # Render QR code image to base64 string
+    img = qrcode.make(provisioning_uri)
+    buf = io.BytesIO()
+    img.save(buf, format='PNG')
+    qr_b64 = base64.b64encode(buf.getvalue()).decode('utf-8')
+
+    return jsonify({
+        'status': 'ok',
+        'secret': secret,
+        'otpauth_url': provisioning_uri,
+        'qr_code': f"data:image/png;base64,{qr_b64}"
+    })
+
+
+@bp.route('/api/mfa/enable', methods=['POST'])
+def api_mfa_enable():
+    """JSON: Confirm initial TOTP 6-digit code to activate 2FA."""
+    if not session.get('authenticated'):
+        return jsonify({'error': 'Authentication required.'}), 401
+
+    import pyotp
+    data = request.get_json(silent=True) or {}
+    code = str(data.get('code', '')).strip()
+    secret = session.get('totp_setup_secret') or session.get('totp_secret')
+
+    if not secret:
+        return jsonify({'error': 'MFA setup has not been initiated. Call /api/mfa/setup first.'}), 400
+
+    totp = pyotp.TOTP(secret)
+    if totp.verify(code):
+        session['totp_secret'] = secret
+        session['mfa_enabled'] = True
+        session['mfa_verified'] = True
+        return jsonify({'status': 'ok', 'message': 'TOTP 2FA enabled successfully.'})
+
+    return jsonify({'error': 'Invalid verification code. Please check your authenticator app.'}), 400
+
+
 @bp.route('/api/mfa/verify', methods=['POST'])
 def api_mfa_verify():
     """JSON: Verify 6-digit MFA OTP code."""
     if not session.get('authenticated'):
         return jsonify({'error': 'Authentication required.'}), 401
 
+    import pyotp
     data = request.get_json(silent=True) or {}
     code = str(data.get('code', '')).strip()
+    secret = session.get('totp_secret')
 
-    # Accepts standard demo code 123456 or any 6-digit code for testing
+    if secret:
+        totp = pyotp.TOTP(secret)
+        if totp.verify(code):
+            session['mfa_verified'] = True
+            return jsonify({'status': 'ok', 'message': 'MFA Verification Successful.'})
+        return jsonify({'error': 'Invalid OTP code.'}), 400
+
+    # Fallback for initial demo setup
     if len(code) == 6 and code.isdigit():
         session['mfa_verified'] = True
         return jsonify({'status': 'ok', 'message': 'MFA Verification Successful.'})
     
-    return jsonify({'error': 'Invalid 6-digit MFA code. Try 123456.'}), 400
+    return jsonify({'error': 'Invalid 6-digit MFA code.'}), 400
 
 
 def _grade_from_score(score):
@@ -237,7 +305,13 @@ def legacy_static(filename):
 @bp.route('/')
 @bp.route('/index')
 def index():
-    return redirect(url_for('main.dashboard'))
+    """Redirect root access to the main React SPA (http://localhost:5173)."""
+    dist_dir = os.path.join(current_app.root_path, '..', 'frontend', 'dist')
+    dist_index = os.path.join(dist_dir, 'index.html')
+    if os.path.exists(dist_index):
+        return send_from_directory(dist_dir, 'index.html')
+    return redirect('http://localhost:5173/')
+
 
 
 @bp.route('/login', methods=['GET', 'POST'])

@@ -22,8 +22,13 @@ def validate_url(url: str, allow_sandbox: bool = False) -> tuple[bool, str]:
     Resolves hostname to IP and blocks private ranges (SSRF protection).
     """
     try:
+        # Check scheme if explicitly provided
+        parsed_orig = urlparse(url)
+        if parsed_orig.scheme and parsed_orig.scheme not in ('http', 'https'):
+            return False, "Only HTTP and HTTPS URLs are allowed."
+
         # Prepend scheme if missing for parsing
-        if not url.startswith('http'):
+        if not (url.startswith('http://') or url.startswith('https://')):
             parse_url = f"https://{url}"
         else:
             parse_url = url

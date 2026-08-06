@@ -19,7 +19,9 @@ class Target(db.Model):
     verification_token = db.Column(db.String(64), nullable=True)
     # 'dns_txt' | 'sandbox'
     verification_method = db.Column(db.String(20), nullable=True)
-    # BUG #8: use timezone-aware datetime (datetime.utcnow is deprecated Python 3.12+)
+    # Multi-tenancy scoping
+    organization_id = db.Column(db.Integer, db.ForeignKey('organizations.id'), nullable=True)
+
     created_at = db.Column(
         db.DateTime(timezone=True),
         default=lambda: datetime.now(timezone.utc)

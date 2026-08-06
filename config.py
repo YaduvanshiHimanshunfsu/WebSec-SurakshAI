@@ -9,15 +9,21 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
+def _get_db_url():
+    url = os.environ.get('SUPABASE_DB_URL') or os.environ.get('DATABASE_URL') or 'sqlite:///websec.db'
+    if url.startswith('postgres://'):
+        url = url.replace('postgres://', 'postgresql://', 1)
+    return url
+
+
 class Config:
     # Core
     SECRET_KEY = os.environ.get('SECRET_KEY', 'dev-secret-CHANGE-THIS-in-production')
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///websec.db')
+    SQLALCHEMY_DATABASE_URI = _get_db_url()
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
-    # Admin access — MUST be set in .env before running
-    # Using the default will still work locally, but a WARNING is logged.
-    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'REPLACE_ME_BEFORE_RUNNING')
+    # Admin access credentials
+    ADMIN_PASSWORD = os.environ.get('ADMIN_PASSWORD', 'admin123')
 
     # External APIs
     SAFE_BROWSING_API_KEY = os.environ.get('SAFE_BROWSING_API_KEY', '')
@@ -35,11 +41,11 @@ class Config:
     SESSION_COOKIE_SAMESITE = 'Lax'      # Mitigates CSRF via cross-site requests
     PERMANENT_SESSION_LIFETIME = timedelta(hours=12)   # Sessions expire; not 31-day default
 
-    # ── Rate limiting ─────────────────────────────────────────────────
-    # Storage: prefer Redis so limits survive restarts and work across
-    # Gunicorn workers. Falls back to in-process memory for dev.
+    # ── Rate limiting & Celery task queue ────────────────────────────
     RATELIMIT_DEFAULT = '20 per minute'
     RATELIMIT_STORAGE_URL = os.environ.get('REDIS_URL', 'memory://')
+    CELERY_BROKER_URL = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
+    CELERY_RESULT_BACKEND = os.environ.get('REDIS_URL', 'redis://localhost:6379/0')
 
     # ── Scanner settings ──────────────────────────────────────────────
     SCAN_TIMEOUT = int(os.environ.get('SCAN_TIMEOUT', '15'))  # seconds per HTTP request

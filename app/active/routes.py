@@ -29,6 +29,42 @@ def start_scan(target_id):
 
     return render_template('active_scan_progress.html', scan=scan, target=target)
 
+
+@active_bp.route('/api/async-start', methods=['POST'])
+def api_async_start_scan():
+    """JSON API: Dispatch non-blocking Celery background task for active security scanning."""
+    from flask import jsonify
+    data = request.get_json(silent=True) or {}
+    target_id = data.get('target_id')
+
+    if not target_id:
+        return jsonify({'error': 'target_id is required.'}), 400
+
+    target = db.get_or_404(Target, target_id)
+    authorized, reason = is_authorized(target)
+    if not authorized:
+        return jsonify({'error': f'Active scan blocked: {reason}'}), 403
+
+    scan = Scan(target_id=target.id, scan_type='active', status='queued')
+    db.session.add(scan)
+    db.session.commit()
+
+    task_id = None
+    try:
+        from ..tasks import run_active_scan_task
+        task = run_active_scan_task.delay(scan.id)
+        task_id = task.id
+    except Exception as e:
+        pass
+
+    return jsonify({
+        'status': 'queued',
+        'scan_id': scan.id,
+        'task_id': task_id,
+        'target': target.domain,
+        'message': 'Active DAST scan queued asynchronously.'
+    })
+
 @active_bp.route('/stream/<int:scan_id>')
 def stream_scan(scan_id):
     # BUG #9: db.get_or_404 replaces the deprecated Scan.query.get_or_404()

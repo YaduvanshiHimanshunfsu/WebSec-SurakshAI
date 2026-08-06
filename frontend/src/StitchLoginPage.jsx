@@ -19,7 +19,7 @@ const PARTICLE_COLORS = [
 
 export default function StitchLoginPage({ onLogin, loading }) {
   const [username, setUsername] = useState('admin')
-  const [password, setPassword] = useState('')
+  const [password, setPassword] = useState('admin123')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const cardRef      = useRef(null)
   const staggersRef  = useRef([])

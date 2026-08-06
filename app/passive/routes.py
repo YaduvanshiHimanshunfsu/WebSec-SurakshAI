@@ -82,6 +82,40 @@ def api_start_scan():
     })
 
 
+@passive_bp.route('/api/async-start', methods=['POST'])
+def api_async_start_scan():
+    """JSON API: Dispatch non-blocking Celery background task for passive scanning."""
+    data = request.get_json(silent=True) or {}
+    url = (data.get('url') or '').strip()
+
+    if not url:
+        return jsonify({'error': 'url field is required.'}), 400
+
+    target, full_url, error = _get_or_create_target(url)
+    if error:
+        return jsonify({'error': f'Invalid URL: {error}'}), 400
+
+    scan = Scan(target_id=target.id, scan_type='passive', status='queued')
+    db.session.add(scan)
+    db.session.commit()
+
+    task_id = None
+    try:
+        from ..tasks import run_passive_scan_task
+        task = run_passive_scan_task.delay(scan.id)
+        task_id = task.id
+    except Exception as e:
+        logger.warning("Celery dispatch unavailable; scan recorded in DB: %s", e)
+
+    return jsonify({
+        'status': 'queued',
+        'scan_id': scan.id,
+        'task_id': task_id,
+        'target': target.domain,
+        'message': 'Passive scan queued asynchronously.'
+    })
+
+
 # ─── Legacy form POST (kept for backward compat) ─────────────────
 @passive_bp.route('/start', methods=['POST'])
 def start_scan():

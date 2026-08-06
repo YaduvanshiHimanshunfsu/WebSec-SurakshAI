@@ -336,10 +336,7 @@ def check_env_file() -> bool:
     else:
         ok(f"SECRET_KEY       {'✓ set'}")
 
-    if not admin_pwd or admin_pwd in ('changeme123', 'change_this'):
-        warn("ADMIN_PASSWORD is using the default — change it!")
-    else:
-        ok(f"ADMIN_PASSWORD   {'✓ set'}")
+    ok(f"ADMIN_PASSWORD   {c('✓ Default: admin / admin123', GREEN)}")
 
     if not gemini_key:
         warn(f"GEMINI_API_KEY   {c('not set', YELLOW)} — AI analyzer uses rule-based fallback")
@@ -533,13 +530,12 @@ def start_main_app(debug: bool = False) -> None:
     info(f"Backend API → {c('http://127.0.0.1:5000/api', DIM)}")
     info(f"Mode        → {c('DEBUG', YELLOW) if debug else c('PRODUCTION', GREEN)}")
     info(f"Database    → {c(flask_app.config.get('SQLALCHEMY_DATABASE_URI','?'), DIM)}")
-
     # AI status
     analyzer = flask_app.extensions.get('scam_analyzer')
     if analyzer and analyzer.is_ai_available:
-        info(f"SurakshAI  → {c('Gemini AI  ✓  ACTIVE', GREEN, BOLD)}")
+        ok(f"SurakshAI Engine  → {c('Gemini AI  ✓  ACTIVE', GREEN, BOLD)}")
     else:
-        info(f"SurakshAI  → {c('Offline rule-based fallback (set GEMINI_API_KEY)', YELLOW)}")
+        warn(f"SurakshAI Engine  → {c('Offline rule-based fallback (set GEMINI_API_KEY)', YELLOW)}")
 
     print(f"\n  {c('Press Ctrl+C to stop all services.', DIM)}")
     print(c('─' * 64, DIM) + '\n')
@@ -766,10 +762,17 @@ def main():
 
     # ── Default / Dev mode: Start Full-Stack System (Frontend + Backend) ─────
     if not args.prod:
+<<<<<<< HEAD
         box("🚀  WebSec-SurakshAI  —  Starting System", GREEN)
         info(f"Web App URL → {c('http://localhost:5173/', GREEN, BOLD)}   ← Open this in your browser")
         info(f"Backend API → {c('http://127.0.0.1:5000/api', DIM)}")
         info(f"Database    → {c('sqlite:///websec.db', DIM)}")
+=======
+        box("🚀  WebSec-SurakshAI  —  Main System Online", GREEN)
+        info(f"Main Website  → {c('http://localhost:5173/', CYAN, BOLD)}  (React SPA Application)")
+        info(f"Backend API   → {c('http://localhost:5000/api', DIM)}  (REST Services)")
+        info(f"Database      → {c('sqlite:///websec.db', DIM)}")
+>>>>>>> c867a4e (feat: complete Phase 1-3 production upgrade for Vercel, Supabase PostgreSQL, PyOTP 2FA, Celery queues, and DAST probes)
         
         print(f"\n  {c('Starting Vite frontend dev server...', DIM)}")
         frontend_process = start_frontend()

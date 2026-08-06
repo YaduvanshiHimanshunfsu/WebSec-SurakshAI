@@ -5,7 +5,7 @@ import logging
 import os
 from flask import Flask, session, redirect, url_for, request, send_from_directory
 from config import config
-from .extensions import db, limiter
+from .extensions import db, limiter, migrate
 
 logger = logging.getLogger(__name__)
 
@@ -25,10 +25,19 @@ def create_app(config_name: str = None) -> Flask:
     # Init extensions
     db.init_app(app)
     limiter.init_app(app)
+    migrate.init_app(app, db)
+
+    # Cross-Origin Resource Sharing for Vercel deployment
+    try:
+        from flask_cors import CORS
+        cors_origins = os.environ.get('CORS_ORIGINS', '*').split(',')
+        CORS(app, resources={r"/api/*": {"origins": cors_origins}}, supports_credentials=True)
+    except ImportError:
+        logger.warning("flask_cors not installed — skipping CORS registration.")
 
     with app.app_context():
         # Import models so SQLAlchemy registers them
-        from .models import target, scan, finding  # noqa: F401
+        from .models import target, scan, finding, user, organization  # noqa: F401
         db.create_all()
 
     # -----------------------------------------------------------------------

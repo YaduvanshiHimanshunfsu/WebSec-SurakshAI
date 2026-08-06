@@ -514,3 +514,50 @@ class ScamAnalyzer:
         except Exception as e:
             logger.error("AI Remediation generation failed: %s", e)
             return ""
+
+    def generate_code_patch(self, finding: dict, target_language: str = "python") -> dict:
+        """
+        SurakshAI 2.0: Generate a downloadable code patch diff (Python, Node.js, Go, Java)
+        to resolve a specific security finding.
+        """
+        title = finding.get("title", "Security Vulnerability")
+        category = finding.get("category", "vulnerability")
+
+        if not self.is_ai_available:
+            return {
+                "language": target_language,
+                "vulnerability": title,
+                "patch": f"// Offline Security Rule: Fix {title}\n// Apply parameterized queries and strict input validation."
+            }
+
+        prompt = (
+            f"You are SurakshAI Security Copilot. Generate a production-ready code patch in {target_language} "
+            f"to fix the following security vulnerability:\n"
+            f"Title: {title}\nCategory: {category}\nDescription: {finding.get('description', '')}\n\n"
+            "Provide output with:\n"
+            "1. VULNERABLE CODE BLOCK\n"
+            "2. SECURE PATCH CODE BLOCK\n"
+            "3. EXPLANATION OF WHY THE FIX WORKS"
+        )
+
+        try:
+            from google import genai
+            from google.genai import types
+
+            response = self._client.models.generate_content(
+                model=self._model_name,
+                contents=prompt,
+                config=types.GenerateContentConfig(temperature=0.1, max_output_tokens=1000)
+            )
+            return {
+                "language": target_language,
+                "vulnerability": title,
+                "patch": response.text.strip()
+            }
+        except Exception as e:
+            logger.error("AI Patch Generation error: %s", e)
+            return {
+                "language": target_language,
+                "vulnerability": title,
+                "patch": f"// Error generating patch: {e}"
+            }
