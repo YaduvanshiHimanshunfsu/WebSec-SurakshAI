@@ -1,0 +1,22 @@
+id: sqli-boolean-001
+category: sqli
+technique: boolean_based
+severity: high
+payloads:
+  - "' OR '1'='1' -- "
+  - "' OR 1=1 -- "
+  - "1 OR 1=1"
+  - "' OR 'a'='a"
+  - "1' OR '1'='1"
+match:
+  type: regex
+  patterns:
+    - "welcome"
+    - "admin"
+    - "dashboard"
+    - "logged in"
+    - "account"
+  flags: IGNORECASE
+remediation: >
+  Use parameterized queries. A boolean-based bypass works because user input
+  changes the query's WHERE clause logic. Prepared statements prevent this entirely.

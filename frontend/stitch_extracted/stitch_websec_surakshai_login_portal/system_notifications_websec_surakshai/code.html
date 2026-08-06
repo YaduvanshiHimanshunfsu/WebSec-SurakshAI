@@ -1,0 +1,368 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-bright": "#fcf8ff",
+                "on-secondary-container": "#fffbff",
+                "tertiary-container": "#b55d00",
+                "on-primary-container": "#fffbff",
+                "primary-fixed": "#e1e0ff",
+                "primary-fixed-dim": "#c0c1ff",
+                "on-tertiary": "#ffffff",
+                "on-tertiary-container": "#fffbff",
+                "primary-container": "#6063ee",
+                "primary": "#4648d4",
+                "on-secondary-fixed-variant": "#5516be",
+                "on-error-container": "#93000a",
+                "on-secondary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-surface-variant": "#464554",
+                "on-secondary-fixed": "#23005c",
+                "surface-container-low": "#f5f2fe",
+                "on-primary-fixed": "#07006c",
+                "surface-container-high": "#e9e6f3",
+                "on-surface": "#1b1b23",
+                "secondary": "#6b38d4",
+                "surface-container-lowest": "#ffffff",
+                "secondary-container": "#8455ef",
+                "on-tertiary-fixed-variant": "#703700",
+                "surface": "#fcf8ff",
+                "on-error": "#ffffff",
+                "surface-variant": "#e4e1ed",
+                "surface-tint": "#494bd6",
+                "error-container": "#ffdad6",
+                "outline": "#767586",
+                "surface-dim": "#dbd8e4",
+                "secondary-fixed": "#e9ddff",
+                "surface-container-highest": "#e4e1ed",
+                "secondary-fixed-dim": "#d0bcff",
+                "inverse-surface": "#303038",
+                "inverse-primary": "#c0c1ff",
+                "inverse-on-surface": "#f2effb",
+                "on-tertiary-fixed": "#301400",
+                "on-primary": "#ffffff",
+                "on-background": "#1b1b23",
+                "tertiary": "#904900",
+                "outline-variant": "#c7c4d7",
+                "tertiary-fixed-dim": "#ffb783",
+                "surface-container": "#efecf8",
+                "background": "#fcf8ff",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "tertiary-fixed": "#ffdcc5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-mobile": "16px",
+                "margin-desktop": "48px",
+                "2xl": "64px",
+                "lg": "24px",
+                "md": "16px",
+                "xs": "4px",
+                "base": "4px",
+                "xl": "40px",
+                "gutter": "24px",
+                "sm": "8px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container z-50 flex flex-col pt-lg pb-xl"><div class="px-lg mb-xl flex flex-col gap-xs"><div class="flex items-center gap-sm text-primary"><span class="material-symbols-outlined text-[28px]">shield</span><span class="font-display-lg text-[16px] font-[800] tracking-tight text-on-background">WebSec-SurakshAI</span></div><div class="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant px-sm opacity-70">NFSU · Tripura Campus</div></div><nav class="flex-1 px-sm flex flex-col gap-base" data-active-classes="bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary"><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="security-scanner" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">security</span><span class="font-label-md">Security Scanner</span></a><a aria-current="page" class="flex items-center px-md py-sm rounded-lg transition-all group bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">psychology</span><span class="font-label-md">AI Scam Analyzer</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="reports" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">assessment</span><span class="font-label-md">Reports</span></a></nav><div class="px-lg pt-lg border-t border-outline-variant"><div class="p-md rounded-xl bg-surface-container-low flex flex-col gap-xs"><span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Status</span><div class="flex items-center gap-sm"><div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div><span class="text-label-sm text-on-surface">Monitoring Active</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-[#0b0f19]/85 backdrop-blur-[16px] z-40 flex items-center justify-end px-xl gap-lg shadow-sm"><div class="flex items-center gap-md border-r border-outline/20 pr-lg"><span class="material-symbols-outlined text-surface text-[20px] cursor-pointer hover:text-primary transition-colors">search</span><span class="material-symbols-outlined text-surface text-[20px] cursor-pointer hover:text-primary transition-colors">notifications</span></div><div class="flex items-center gap-sm"><div class="flex flex-col items-end"><span class="text-label-sm text-surface">NFSU Administrator</span><span class="text-[10px] text-surface/60">himanshu.yadav@nfsu.ac.in</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center border border-primary-fixed/20"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 min-h-screen bg-background"><div class="flex flex-col w-full relative h-[600px] bg-background">
+<!-- Interactive Toast Trigger Area (for demonstration/developer view) -->
+<div class="absolute inset-0 flex flex-col items-center justify-center gap-lg">
+<div class="text-center mb-xl">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-sm">Toast Notification System</h2>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md mx-auto">Click the buttons below to trigger different notification variants. The stack handles multiple concurrent toasts with enter/exit animations and auto-dismissal.</p>
+</div>
+<div class="grid grid-cols-2 gap-md w-full max-w-lg mb-lg">
+<button class="relative overflow-hidden group px-lg py-md rounded-lg bg-surface-container-high hover:bg-[#10b981]/10 hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-sm cursor-pointer" onclick="triggerToast('success')">
+<span class="material-symbols-outlined text-[#10b981]">check_circle</span>
+<span class="font-label-md text-label-md text-on-surface">Trigger Success</span>
+<div class="absolute inset-0 border border-[#10b981]/20 rounded-lg group-hover:scale-[1.02] transition-transform"></div>
+</button>
+<button class="relative overflow-hidden group px-lg py-md rounded-lg bg-surface-container-high hover:bg-[#ef4444]/10 hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-sm cursor-pointer" onclick="triggerToast('error')">
+<span class="material-symbols-outlined text-[#ef4444]">error</span>
+<span class="font-label-md text-label-md text-on-surface">Trigger Error</span>
+<div class="absolute inset-0 border border-[#ef4444]/20 rounded-lg group-hover:scale-[1.02] transition-transform"></div>
+</button>
+<button class="relative overflow-hidden group px-lg py-md rounded-lg bg-surface-container-high hover:bg-[#3b82f6]/10 hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-sm cursor-pointer" onclick="triggerToast('info')">
+<span class="material-symbols-outlined text-[#3b82f6]">info</span>
+<span class="font-label-md text-label-md text-on-surface">Trigger Info</span>
+<div class="absolute inset-0 border border-[#3b82f6]/20 rounded-lg group-hover:scale-[1.02] transition-transform"></div>
+</button>
+<button class="relative overflow-hidden group px-lg py-md rounded-lg bg-surface-container-high hover:bg-[#f97316]/10 hover:shadow-sm transition-all duration-300 flex items-center justify-center gap-sm cursor-pointer" onclick="triggerToast('warning')">
+<span class="material-symbols-outlined text-[#f97316]">warning</span>
+<span class="font-label-md text-label-md text-on-surface">Trigger Warning</span>
+<div class="absolute inset-0 border border-[#f97316]/20 rounded-lg group-hover:scale-[1.02] transition-transform"></div>
+</button>
+</div>
+<button class="px-md py-sm rounded-md bg-surface-variant text-on-surface-variant hover:bg-surface-dim transition-colors font-label-md shadow-sm border border-outline-variant flex items-center gap-sm" onclick="clearAllToasts()">
+<span class="material-symbols-outlined text-[18px]">clear_all</span> Clear All
+</button>
+</div>
+<!-- Toast Container - Fixed Top Right -->
+<div class="fixed top-xl right-xl z-[100] flex flex-col gap-sm w-[380px] pointer-events-none" id="toast-container">
+<!-- Toasts will be injected here via JavaScript -->
+</div>
+<style>
+    /* Toast Base Animation Classes */
+    .toast-enter {
+      transform: translateX(120%) scale(0.95);
+      opacity: 0;
+    }
+    .toast-enter-active {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy entrance */
+    }
+    .toast-exit {
+      transform: translateX(0) scale(1);
+      opacity: 1;
+    }
+    .toast-exit-active {
+      transform: translateX(120%) scale(0.95);
+      opacity: 0;
+      transition: all 0.3s cubic-bezier(0.55, 0.085, 0.68, 0.53); /* Smooth exit */
+    }
+
+    /* Progress bar animation */
+    @keyframes progress-shrink {
+      from { width: 100%; }
+      to { width: 0%; }
+    }
+    .animate-progress {
+      animation: progress-shrink linear forwards;
+    }
+    
+    .toast-paused .animate-progress {
+        animation-play-state: paused;
+    }
+    
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+      20%, 40%, 60%, 80% { transform: translateX(4px); }
+    }
+    .animate-shake {
+        animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+    }
+  </style>
+<script>
+    const TOAST_DURATION = 5000; // 5 seconds
+    const container = document.getElementById('toast-container');
+    let toastCount = 0;
+
+    const TOAST_VARIANTS = {
+      'success': {
+        icon: 'check_circle',
+        color: '#10b981',
+        message: 'Pasted from clipboard.',
+        title: 'Success',
+        glow: 'rgba(16, 185, 129, 0.2)'
+      },
+      'error': {
+        icon: 'error',
+        color: '#ef4444',
+        message: 'Incorrect password.',
+        title: 'Authentication Failed',
+        glow: 'rgba(239, 68, 68, 0.2)',
+        animateClass: 'animate-shake'
+      },
+      'info': {
+        icon: 'info',
+        color: '#3b82f6',
+        message: 'Scan started successfully.',
+        title: 'System Event',
+        glow: 'rgba(59, 130, 246, 0.2)'
+      },
+      'warning': {
+        icon: 'warning',
+        color: '#f97316',
+        message: 'Potential threat detected.',
+        title: 'Security Alert',
+        glow: 'rgba(249, 115, 22, 0.2)'
+      }
+    };
+
+    // Initialize with one demo toast
+    setTimeout(() => {
+        triggerToast('success');
+    }, 500);
+
+    function triggerToast(type) {
+      const config = TOAST_VARIANTS[type];
+      const id = `toast-${++toastCount}`;
+      
+      const toastEl = document.createElement('div');
+      toastEl.id = id;
+      toastEl.className = `toast-enter w-full relative overflow-hidden bg-[#0b0f19]/80 backdrop-blur-[16px] rounded-xl border border-white/10 pointer-events-auto transition-transform hover:-translate-y-1 hover:shadow-lg ${config.animateClass || ''}`;
+      toastEl.style.boxShadow = `0 8px 32px -8px ${config.glow}, inset 0 1px 0 0 rgba(255, 255, 255, 0.1)`;
+      
+      // Inline styles for dynamic color
+      const html = `
+        <div class="px-md py-md flex items-start gap-md">
+          <span class="material-symbols-outlined mt-[2px] text-[24px]" style="color: ${config.color}; font-variation-settings: 'FILL' 1;">${config.icon}</span>
+          <div class="flex-1 flex flex-col min-w-0 pt-[2px]">
+            <span class="font-label-md text-label-md text-white truncate font-semibold">${config.title}</span>
+            <span class="font-body-md text-[14px] leading-relaxed text-white/70 mt-1">${config.message}</span>
+          </div>
+          <button onclick="dismissToast('${id}')" class="text-white/40 hover:text-white hover:bg-white/10 rounded-full p-1 transition-colors cursor-pointer -mt-1 -mr-1">
+            <span class="material-symbols-outlined text-[18px]">close</span>
+          </button>
+        </div>
+        <div class="absolute bottom-0 left-0 h-[3px] w-full bg-white/5">
+          <div class="h-full animate-progress" style="background-color: ${config.color}; animation-duration: ${TOAST_DURATION}ms; box-shadow: 0 0 8px ${config.color};"></div>
+        </div>
+      `;
+      
+      toastEl.innerHTML = html;
+      
+      // Hover functionality for pause
+      toastEl.addEventListener('mouseenter', () => toastEl.classList.add('toast-paused'));
+      toastEl.addEventListener('mouseleave', () => toastEl.classList.remove('toast-paused'));
+      
+      container.appendChild(toastEl);
+      
+      // Trigger entrance animation
+      requestAnimationFrame(() => {
+        toastEl.classList.remove('toast-enter');
+        toastEl.classList.add('toast-enter-active');
+      });
+
+      // Setup auto-dismiss
+      const timeoutId = setTimeout(() => {
+        dismissToast(id);
+      }, TOAST_DURATION);
+
+      // Store timeout ID for manual dismissal cancellation
+      toastEl.dataset.timeoutId = timeoutId;
+    }
+
+    function dismissToast(id) {
+      const toastEl = document.getElementById(id);
+      if (!toastEl) return;
+
+      // Cancel auto-dismiss if manually closed
+      clearTimeout(parseInt(toastEl.dataset.timeoutId));
+
+      // Trigger exit animation
+      toastEl.classList.remove('toast-enter-active');
+      toastEl.classList.add('toast-exit');
+      
+      requestAnimationFrame(() => {
+        toastEl.classList.add('toast-exit-active');
+      });
+
+      // Remove from DOM after animation completes
+      setTimeout(() => {
+        if(toastEl.parentNode) {
+            toastEl.parentNode.removeChild(toastEl);
+        }
+      }, 300); // Matches CSS transition duration
+    }
+    
+    function clearAllToasts() {
+        const toasts = container.children;
+        Array.from(toasts).forEach((toast, index) => {
+            setTimeout(() => {
+                dismissToast(toast.id);
+            }, index * 100);
+        });
+    }
+  </script>
+</div></main><footer class="w-full py-lg border-t border-outline-variant bg-surface-container-lowest"><div class="px-xl flex justify-between items-center"><p class="text-label-sm text-on-surface-variant">Developed by <span class="font-bold">Himanshu Yadav</span> · National Forensic Sciences University, Tripura Campus</p><div class="flex gap-md"><span class="text-[10px] font-mono text-outline uppercase">v1.0.4-stable</span><span class="text-[10px] font-mono text-outline uppercase">Secure Core</span></div></div></footer></div></body></html>

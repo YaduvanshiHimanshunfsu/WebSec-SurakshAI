@@ -1,0 +1,147 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed-dim":"#d0bcff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#464554","on-tertiary":"#ffffff","secondary-fixed":"#e9ddff","outline-variant":"#c7c4d7","background":"#fcf8ff","on-primary":"#ffffff","inverse-primary":"#c0c1ff","inverse-surface":"#303038","on-error":"#ffffff","on-tertiary-fixed-variant":"#703700","on-background":"#1b1b23","surface-container-lowest":"#ffffff","on-secondary-container":"#fffbff","tertiary-container":"#b55d00","surface-variant":"#e4e1ed","on-primary-container":"#fffbff","tertiary-fixed-dim":"#ffb783","surface-dim":"#dbd8e4","tertiary-fixed":"#ffdcc5","surface-bright":"#fcf8ff","secondary":"#6b38d4","on-tertiary-fixed":"#301400","on-secondary-fixed":"#23005c","primary":"#4648d4","primary-container":"#6063ee","secondary-container":"#8455ef","error":"#ba1a1a","surface-container-low":"#f5f2fe","surface-container":"#efecf8","surface-container-high":"#e9e6f3","outline":"#767586","on-primary-fixed":"#07006c","surface-container-highest":"#e4e1ed","on-surface":"#1b1b23","surface-tint":"#494bd6","primary-fixed":"#e1e0ff","inverse-on-surface":"#f2effb","on-tertiary-container":"#fffbff","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","error-container":"#ffdad6","on-error-container":"#93000a","on-primary-fixed-variant":"#2f2ebe","on-secondary-fixed-variant":"#5516be"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xl":"40px","margin-mobile":"16px","base":"4px","sm":"8px","xs":"4px","md":"16px","gutter":"24px","2xl":"64px","lg":"24px","margin-desktop":"48px"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<nav class="hidden md:flex items-center gap-sm" data-active-classes="bg-primary-container/20 text-primary border border-primary/30 rounded-lg">
+<a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="security-scanner" href="{{ url_for('main.scanner') }}"><span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner</a>
+<a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="ai-scam-analyzer" href="{{ url_for('main.ai_analyzer') }}"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer</a>
+<a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary-container/20 text-primary border border-primary/30 rounded-lg" data-path="reports" href="{{ url_for('main.dashboard') }}"><span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports</a>
+</nav>
+<div class="flex items-center gap-md">
+<a href="{{ url_for('main.logout') }}" class="w-8 h-8 rounded-full bg-error-container flex items-center justify-center hover:bg-error transition-colors text-on-error-container hover:text-on-error" title="Logout">
+<span class="material-symbols-outlined text-[18px]">logout</span>
+</a>
+</div></div></header><main class="relative pt-16 min-h-screen"><div class="flex flex-col w-full p-gutter">
+<span class="material-symbols-outlined text-[32px] text-primary" style="font-variation-settings: 'FILL' 1;">bar_chart</span>
+<h1 class="font-headline-lg text-on-surface">Reports & Dashboard</h1>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-md mb-2xl">
+<div class="bg-surface-container/50 backdrop-blur-xl p-lg rounded-xl shadow-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Total Scans</p>
+<p class="font-display-lg text-on-surface">24</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">bar_chart</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 backdrop-blur-xl p-lg rounded-xl shadow-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute inset-0 shimmer-border opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary-container/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Avg Risk Score</p>
+<p class="font-display-lg text-tertiary-container">43.2<span class="text-on-surface-variant font-headline-md text-sm">/100</span></p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/10 flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">security_update_warning</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 backdrop-blur-xl p-lg rounded-xl shadow-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-[#10b981]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Completed</p>
+<p class="font-display-lg text-on-surface">21</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-[#10b981]/10 flex items-center justify-center text-[#10b981]">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container/50 backdrop-blur-xl p-lg rounded-xl shadow-sm relative overflow-hidden group hover:scale-[1.02] transition-transform duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-error/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-start justify-between relative z-10">
+<div>
+<p class="font-label-sm text-on-surface-variant uppercase tracking-wider mb-xs">Failed</p>
+<p class="font-display-lg text-error">3</p>
+</div>
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center text-on-error-container">
+<span class="material-symbols-outlined">warning</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-high rounded-xl shadow-md overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-on-surface border-collapse">
+<thead class="bg-surface-container-highest text-on-surface-variant font-label-md">
+<tr>
+<th class="p-md font-semibold">Target</th>
+<th class="p-md font-semibold">Type</th>
+<th class="p-md font-semibold">Date</th>
+<th class="p-md font-semibold">Risk Score</th>
+<th class="p-md font-semibold">Grade</th>
+<th class="p-md font-semibold text-right">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-variant" id="scan-table-body">
+{% for scan, target in scans %}
+<tr class="hover:bg-surface-container/50 transition-colors opacity-0 translate-y-2 animate-[slideUpFade_0.5s_ease-out_forwards]" style="animation-delay: {{ loop.index0 * 50 }}ms;">
+<td class="p-md font-mono text-sm">{{ target.domain }}</td>
+<td class="p-md">
+{% if scan.scan_type == 'active' %}
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-secondary-container/20 text-secondary font-label-sm">Active</span>
+{% else %}
+<span class="inline-flex items-center px-2 py-1 rounded-full bg-surface-variant text-on-surface-variant font-label-sm">Passive</span>
+{% endif %}
+</td>
+<td class="p-md text-on-surface-variant">{{ scan.started_at.strftime('%Y-%m-%d %H:%M') if scan.started_at else 'Unknown' }}</td>
+<td class="p-md">
+<div class="flex items-center gap-2">
+<div class="w-full bg-surface-variant rounded-full h-2 max-w-[100px]">
+{% set risk = scan.risk_score or 0 %}
+{% if risk > 60 %}
+{% set color = 'bg-error' %}
+{% set text_color = 'text-error' %}
+{% elif risk > 35 %}
+{% set color = 'bg-tertiary-container' %}
+{% set text_color = 'text-tertiary-container' %}
+{% elif risk > 15 %}
+{% set color = 'bg-[#eab308]' %}
+{% set text_color = 'text-[#eab308]' %}
+{% else %}
+{% set color = 'bg-[#10b981]' %}
+{% set text_color = 'text-[#10b981]' %}
+{% endif %}
+<div class="{{ color }} h-2 rounded-full" style="width: {{ risk }}%"></div>
+</div>
+<span class="{{ text_color }} font-semibold text-sm">{{ risk }}</span>
+</div>
+</td>
+<td class="p-md">
+{% set grade = get_grade(scan.risk_score) if get_grade else 'N/A' %}
+{% if grade == 'A' %}{% set grade_bg = 'bg-[#d1fae5] text-[#065f46]' %}
+{% elif grade == 'B' %}{% set grade_bg = 'bg-[#dbeafe] text-[#1e3a8a]' %}
+{% elif grade == 'C' %}{% set grade_bg = 'bg-[#fef08a] text-[#854d0e]' %}
+{% elif grade == 'D' %}{% set grade_bg = 'bg-tertiary-fixed text-on-tertiary-fixed' %}
+{% else %}{% set grade_bg = 'bg-error-container text-on-error-container' %}
+{% endif %}
+<span class="inline-flex items-center justify-center w-6 h-6 rounded {{ grade_bg }} font-headline-md text-sm">{{ grade }}</span>
+</td>
+<td class="p-md text-right">
+<a href="{{ url_for('reports.scan_report', scan_id=scan.id) }}" class="font-label-md text-primary hover:text-primary-container transition-colors">View Details</a>
+</td>
+</tr>
+{% else %}
+<tr><td colspan="6" class="p-md text-center text-on-surface-variant">No scans found.</td></tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<style>
+@keyframes slideUpFade {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style></main></body></html>

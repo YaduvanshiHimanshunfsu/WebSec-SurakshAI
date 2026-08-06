@@ -1,0 +1,138 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed-dim":"#d0bcff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#464554","on-tertiary":"#ffffff","secondary-fixed":"#e9ddff","outline-variant":"#c7c4d7","background":"#fcf8ff","on-primary":"#ffffff","inverse-primary":"#c0c1ff","inverse-surface":"#303038","on-error":"#ffffff","on-tertiary-fixed-variant":"#703700","on-background":"#1b1b23","surface-container-lowest":"#ffffff","on-secondary-container":"#fffbff","tertiary-container":"#b55d00","surface-variant":"#e4e1ed","on-primary-container":"#fffbff","tertiary-fixed-dim":"#ffb783","surface-dim":"#dbd8e4","tertiary-fixed":"#ffdcc5","surface-bright":"#fcf8ff","secondary":"#6b38d4","on-tertiary-fixed":"#301400","on-secondary-fixed":"#23005c","primary":"#4648d4","primary-container":"#6063ee","secondary-container":"#8455ef","error":"#ba1a1a","surface-container-low":"#f5f2fe","surface-container":"#efecf8","surface-container-high":"#e9e6f3","outline":"#767586","on-primary-fixed":"#07006c","surface-container-highest":"#e4e1ed","on-surface":"#1b1b23","surface-tint":"#494bd6","primary-fixed":"#e1e0ff","inverse-on-surface":"#f2effb","on-tertiary-container":"#fffbff","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","error-container":"#ffdad6","on-error-container":"#93000a","on-primary-fixed-variant":"#2f2ebe","on-secondary-fixed-variant":"#5516be"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xl":"40px","margin-mobile":"16px","base":"4px","sm":"8px","xs":"4px","md":"16px","gutter":"24px","2xl":"64px","lg":"24px","margin-desktop":"48px"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-[100] h-16 bg-surface-container-highest/85 backdrop-blur-xl border-b border-outline-variant"><div class="max-w-[1200px] mx-auto h-full px-lg flex items-center justify-between"><div class="flex items-center gap-md"><div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">shield</span></div><div class="flex flex-col"><span class="font-headline-lg-mobile text-[16px] leading-tight text-on-surface font-[800]">WebSec-SurakshAI</span><span class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">NFSU · Tripura Campus</span></div></div><nav class="hidden md:flex items-center gap-sm" data-active-classes="bg-primary-container/20 text-primary border border-primary/30 rounded-lg"><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="security-scanner" href="#"><span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner</a><a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary-container/20 text-primary border border-primary/30 rounded-lg" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer</a><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports</a></nav><div class="flex items-center gap-md"><button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 min-h-screen"><div class="flex flex-col w-full h-full p-lg pb-[120px]">
+<div class="max-w-[1440px] mx-auto w-full flex flex-col gap-lg xl:gap-xl relative z-10">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-md">
+<div class="flex flex-col gap-xs">
+<div class="flex items-center gap-sm mb-xs">
+<div class="w-8 h-8 rounded-full bg-error-container text-error flex items-center justify-center">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+<span class="font-label-sm uppercase tracking-wider text-error">Analysis Complete</span>
+</div>
+<h1 class="font-headline-lg text-on-surface">Scam Detected</h1>
+<p class="font-body-md text-on-surface-variant max-w-2xl">High probability of manipulation tactics identified in the provided text.</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="px-md py-sm rounded-lg border border-outline-variant text-on-surface-variant font-label-md hover:bg-surface-container transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">share</span> Share Analysis
+         </button>
+<button class="px-md py-sm rounded-lg bg-primary text-on-primary font-label-md shadow-md hover:bg-primary-container transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-[18px]">description</span> Generate Full Report
+         </button>
+</div>
+</div>
+<!-- Main Content Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+<!-- Left Column: Verdict & Summary -->
+<div class="lg:col-span-4 flex flex-col gap-lg">
+<!-- Verdict Card (Red Glassmorphism) -->
+<div class="bg-error/10 backdrop-blur-[24px] border border-error/20 rounded-[24px] p-lg flex flex-col items-center text-center relative overflow-hidden shadow-lg shadow-error/5">
+<div class="absolute -top-12 -right-12 w-32 h-32 bg-error/20 blur-[40px] rounded-full"></div>
+<div class="absolute -bottom-8 -left-8 w-24 h-24 bg-error/15 blur-[30px] rounded-full"></div>
+<div class="relative z-10 flex flex-col items-center">
+<svg class="w-32 h-32 mb-md text-error" viewbox="0 0 100 100">
+<circle class="opacity-30" cx="50" cy="50" fill="none" r="45" stroke="currentColor" stroke-dasharray="2 4" stroke-width="2"></circle>
+<circle class="origin-center -rotate-90 transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="38" stroke="currentColor" stroke-dasharray="240" stroke-dashoffset="20" stroke-width="4"></circle>
+<text fill="currentColor" font-family="Plus Jakarta Sans" font-size="24" font-weight="800" text-anchor="middle" x="50" y="55">92%</text>
+<text class="uppercase tracking-widest opacity-70" fill="currentColor" font-family="Inter" font-size="8" font-weight="600" text-anchor="middle" x="50" y="70">Confidence</text>
+</svg>
+<h2 class="font-headline-md text-error mb-xs">Likely Scam Detected</h2>
+<p class="font-body-md text-on-surface-variant max-w-[250px]">The analyzed content exhibits multiple high-risk manipulation indicators.</p>
+</div>
+</div>
+<!-- Hindi Summary Sub-card -->
+<div class="bg-surface/70 backdrop-blur-[24px] border border-outline-variant/30 rounded-xl p-md shadow-sm">
+<div class="flex items-center justify-between mb-sm pb-sm border-b border-outline-variant/20">
+<div class="flex items-center gap-xs">
+<span class="material-symbols-outlined text-[16px] text-primary">translate</span>
+<span class="font-label-md text-on-surface">सरल हिंदी में समझें</span>
+</div>
+</div>
+<p class="font-body-md text-on-surface-variant leading-relaxed">
+             यह संदेश एक **धोखा (Scam)** होने की पूरी संभावना है। इसमें झूठी जल्दबाजी पैदा की गई है और एक फर्जी लिंक दिया गया है। कृपया किसी भी लिंक पर क्लिक न करें या अपनी जानकारी साझा न करें।
+           </p>
+</div>
+</div>
+<!-- Center & Right Column: Analysis Details -->
+<div class="lg:col-span-8 flex flex-col gap-lg">
+<!-- Flagged Text Module -->
+<div class="bg-surface/70 backdrop-blur-[24px] border border-outline-variant/30 rounded-xl p-lg shadow-sm flex flex-col gap-md">
+<h3 class="font-label-sm uppercase tracking-wider text-on-surface-variant">Analyzed Content</h3>
+<div class="bg-surface-container-low rounded-lg p-md font-mono text-sm text-on-surface border-l-4 border-error relative overflow-hidden">
+<span class="absolute top-2 right-2 material-symbols-outlined text-error/20 text-[64px] pointer-events-none -scale-x-100">format_quote</span>
+<p class="relative z-10 leading-relaxed">
+                "Dear customer, your HDFC bank account will be suspended in 24 hours due to KYC pending. Click <span class="bg-error-container text-on-error-container px-1 rounded">http://hdfc-kyc-update.xyz</span> immediately to update your PAN card or face Rs.5000 penalty."
+              </p>
+</div>
+<div class="flex flex-wrap gap-sm mt-xs">
+<span class="font-label-sm text-on-surface-variant mr-xs">Tactics Detected:</span>
+<div class="px-3 py-1 rounded-full bg-error/10 text-error font-label-sm border border-error/20">URGENCY</div>
+<div class="px-3 py-1 rounded-full bg-error/10 text-error font-label-sm border border-error/20">FEAR</div>
+<div class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm border border-secondary/20">IMPERSONATION</div>
+<div class="px-3 py-1 rounded-full bg-secondary-container text-on-secondary-container font-label-sm border border-secondary/20">AUTHORITY</div>
+</div>
+</div>
+<!-- Detected Indicators Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<div class="bg-surface/70 backdrop-blur-[12px] border border-outline-variant/30 rounded-xl p-md flex flex-col gap-sm shadow-sm hover:-translate-y-1 transition-transform">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error">timer</span>
+</div>
+<h4 class="font-label-md text-on-surface">False Urgency</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Forces immediate action ("in 24 hours", "immediately") to bypass critical thinking.</p>
+</div>
+<div class="bg-surface/70 backdrop-blur-[12px] border border-outline-variant/30 rounded-xl p-md flex flex-col gap-sm shadow-sm hover:-translate-y-1 transition-transform">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error">link_off</span>
+</div>
+<h4 class="font-label-md text-on-surface">Suspicious Link</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Uses a deceptive domain ("hdfc-kyc-update.xyz") mimicking official channels.</p>
+</div>
+<div class="bg-surface/70 backdrop-blur-[12px] border border-outline-variant/30 rounded-xl p-md flex flex-col gap-sm shadow-sm hover:-translate-y-1 transition-transform">
+<div class="w-10 h-10 rounded-lg bg-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-error">gavel</span>
+</div>
+<h4 class="font-label-md text-on-surface">Threat of Penalty</h4>
+<p class="font-body-md text-on-surface-variant text-sm">Induces fear through threatened negative consequences ("face Rs.5000 penalty").</p>
+</div>
+</div>
+<!-- Recommended Actions -->
+<div class="bg-primary/5 backdrop-blur-[24px] border border-primary/20 rounded-xl p-lg shadow-sm flex flex-col gap-md relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-primary/10 to-transparent rounded-bl-full pointer-events-none"></div>
+<h3 class="font-label-sm uppercase tracking-wider text-primary relative z-10">Recommended Actions</h3>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="flex gap-md p-sm rounded-lg hover:bg-surface-container-low transition-colors group cursor-default">
+<div class="w-8 h-8 shrink-0 rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center shadow-sm">1</div>
+<div>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Do not interact or reply</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Ignore the message entirely. Do not click the link or call any numbers provided.</p>
+</div>
+</div>
+<div class="flex gap-md p-sm rounded-lg hover:bg-surface-container-low transition-colors group cursor-default">
+<div class="w-8 h-8 shrink-0 rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center shadow-sm">2</div>
+<div>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Verify independently</h4>
+<p class="font-body-md text-sm text-on-surface-variant">If concerned, contact your bank directly using the number on the back of your card.</p>
+</div>
+</div>
+<div class="flex gap-md p-sm rounded-lg hover:bg-surface-container-low transition-colors group cursor-default">
+<div class="w-8 h-8 shrink-0 rounded-full bg-primary text-on-primary font-label-md flex items-center justify-center shadow-sm">3</div>
+<div>
+<h4 class="font-label-md text-on-surface group-hover:text-primary transition-colors">Report to authorities</h4>
+<p class="font-body-md text-sm text-on-surface-variant">Forward the message to the National Cyber Crime Reporting Portal (cybercrime.gov.in).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Footer -->
+<div class="mt-md pt-md border-t border-outline-variant/30 flex flex-wrap justify-between items-center text-xs font-mono text-on-surface-variant/70">
+<div>Analysis Engine: <span class="text-on-surface-variant font-semibold">SurakshAI-v2.1 (NLP+Heuristics)</span></div>
+<div>Processing Time: <span class="text-on-surface-variant font-semibold">420ms</span></div>
+<div>ID: <span class="text-on-surface-variant font-semibold">SCAN-9A8B7C</span></div>
+</div>
+</div>
+</div></main></body></html>

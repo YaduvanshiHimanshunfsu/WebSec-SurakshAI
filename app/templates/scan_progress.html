@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card" style="max-width: 600px; margin: 40px auto;">
+    <h3>Running Passive Scan</h3>
+    <p style="color: var(--text-secondary);">Target: {{ url }}</p>
+    
+    <div style="margin: 30px 0;">
+        <ul id="scan-steps" class="progress-list">
+            <!-- Populated via SSE -->
+        </ul>
+    </div>
+    
+    <div style="text-align: center; margin-top: 20px;">
+        <span style="display: inline-block; animation: pulse 1.5s infinite;">Scanning...</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const steps = document.getElementById('scan-steps');
+    const source = new EventSource("{{ url_for('passive.stream_scan', scan_id=scan.id) }}");
+
+    source.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const li = document.createElement('li');
+        li.innerHTML = `<span style="margin-right: 10px;">${data.done ? '✅' : '⏳'}</span> ${data.message}`;
+        steps.appendChild(li);
+
+        if (data.complete) {
+            source.close();
+            window.location.href = data.redirect_url;
+        }
+    };
+
+    source.onerror = function() {
+        source.close();
+        const li = document.createElement('li');
+        li.style.color = 'var(--danger)';
+        li.innerHTML = `❌ Connection lost.`;
+        steps.appendChild(li);
+    };
+});
+</script>
+<style>
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+</style>
+{% endblock %}

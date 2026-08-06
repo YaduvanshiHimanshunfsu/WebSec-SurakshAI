@@ -1,0 +1,15 @@
+id: xss-stored-001
+category: xss
+technique: stored
+severity: critical
+payloads:
+  - "<script>alert('STORED_XSS')</script>"
+  - "<img src=x onerror=alert('STORED_XSS')>"
+  - "<svg onload=alert('STORED_XSS')>"
+match:
+  type: string_in_response
+  check: "payload_in_response_unescaped"
+remediation: >
+  Stored XSS requires sanitizing ALL user-supplied data before persisting it
+  to the database AND before rendering it back. Use server-side HTML sanitization
+  libraries (e.g., bleach in Python) in addition to output encoding in your template engine.

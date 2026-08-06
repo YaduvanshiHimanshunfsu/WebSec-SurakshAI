@@ -1,0 +1,20 @@
+id: cmdi-separators-001
+category: cmdi
+technique: separator_injection
+severity: critical
+payloads:
+  - "; echo 'CMDi_TEST'"
+  - "| echo 'CMDi_TEST'"
+  - "|| echo 'CMDi_TEST'"
+  - "&& echo 'CMDi_TEST'"
+  - "`echo 'CMDi_TEST'`"
+  - "$(echo 'CMDi_TEST')"
+match:
+  type: regex
+  patterns:
+    - "CMDi_TEST"
+  flags: ""
+remediation: >
+  Avoid calling OS commands directly (e.g., shell=True in Python). Use built-in libraries
+  whenever possible. If you must call an external binary, pass arguments as a list, not a string,
+  and avoid using shell execution.

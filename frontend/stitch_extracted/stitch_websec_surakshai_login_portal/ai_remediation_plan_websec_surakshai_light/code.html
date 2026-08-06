@@ -1,0 +1,432 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes scanline {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(100%); }
+  }
+  @keyframes breatheGlow {
+    0%, 100% { box-shadow: -4px 0 15px -5px rgba(220, 38, 38, 0.2); }
+    50% { box-shadow: -4px 0 25px -2px rgba(220, 38, 38, 0.4); }
+  }
+  .hex-grid {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.92304845413264' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.92304845413264L60 86.60254037844386L60 51.96152422706632L30 34.64101615137754L0 51.96152422706632L0 86.60254037844386Z' fill='none' stroke='rgba(0,0,0,0.02)' stroke-width='1'/%3E%3Cpath d='M30 34.64101615137754L60 17.32050807568877L60 -17.32050807568877L30 -34.64101615137754L0 -17.32050807568877L0 17.32050807568877Z' fill='none' stroke='rgba(0,0,0,0.02)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size: 60px 103.92px;
+  }
+</style><script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-bright": "#f9f9ff",
+                "surface": "#f9f9ff",
+                "on-error": "#ffffff",
+                "primary-container": "#6063ee",
+                "on-primary": "#ffffff",
+                "surface-dim": "#cfdaf2",
+                "on-tertiary-fixed-variant": "#44474c",
+                "outline-variant": "#c7c4d7",
+                "on-primary-fixed": "#07006c",
+                "tertiary-container": "#72747a",
+                "primary": "#4648d4",
+                "on-secondary-container": "#556477",
+                "surface-variant": "#d8e3fb",
+                "outline": "#767586",
+                "surface-tint": "#494bd6",
+                "inverse-on-surface": "#ecf1ff",
+                "secondary": "#516072",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#263143",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-secondary-fixed": "#0d1c2d",
+                "secondary-container": "#d2e1f7",
+                "on-background": "#111c2d",
+                "primary-fixed": "#e1e0ff",
+                "secondary-fixed": "#d4e4fa",
+                "tertiary-fixed-dim": "#c5c6cc",
+                "error": "#ba1a1a",
+                "surface-container-highest": "#d8e3fb",
+                "on-secondary": "#ffffff",
+                "surface-container-high": "#dee8ff",
+                "error-container": "#ffdad6",
+                "on-primary-container": "#fffbff",
+                "tertiary-fixed": "#e1e2e8",
+                "background": "#f9f9ff",
+                "tertiary": "#595c61",
+                "on-surface": "#111c2d",
+                "surface-container": "#e7eeff",
+                "on-tertiary-fixed": "#191c20",
+                "secondary-fixed-dim": "#b9c8de",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed-variant": "#39485a",
+                "primary-fixed-dim": "#c0c1ff",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-low": "#f0f3ff",
+                "on-surface-variant": "#464554",
+                "inverse-primary": "#c0c1ff",
+                "on-tertiary-container": "#fdfcff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "xxl": "64px",
+                "md": "16px",
+                "margin-mobile": "16px",
+                "xs": "4px",
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "xl": "40px",
+                "sm": "8px",
+                "base": "4px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.04em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100..900&amp;family=JetBrains+Mono:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head><body class="bg-surface font-body-md text-on-surface min-h-screen overflow-x-hidden">
+<!-- Shader Background -->
+<div class="fixed inset-0 z-[-2] pointer-events-none opacity-50" id="canvas-container"></div>
+<!-- Hex Grid Overlay -->
+<div class="fixed inset-0 z-[-1] pointer-events-none hex-grid opacity-[0.15]"></div>
+<header class="fixed top-0 w-full z-[100] h-16 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/30">
+<div class="max-w-[1200px] mx-auto h-full px-lg flex items-center justify-between">
+<div class="flex items-center gap-md">
+<div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center shadow-[0_0_15px_rgba(70,72,212,0.2)]">
+<span class="material-symbols-outlined text-on-primary text-[20px]">shield</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-lg-mobile text-[16px] leading-tight text-on-surface font-[800]">WebSec-SurakshAI</span>
+<span class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">NFSU · Tripura Campus</span>
+</div>
+</div>
+<nav class="hidden md:flex items-center gap-sm">
+<a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-primary transition-all" data-path="security-scanner" href="#">
+<span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner
+            </a>
+<a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-primary transition-all" data-path="ai-scam-analyzer" href="#">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer
+            </a>
+<a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary/10 text-primary border border-primary/20 rounded-lg" data-path="reports" href="#">
+<span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports
+            </a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button>
+<div class="w-8 h-8 rounded-full bg-surface-container border border-outline-variant flex items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary text-[18px]">person</span>
+</div>
+</div>
+</div>
+</header>
+<main class="relative pt-24 pb-32 min-h-screen max-w-[1200px] mx-auto px-4 lg:px-8">
+<!-- Header Section -->
+<div class="flex items-center gap-4 mb-8 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]">
+<div class="relative flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 shadow-sm overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-tr from-primary/20 to-blue-400/20 animate-pulse opacity-50"></div>
+<span class="material-symbols-outlined text-[28px] text-primary relative z-10" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+</div>
+<div>
+<h1 class="font-headline-lg text-on-surface flex items-center gap-3">
+                AI Remediation Plan
+            </h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="flex items-center gap-1 text-[11px] font-mono text-primary bg-primary/10 border border-primary/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                    SurakshAI-v2.1 Engine Active
+                </span>
+<span class="text-on-surface-variant font-label-md">Tailored security patches based on recent scan</span>
+</div>
+</div>
+</div>
+<!-- Content Area -->
+<div class="space-y-6">
+<!-- Priority 1 Card -->
+<div class="relative bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden opacity-0 animate-[fadeInUp_0.6s_ease-out_0.2s_forwards] border-l-4 border-l-error animate-[breatheGlow_4s_infinite_ease-in-out]">
+<!-- Red Scanning Line Effect -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+<div class="w-full h-1 bg-error/10 blur-sm shadow-[0_0_15px_rgba(186,26,26,0.3)] absolute top-0 left-0 animate-[scanline_3s_linear_infinite]"></div>
+</div>
+<div class="p-6 relative z-10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline-md text-error flex items-center gap-2">
+<span class="material-symbols-outlined text-[24px]">warning</span>
+                        CRITICAL THREAT: Priority 1 (Fix Immediately)
+                    </h3>
+</div>
+<div class="bg-error/5 rounded-lg p-5 border border-error/10">
+<h4 class="font-headline-md text-on-surface text-[18px] mb-2">Missing Content-Security-Policy</h4>
+<p class="text-on-surface-variant mb-4 font-body-md">Add the following header to your server response to mitigate Cross-Site Scripting (XSS) and data injection attacks:</p>
+<!-- Code Snippet -->
+<div class="relative group">
+<div class="absolute -inset-0.5 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-lg blur opacity-50 group-hover:opacity-70 transition duration-500"></div>
+<div class="relative bg-surface-container-lowest rounded-lg border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="flex items-center justify-between px-4 py-2 bg-surface-container/50 border-b border-outline-variant/30">
+<span class="text-xs font-mono text-on-surface-variant">HTTP Header</span>
+<button class="text-on-surface-variant hover:text-primary flex items-center gap-1 transition-colors">
+<span class="material-symbols-outlined text-[14px]">content_copy</span>
+<span class="text-xs font-mono">Copy</span>
+</button>
+</div>
+<div class="p-4 overflow-x-auto">
+<code class="font-mono text-[14px] text-on-surface whitespace-pre" style="font-family: 'JetBrains Mono', monospace;">
+<span class="text-primary">Content-Security-Policy:</span> default-src <span class="text-green-600">'self'</span>; script-src <span class="text-green-600">'self'</span> https://trusted.cdn.com;
+                                </code>
+</div>
+</div>
+</div>
+<p class="text-on-surface-variant mt-4 text-sm flex items-center gap-2">
+                        Implementation priority: <span class="text-error font-bold tracking-wide uppercase text-xs border border-error/20 bg-error/10 px-2 py-0.5 rounded">Highest</span>
+<span class="opacity-80">This directly impacts the ability of attackers to execute malicious scripts.</span>
+</p>
+</div>
+</div>
+</div>
+<!-- Priority 2 Card -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/50 shadow-[0_4px_24px_rgba(0,0,0,0.04)] overflow-hidden opacity-0 animate-[fadeInUp_0.6s_ease-out_0.4s_forwards] border-l-4 border-l-orange-500">
+<div class="p-6">
+<h3 class="font-headline-md text-orange-600 flex items-center gap-2 mb-4">
+<span class="material-symbols-outlined text-[22px]">info</span>
+                    Priority 2 — Moderate Risk
+                </h3>
+<div class="bg-orange-50/50 rounded-lg p-5 border border-orange-100">
+<h4 class="font-headline-md text-on-surface text-[18px] mb-2">Insecure Cookie Attributes</h4>
+<p class="text-on-surface-variant mb-4 font-body-md">Session cookies are missing the <code class="bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded font-mono text-sm border border-orange-200">Secure</code> and <code class="bg-orange-100 text-orange-700 px-1.5 py-0.5 rounded font-mono text-sm border border-orange-200">HttpOnly</code> flags.</p>
+<!-- Code Snippet -->
+<div class="bg-surface-container-lowest rounded-lg border border-outline-variant/30 shadow-sm overflow-hidden">
+<div class="p-4 overflow-x-auto">
+<code class="font-mono text-[14px] text-on-surface whitespace-pre" style="font-family: 'JetBrains Mono', monospace;">
+<span class="text-primary">Set-Cookie:</span> session_id=abc123xyz; Secure; HttpOnly; SameSite=Strict
+                            </code>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Bar -->
+<div class="fixed bottom-0 left-0 w-full z-[110] p-4 pointer-events-none">
+<div class="max-w-[800px] mx-auto bg-surface/80 backdrop-blur-xl border border-outline-variant/50 rounded-2xl p-4 shadow-[0_-10px_40px_rgba(0,0,0,0.05)] flex items-center justify-between pointer-events-auto opacity-0 animate-[fadeInUp_0.6s_ease-out_0.6s_forwards]">
+<div class="flex items-center gap-4 text-xs text-on-surface-variant font-mono hidden sm:flex">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px] text-primary">psychiatry</span>
+                model-v2.1
+            </div>
+<div class="w-px h-4 bg-outline-variant/50"></div>
+<div class="flex items-center gap-1" id="timestamp">
+<span class="material-symbols-outlined text-[14px]">schedule</span>
+<!-- JS will populate -->
+</div>
+</div>
+<div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+<button class="px-5 py-2.5 rounded-xl bg-surface-container border border-outline-variant/50 text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-all font-label-md flex items-center gap-2 hover:scale-105">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                Export PDF
+            </button>
+<button class="relative group px-6 py-2.5 rounded-xl bg-primary text-white font-label-md flex items-center gap-2 shadow-[0_4px_12px_rgba(70,72,212,0.3)] hover:shadow-[0_6px_16px_rgba(70,72,212,0.4)] hover:scale-105 transition-all overflow-hidden border border-primary">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] group-hover:translate-x-[150%] transition-transform duration-700 ease-in-out"></div>
+<span class="material-symbols-outlined text-[18px] animate-pulse">rocket_launch</span>
+<span class="font-bold tracking-wide">Apply Automated Fixes</span>
+</button>
+</div>
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const timestampEl = document.getElementById('timestamp');
+        if(timestampEl) {
+            const now = new Date();
+            timestampEl.innerHTML += now.toLocaleString('en-US', { 
+                year: 'numeric', month: 'short', day: 'numeric', 
+                hour: '2-digit', minute:'2-digit', timeZoneName: 'short' 
+            });
+        }
+    });
+
+    // Three.js Shader Setup
+    const initShader = () => {
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        container.appendChild(renderer.domElement);
+
+        const geometry = new THREE.PlaneGeometry(2, 2);
+        
+        const vertexShader = `
+            varying vec2 v_texCoord;
+            void main() {
+                v_texCoord = uv;
+                gl_Position = vec4(position, 1.0);
+            }
+        `;
+
+        const fragmentShader = `
+            precision highp float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            varying vec2 v_texCoord;
+
+            void main() {
+                vec2 uv = v_texCoord;
+                
+                // Create a soft, ethereal pearlescent flow
+                float flow = sin(uv.x * 2.0 + u_time * 0.1) * 0.5 + 0.5;
+                float flow2 = cos(uv.y * 3.0 - u_time * 0.08) * 0.5 + 0.5;
+                
+                vec3 color1 = vec3(0.976, 0.976, 1.0); // Light surface (#f9f9ff)
+                vec3 color2 = vec3(0.933, 0.941, 1.0); // Very pale blue/indigo
+                vec3 color3 = vec3(0.882, 0.878, 1.0); // Pale lavender (#e1e0ff)
+                
+                vec3 finalColor = mix(color1, color2, flow * 0.4);
+                finalColor = mix(finalColor, color3, flow2 * 0.3);
+                
+                // Add subtle grain/noise
+                float noise = fract(sin(dot(uv, vec2(12.9898, 78.233))) * 43758.5453);
+                finalColor += noise * 0.01;
+                
+                gl_FragColor = vec4(finalColor, 1.0);
+            }
+        `;
+
+        const uniforms = {
+            u_time: { value: 0.0 },
+            u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) }
+        };
+
+        const material = new THREE.ShaderMaterial({
+            vertexShader: vertexShader,
+            fragmentShader: fragmentShader,
+            uniforms: uniforms
+        });
+
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+            uniforms.u_time.value += 0.01;
+            renderer.render(scene, camera);
+        };
+
+        window.addEventListener('resize', () => {
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            uniforms.u_resolution.value.set(window.innerWidth, window.innerHeight);
+        });
+
+        animate();
+    };
+
+    if (typeof THREE !== 'undefined') {
+        initShader();
+    }
+</script>
+</body></html>

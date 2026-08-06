@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed-dim":"#d0bcff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#464554","on-tertiary":"#ffffff","secondary-fixed":"#e9ddff","outline-variant":"#c7c4d7","background":"#fcf8ff","on-primary":"#ffffff","inverse-primary":"#c0c1ff","inverse-surface":"#303038","on-error":"#ffffff","on-tertiary-fixed-variant":"#703700","on-background":"#1b1b23","surface-container-lowest":"#ffffff","on-secondary-container":"#fffbff","tertiary-container":"#b55d00","surface-variant":"#e4e1ed","on-primary-container":"#fffbff","tertiary-fixed-dim":"#ffb783","surface-dim":"#dbd8e4","tertiary-fixed":"#ffdcc5","surface-bright":"#fcf8ff","secondary":"#6b38d4","on-tertiary-fixed":"#301400","on-secondary-fixed":"#23005c","primary":"#4648d4","primary-container":"#6063ee","secondary-container":"#8455ef","error":"#ba1a1a","surface-container-low":"#f5f2fe","surface-container":"#efecf8","surface-container-high":"#e9e6f3","outline":"#767586","on-primary-fixed":"#07006c","surface-container-highest":"#e4e1ed","on-surface":"#1b1b23","surface-tint":"#494bd6","primary-fixed":"#e1e0ff","inverse-on-surface":"#f2effb","on-tertiary-container":"#fffbff","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","error-container":"#ffdad6","on-error-container":"#93000a","on-primary-fixed-variant":"#2f2ebe","on-secondary-fixed-variant":"#5516be"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xl":"40px","margin-mobile":"16px","base":"4px","sm":"8px","xs":"4px","md":"16px","gutter":"24px","2xl":"64px","lg":"24px","margin-desktop":"48px"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-[100] h-16 bg-surface-container-highest/85 backdrop-blur-xl border-b border-outline-variant"><div class="max-w-[1200px] mx-auto h-full px-lg flex items-center justify-between"><div class="flex items-center gap-md"><div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">shield</span></div><div class="flex flex-col"><span class="font-headline-lg-mobile text-[16px] leading-tight text-on-surface font-[800]">WebSec-SurakshAI</span><span class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">NFSU · Tripura Campus</span></div></div><nav class="hidden md:flex items-center gap-sm" data-active-classes="bg-primary-container/20 text-primary border border-primary/30 rounded-lg"><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="security-scanner" href="#"><span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner</a><a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary-container/20 text-primary border border-primary/30 rounded-lg" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer</a><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports</a></nav><div class="flex items-center gap-md"><button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 min-h-screen"><div class="flex flex-col w-full font-body-md text-on-surface bg-surface min-h-screen">
+<div class="w-full relative px-lg py-xl max-w-[1440px] mx-auto grid grid-cols-12 gap-gutter">
+<!-- Hero / Main Scan Input -->
+<div class="col-span-12 xl:col-span-8 flex flex-col gap-lg z-10 relative">
+<div class="bg-surface-container-highest/60 backdrop-blur-md rounded-2xl p-xl shadow-lg relative overflow-hidden group">
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl transition-transform duration-700 group-hover:scale-125"></div>
+<div class="absolute -left-10 -bottom-10 w-48 h-48 bg-error/5 rounded-full blur-2xl transition-transform duration-700 group-hover:scale-150"></div>
+<div class="relative z-10 flex flex-col gap-sm mb-lg">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary text-[24px]">link</span>
+<h1 class="font-display-lg text-on-surface text-[32px] md:text-[40px] leading-tight">Link Intelligence</h1>
+</div>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">Deep packet inspection and behavioral analysis for URLs. Enter a suspicious link to unveil its true destination and technical footprint.</p>
+</div>
+<div class="relative z-10 w-full flex flex-col sm:flex-row gap-md">
+<div class="relative flex-grow">
+<div class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant/50">search</span>
+</div>
+<input class="block w-full pl-12 pr-4 py-4 bg-surface rounded-xl text-on-surface font-mono text-[14px] focus:outline-none focus:ring-2 focus:ring-primary shadow-inner placeholder-on-surface-variant/40 transition-all" placeholder="Enter URL to analyze..." type="text" value="http://secure-login-update.com/auth">
+</div>
+<button class="bg-primary hover:bg-primary-container text-on-primary font-label-md px-lg py-4 rounded-xl shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-sm whitespace-nowrap group">
+<span class="material-symbols-outlined group-hover:animate-spin">radar</span>
+            Analyze Link
+          </button>
+</div>
+</div>
+<!-- Redirection Map (Hop Tracker) -->
+<div class="flex flex-col gap-md mt-md">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-on-surface flex items-center gap-sm"><span class="material-symbols-outlined text-tertiary">route</span> Redirection Chain</h2>
+<span class="font-label-sm text-on-surface-variant bg-surface-container px-3 py-1 rounded-full">3 Hops Detected</span>
+</div>
+<div class="bg-surface-container-lowest rounded-2xl p-lg shadow-sm flex flex-col gap-4 relative overflow-hidden">
+<div class="absolute left-[39px] top-[40px] bottom-[40px] w-0.5 bg-gradient-to-b from-outline-variant/30 via-error/40 to-error z-0"></div>
+<!-- Hop 1 -->
+<div class="flex items-start gap-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">input</span>
+</div>
+<div class="flex-grow pt-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-mono text-sm text-on-surface">http://secure-login-update.com/auth</span>
+<span class="font-label-sm text-outline px-2 py-0.5 bg-surface-variant rounded text-[10px]">HTTP 301</span>
+</div>
+<p class="font-label-sm text-on-surface-variant/70">Initial Request</p>
+</div>
+</div>
+<!-- Hop 2 -->
+<div class="flex items-start gap-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center shrink-0 shadow-sm border border-outline-variant/20">
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">turn_right</span>
+</div>
+<div class="flex-grow pt-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-mono text-sm text-on-surface">https://bit.ly/3xY9zQ</span>
+<span class="font-label-sm text-outline px-2 py-0.5 bg-surface-variant rounded text-[10px]">HTTP 302</span>
+</div>
+<p class="font-label-sm text-on-surface-variant/70">URL Shortener Bypass</p>
+</div>
+</div>
+<!-- Final Destination -->
+<div class="flex items-start gap-md relative z-10">
+<div class="w-10 h-10 rounded-full bg-[#ffdad6] flex items-center justify-center shrink-0 shadow-sm border border-error/20">
+<span class="material-symbols-outlined text-error text-[18px]">flag</span>
+</div>
+<div class="flex-grow pt-1">
+<div class="flex justify-between items-start mb-1">
+<span class="font-mono text-sm text-error font-bold">http://185.199.108.153/login.php</span>
+<span class="font-label-sm text-error px-2 py-0.5 bg-[#ffdad6] rounded text-[10px]">FINAL DESTINATION</span>
+</div>
+<p class="font-label-sm text-error/80">Direct IP Access · Suspicious</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: AI Risk & Reputation -->
+<div class="col-span-12 xl:col-span-4 flex flex-col gap-lg z-10">
+<!-- AI Assessment Card -->
+<div class="bg-gradient-to-br from-[#ffdad6] to-[#fffbff] rounded-2xl p-lg shadow-md border-t border-white/50 relative overflow-hidden group">
+<div class="absolute -right-10 -bottom-10 w-32 h-32 bg-error/10 rounded-full blur-xl group-hover:bg-error/20 transition-colors duration-500"></div>
+<div class="flex justify-between items-start mb-md relative z-10">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-error text-[28px]" style="font-variation-settings: &quot;FILL&quot; 1;">warning</span>
+<h3 class="font-headline-md text-on-surface">Critical Risk</h3>
+</div>
+<div class="w-12 h-12 rounded-full border-[3px] border-error flex items-center justify-center bg-white/50 backdrop-blur-sm">
+<span class="font-headline-md text-error">98</span>
+</div>
+</div>
+<div class="relative z-10 mb-md">
+<p class="font-body-md text-on-surface">SurakshAI confidence level indicates a <strong>high probability of a credential harvesting attack.</strong></p>
+</div>
+<div class="flex flex-col gap-sm relative z-10">
+<div class="bg-white/60 backdrop-blur-md rounded-xl p-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-error text-[18px] mt-0.5">find_in_page</span>
+<div>
+<p class="font-label-md text-on-surface">Look-alike Domain</p>
+<p class="font-label-sm text-on-surface-variant">Typosquatting targeting 'secure-login.com'</p>
+</div>
+</div>
+<div class="bg-white/60 backdrop-blur-md rounded-xl p-sm flex items-start gap-sm">
+<span class="material-symbols-outlined text-error text-[18px] mt-0.5">javascript</span>
+<div>
+<p class="font-label-md text-on-surface">Obfuscated Payloads</p>
+<p class="font-label-sm text-on-surface-variant">Base64 encoded scripts detected in DOM</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Domain Intel -->
+<div class="bg-surface-container-lowest rounded-2xl p-lg shadow-sm flex flex-col gap-md">
+<h3 class="font-headline-md text-on-surface flex items-center gap-sm"><span class="material-symbols-outlined text-secondary">domain</span> Domain Intel</h3>
+<div class="grid grid-cols-2 gap-md">
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Registered</span>
+<span class="font-label-md text-error">2 days ago</span>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Registrar</span>
+<span class="font-label-md text-on-surface truncate">NameCheap, Inc.</span>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Server IP</span>
+<span class="font-mono text-sm text-on-surface">185.199.108.153</span>
+</div>
+<div class="flex flex-col gap-xs">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">ASN</span>
+<span class="font-label-md text-on-surface">AS5089 (Russia)</span>
+</div>
+</div>
+<div class="mt-sm pt-sm border-t border-outline-variant/30">
+<div class="flex items-center justify-between mb-sm">
+<span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Blacklist Status</span>
+<span class="font-label-sm text-error">Listed on 4/68</span>
+</div>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container rounded text-[10px] font-mono text-error">Spamhaus</span>
+<span class="px-2 py-1 bg-surface-container rounded text-[10px] font-mono text-error">PhishTank</span>
+<span class="px-2 py-1 bg-surface-container rounded text-[10px] font-mono text-on-surface-variant">GoogleSB</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Technical Fingerprinting Grid -->
+<div class="col-span-12 mt-lg flex flex-col gap-md z-10">
+<h2 class="font-headline-md text-on-surface flex items-center gap-sm"><span class="material-symbols-outlined text-primary">fingerprint</span> Technical Fingerprinting</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md">
+<!-- TLS/SSL Cert -->
+<div class="bg-surface-container-lowest rounded-2xl p-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-sm mb-md">
+<div class="w-8 h-8 rounded-full bg-error-container text-on-error-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">lock</span>
+</div>
+<h4 class="font-label-md text-on-surface">TLS/SSL Certificate</h4>
+</div>
+<div class="flex flex-col gap-2"><div class="flex justify-between"><span class="font-label-sm text-on-surface-variant">Common Name</span><span class="font-mono text-xs text-on-surface">*.update-account.com</span></div><div class="flex justify-between"><span class="font-label-sm text-on-surface-variant">Issuer</span><span class="font-mono text-xs text-on-surface">Let's Encrypt Authority X3</span></div><div class="flex justify-between"><span class="font-label-sm text-on-surface-variant">Validity</span><span class="font-mono text-xs text-error">Expires in 12 days</span></div><div class="flex justify-between"><span class="font-label-sm text-on-surface-variant">JA3 Fingerprint</span><span class="font-mono text-[10px] text-on-surface truncate max-w-[120px]">771aa7356280456570a256a47a177218</span></div><div class="flex justify-between mt-2 pt-2 border-t border-outline-variant/30"><span class="font-label-sm text-on-surface-variant">Protocol</span><span class="font-mono text-xs text-error">TLS 1.1 (Deprecated)</span></div></div>
+</div>
+<!-- Geolocation Map -->
+<div class="bg-surface-container-lowest rounded-2xl p-0 shadow-sm overflow-hidden hover:shadow-md transition-shadow flex flex-col">
+<div class="p-lg pb-sm">
+<div class="flex items-center gap-sm mb-2">
+<div class="w-8 h-8 rounded-full bg-primary-container/20 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">public</span>
+</div>
+<h4 class="font-label-md text-on-surface">Server Geolocation</h4>
+</div>
+<div class="mt-2 pt-2 border-t border-outline-variant/30"><span class="font-label-sm text-on-surface-variant uppercase tracking-wider text-[10px]">Technology Stack</span><p class="font-mono text-[11px] text-primary mt-1">Nginx, PHP, OpenSSL 1.1.1f</p></div></div>
+<div class="flex-grow min-h-[160px] relative">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A stylized, minimalist map showing St. Petersburg, Russia. The map uses a light, airy color palette with soft lavender and pale indigo tones. A subtle, glowing red pulse marker indicates a server location. The aesthetic is clean, technical, and high-fidelity glassmorphic." data-location="St. Petersburg, Russia" style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuBx0Lu6nb9EH_CfgDDsrPTpNvFADk8nPfbs2lctF4nAvGofyrfEsodwTGkj4FfPLr5lWAl8mwp48p5UQJqso7YSmUTFDdeiw0DW8PIaRbAhImyKgvHaWynE9QwlaHhUSPAYRraiYU9kGCJ54OjVtLIZ-okI2IOid588LVU6uvywKvxd2KascBqAX_fso-7PiD904SYIMwYfvQ6CbSdpjbERKrIibHfDnlnAqOr_Trp62Sy8ZDCdxbpS&quot;);"></div>
+</div>
+</div>
+<!-- Header Analysis -->
+<div class="bg-surface-container-lowest rounded-2xl p-lg shadow-sm hover:shadow-md transition-shadow">
+<div class="flex items-center gap-sm mb-md">
+<div class="w-8 h-8 rounded-full bg-secondary-container/50 text-on-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[16px]">data_object</span>
+</div>
+<h4 class="font-label-md text-on-surface">HTTP Headers</h4>
+</div>
+<div class="bg-inverse-surface rounded-xl p-sm font-mono text-[10px] text-inverse-on-surface overflow-y-auto max-h-[140px] opacity-90"><div class="flex gap-2"><span class="text-tertiary-fixed-dim">Server:</span> <span class="text-primary-fixed">nginx/1.18.0 (Ubuntu)</span></div><div class="flex gap-2"><span class="text-tertiary-fixed-dim">X-Powered-By:</span> <span class="text-primary-fixed">PHP/7.4.3</span></div><div class="mt-2 pt-2 border-t border-white/10"><span class="text-error font-bold block mb-1">Missing Security Headers:</span><div class="flex flex-wrap gap-1"><span class="px-1.5 py-0.5 bg-error/20 rounded text-error">HSTS</span><span class="px-1.5 py-0.5 bg-error/20 rounded text-error">CSP</span><span class="px-1.5 py-0.5 bg-error/20 rounded text-error">X-Frame-Options</span></div></div></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Ambient Background Decor -->
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+<svg class="absolute top-[-10%] right-[-5%] w-[50%] h-[50%] opacity-20" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+<path d="M47.7,-57.2C59.5,-47.3,65.2,-29.4,67.3,-11.5C69.5,6.4,68.1,24.4,59.3,39.3C50.6,54.2,34.4,66,16.4,70.5C-1.5,75.1,-21.2,72.4,-38.3,62.8C-55.4,53.2,-70,36.7,-75.4,17.5C-80.8,-1.7,-77,-23.5,-64.5,-40C-52,-56.6,-30.9,-67.9,-11.9,-71.4C7,-74.9,25.9,-70.7,35.8,-67.1" fill="#e1e0ff" transform="translate(100 100) scale(1.1)"></path>
+</svg>
+</div>
+</div></main>
+
+</body></html>

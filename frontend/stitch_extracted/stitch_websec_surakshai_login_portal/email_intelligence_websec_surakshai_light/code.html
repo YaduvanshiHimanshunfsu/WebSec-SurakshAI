@@ -1,0 +1,297 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+@keyframes fade-in-up {
+  0% { opacity: 0; transform: translateY(10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-variant": "#d8e3fb",
+                "primary-fixed-dim": "#c0c1ff",
+                "secondary": "#516072",
+                "on-surface-variant": "#464554",
+                "on-tertiary-fixed-variant": "#44474c",
+                "surface-container-lowest": "#ffffff",
+                "on-error-container": "#93000a",
+                "background": "#f9f9ff",
+                "inverse-surface": "#263143",
+                "surface-container": "#e7eeff",
+                "on-tertiary-fixed": "#191c20",
+                "on-surface": "#111c2d",
+                "on-error": "#ffffff",
+                "on-primary-fixed": "#07006c",
+                "surface-bright": "#f9f9ff",
+                "on-secondary-container": "#556477",
+                "surface-tint": "#494bd6",
+                "outline-variant": "#c7c4d7",
+                "tertiary-fixed-dim": "#c5c6cc",
+                "surface-container-high": "#dee8ff",
+                "tertiary": "#595c61",
+                "on-secondary-fixed": "#0d1c2d",
+                "surface-container-highest": "#d8e3fb",
+                "surface": "#f9f9ff",
+                "on-secondary": "#ffffff",
+                "inverse-on-surface": "#ecf1ff",
+                "primary": "#4648d4",
+                "on-tertiary": "#ffffff",
+                "on-background": "#111c2d",
+                "primary-fixed": "#e1e0ff",
+                "secondary-fixed-dim": "#b9c8de",
+                "on-secondary-fixed-variant": "#39485a",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "inverse-primary": "#c0c1ff",
+                "tertiary-container": "#72747a",
+                "surface-container-low": "#f0f3ff",
+                "secondary-fixed": "#d4e4fa",
+                "on-tertiary-container": "#fdfcff",
+                "outline": "#767586",
+                "surface-dim": "#cfdaf2",
+                "error-container": "#ffdad6",
+                "on-primary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-primary-container": "#fffbff",
+                "tertiary-fixed": "#e1e2e8",
+                "secondary-container": "#d2e1f7",
+                "primary-container": "#6063ee"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "base": "4px",
+                "margin-desktop": "48px",
+                "sm": "8px",
+                "xl": "40px",
+                "lg": "24px",
+                "xs": "4px",
+                "xxl": "64px",
+                "margin-mobile": "16px",
+                "md": "16px"
+        },
+        "fontFamily": {
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "28px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.04em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest border-r border-outline-variant z-50 flex flex-col pt-lg pb-xl"><div class="px-lg mb-xl flex flex-col gap-xs"><div class="flex items-center gap-sm text-primary"><span class="material-symbols-outlined text-[28px]">shield</span><span class="font-display-lg text-[16px] font-[800] tracking-tight text-on-surface">WebSec-SurakshAI</span></div><div class="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant px-sm opacity-70">NFSU · Tripura Campus</div></div><nav class="flex-1 px-sm flex flex-col gap-base" data-active-classes="bg-primary-container/10 text-primary font-semibold shadow-[inset_4px_0_0_0_var(--tw-colors-primary)]"><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all group" data-path="security-scanner" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">security</span><span class="font-label-md">Security Scanner</span></a><a aria-current="page" class="flex items-center px-md py-sm rounded-lg transition-all group bg-primary-container/10 text-primary font-semibold shadow-[inset_4px_0_0_0_var(--tw-colors-primary)]" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">psychology</span><span class="font-label-md">AI Scam Analyzer</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all group" data-path="reports" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">assessment</span><span class="font-label-md">Reports</span></a></nav><div class="px-lg pt-lg border-t border-outline-variant"><div class="p-md rounded-xl bg-surface-container-low flex flex-col gap-xs border border-outline-variant/50"><span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Status</span><div class="flex items-center gap-sm"><div class="w-2 h-2 rounded-full bg-[#10b981] animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.5)]"></div><span class="text-label-sm text-on-surface">Monitoring Active</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-[16px] z-40 flex items-center justify-end px-xl gap-lg shadow-sm border-b border-outline-variant/30"><div class="flex items-center gap-md border-r border-outline-variant/50 pr-lg"><span class="material-symbols-outlined text-on-surface-variant text-[20px] cursor-pointer hover:text-primary transition-colors">search</span><span class="material-symbols-outlined text-on-surface-variant text-[20px] cursor-pointer hover:text-primary transition-colors relative">notifications<span class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full"></span></span></div><div class="flex items-center gap-sm"><div class="flex flex-col items-end"><span class="text-label-sm text-on-surface">NFSU Administrator</span><span class="text-[10px] text-on-surface-variant">himanshu.yadav@nfsu.ac.in</span></div><div class="w-8 h-8 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center border border-primary/20"><span class="material-symbols-outlined text-[18px]">person</span></div></div></header><main class="relative pt-16 min-h-screen bg-gradient-to-br from-surface-container-low via-background to-surface p-lg lg:p-xl"><div class="flex flex-col w-full max-w-5xl mx-auto gap-lg">
+<div class="bg-surface-container-lowest/70 backdrop-blur-xl border border-white/60 rounded-2xl p-lg flex flex-col gap-lg shadow-[0_8px_30px_rgb(0,0,0,0.04)] relative overflow-hidden group transition-all duration-300 hover:shadow-[0_8px_40px_rgb(0,0,0,0.08)] animate-fade-in-up opacity-0 stagger-1">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-surface-tint/5 opacity-50"></div>
+<header class="flex items-center justify-between relative z-10 border-b border-outline-variant/30 pb-md">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center border border-primary/20 shadow-inner">
+<span class="material-symbols-outlined text-primary text-[20px]">mark_email_read</span>
+</div>
+<div>
+<h3 class="font-headline-md text-on-surface">Email Evidence Analysis</h3>
+<p class="text-label-sm text-on-surface-variant font-normal">Message ID: <span class="font-mono text-xs">#MSG-8492-KYC</span></p>
+</div>
+</div>
+<span class="px-sm py-xs bg-error/10 text-error font-label-sm rounded-md border border-error/20 flex items-center gap-xs">
+<span class="material-symbols-outlined text-[14px]">gpp_bad</span>
+        High Risk
+    </span>
+</header>
+<div class="flex flex-col gap-lg relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md animate-fade-in-up opacity-0 stagger-2">
+<div class="flex flex-col gap-sm bg-white/60 p-md rounded-xl border border-outline-variant/40 shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-outline-variant/50"></div>
+<span class="font-label-sm text-on-surface-variant flex items-center gap-xs uppercase tracking-wider text-[10px]">
+<span class="material-symbols-outlined text-[14px]">person</span>
+                Claimed Sender (From)
+            </span>
+<div class="flex items-center gap-sm bg-surface-container-lowest p-sm rounded-lg border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center text-on-surface-variant font-bold text-sm">S</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">SBI Customer Care</span>
+<span class="font-mono text-[12px] text-on-surface-variant">noreply@sbi-verify-kyc.ru</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-sm bg-error/5 p-md rounded-xl border border-error/20 shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<span class="font-label-sm text-error flex items-center gap-xs uppercase tracking-wider text-[10px]">
+<span class="material-symbols-outlined text-[14px]">warning</span>
+                Actual Reply-To
+            </span>
+<div class="flex items-center gap-sm bg-surface-container-lowest p-sm rounded-lg border border-error/30 shadow-[0_0_15px_rgba(186,26,26,0.05)]">
+<div class="w-8 h-8 rounded-full bg-error/10 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-[16px]">dangerous</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-on-surface">Unknown Entity</span>
+<span class="font-mono text-[13px] text-error font-bold tracking-tight">attacker@gmali.com</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-md animate-fade-in-up opacity-0 stagger-3">
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-widest text-[11px] border-b border-outline-variant/30 pb-xs">Authentication Protocols</h4>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-md">
+<div class="bg-white/80 rounded-xl p-md border border-error/20 shadow-sm flex flex-col gap-md relative group hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-start">
+<span class="font-mono text-[12px] font-bold text-on-surface">SPF</span>
+<span class="material-symbols-outlined text-error text-[18px]">cancel</span>
+</div>
+<div class="mt-auto">
+<span class="font-label-sm text-error bg-error/10 px-sm py-[2px] rounded-md border border-error/20">FAIL</span>
+<p class="text-[10px] text-on-surface-variant mt-xs leading-tight">Sender IP not authorized in domain's SPF record.</p>
+</div>
+</div>
+<div class="bg-white/80 rounded-xl p-md border border-outline-variant/40 shadow-sm flex flex-col gap-md relative group hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-start">
+<span class="font-mono text-[12px] font-bold text-on-surface">DKIM</span>
+<span class="material-symbols-outlined text-outline text-[18px]">help</span>
+</div>
+<div class="mt-auto">
+<span class="font-label-sm text-outline bg-outline/10 px-sm py-[2px] rounded-md border border-outline/20">NOT_PRESENT</span>
+<p class="text-[10px] text-on-surface-variant mt-xs leading-tight">No valid DKIM signature found in headers.</p>
+</div>
+</div>
+<div class="bg-white/80 rounded-xl p-md border border-error/20 shadow-sm flex flex-col gap-md relative group hover:-translate-y-1 transition-transform">
+<div class="flex justify-between items-start">
+<span class="font-mono text-[12px] font-bold text-on-surface">DMARC</span>
+<span class="material-symbols-outlined text-error text-[18px]">cancel</span>
+</div>
+<div class="mt-auto">
+<span class="font-label-sm text-error bg-error/10 px-sm py-[2px] rounded-md border border-error/20">FAIL</span>
+<p class="text-[10px] text-on-surface-variant mt-xs leading-tight">Domain policy is 'reject', authentication failed.</p>
+</div>
+</div>
+<div class="bg-white/80 rounded-xl p-md border border-error/20 shadow-sm flex flex-col gap-md relative group hover:-translate-y-1 transition-transform bg-gradient-to-br from-error/5 to-transparent">
+<div class="flex justify-between items-start">
+<span class="font-mono text-[12px] font-bold text-on-surface">ALIGNMENT</span>
+<span class="material-symbols-outlined text-error text-[18px]">broken_image</span>
+</div>
+<div class="mt-auto">
+<span class="font-label-sm text-error bg-error/10 px-sm py-[2px] rounded-md border border-error/20">FAILED</span>
+<p class="text-[10px] text-on-surface-variant mt-xs leading-tight">Header From domain does not match Envelope From.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-md animate-fade-in-up opacity-0 stagger-4">
+<h4 class="font-label-md text-on-surface-variant uppercase tracking-widest text-[11px] border-b border-outline-variant/30 pb-xs">Mail Server Metadata</h4>
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 overflow-hidden text-sm shadow-inner">
+<table class="w-full text-left border-collapse">
+<tbody>
+<tr class="border-b border-outline-variant/20 bg-surface-container-low/50">
+<td class="py-sm px-md font-mono text-[11px] text-on-surface-variant w-1/3">Received-SPF</td>
+<td class="py-sm px-md font-mono text-[11px] text-error">fail (domain of sbi-verify-kyc.ru does not designate 192.168.1.100 as permitted sender)</td>
+</tr>
+<tr class="border-b border-outline-variant/20">
+<td class="py-sm px-md font-mono text-[11px] text-on-surface-variant">Authentication-Results</td>
+<td class="py-sm px-md font-mono text-[11px] text-on-surface">mx.google.com; spf=hardfail; dkim=none; dmarc=fail</td>
+</tr>
+<tr class="bg-surface-container-low/50">
+<td class="py-sm px-md font-mono text-[11px] text-on-surface-variant">X-Mailer</td>
+<td class="py-sm px-md font-mono text-[11px] text-tertiary">PHP/7.4.3 (Suspicious bulk mailer artifact)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div></main><footer class="w-full py-lg border-t border-outline-variant bg-surface-container-lowest"><div class="px-xl flex justify-between items-center"><p class="text-label-sm text-on-surface-variant">Developed by <span class="font-bold text-on-surface">Himanshu Yadav</span> · National Forensic Sciences University, Tripura Campus</p><div class="flex gap-md"><span class="text-[10px] font-mono text-outline uppercase bg-surface-container-low px-sm py-xs rounded-sm">v1.0.4-stable</span><span class="text-[10px] font-mono text-outline uppercase bg-surface-container-low px-sm py-xs rounded-sm">Secure Core</span></div></div></footer></div></body></html>

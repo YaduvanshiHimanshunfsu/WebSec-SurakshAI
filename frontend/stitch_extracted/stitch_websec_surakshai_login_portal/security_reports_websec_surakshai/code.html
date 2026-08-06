@@ -1,0 +1,214 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed-dim":"#d0bcff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#464554","on-tertiary":"#ffffff","secondary-fixed":"#e9ddff","outline-variant":"#c7c4d7","background":"#fcf8ff","on-primary":"#ffffff","inverse-primary":"#c0c1ff","inverse-surface":"#303038","on-error":"#ffffff","on-tertiary-fixed-variant":"#703700","on-background":"#1b1b23","surface-container-lowest":"#ffffff","on-secondary-container":"#fffbff","tertiary-container":"#b55d00","surface-variant":"#e4e1ed","on-primary-container":"#fffbff","tertiary-fixed-dim":"#ffb783","surface-dim":"#dbd8e4","tertiary-fixed":"#ffdcc5","surface-bright":"#fcf8ff","secondary":"#6b38d4","on-tertiary-fixed":"#301400","on-secondary-fixed":"#23005c","primary":"#4648d4","primary-container":"#6063ee","secondary-container":"#8455ef","error":"#ba1a1a","surface-container-low":"#f5f2fe","surface-container":"#efecf8","surface-container-high":"#e9e6f3","outline":"#767586","on-primary-fixed":"#07006c","surface-container-highest":"#e4e1ed","on-surface":"#1b1b23","surface-tint":"#494bd6","primary-fixed":"#e1e0ff","inverse-on-surface":"#f2effb","on-tertiary-container":"#fffbff","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","error-container":"#ffdad6","on-error-container":"#93000a","on-primary-fixed-variant":"#2f2ebe","on-secondary-fixed-variant":"#5516be"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xl":"40px","margin-mobile":"16px","base":"4px","sm":"8px","xs":"4px","md":"16px","gutter":"24px","2xl":"64px","lg":"24px","margin-desktop":"48px"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-[100] h-16 bg-surface-container-highest/85 backdrop-blur-xl border-b border-outline-variant"><div class="max-w-[1200px] mx-auto h-full px-lg flex items-center justify-between"><div class="flex items-center gap-md"><div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">shield</span></div><div class="flex flex-col"><span class="font-headline-lg-mobile text-[16px] leading-tight text-on-surface font-[800]">WebSec-SurakshAI</span><span class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">NFSU · Tripura Campus</span></div></div><nav class="hidden md:flex items-center gap-sm" data-active-classes="bg-primary-container/20 text-primary border border-primary/30 rounded-lg"><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="security-scanner" href="#"><span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner</a><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer</a><a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary-container/20 text-primary border border-primary/30 rounded-lg" data-path="reports" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports</a></nav><div class="flex items-center gap-md"><button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 min-h-screen"><div class="flex flex-col w-full relative overflow-hidden">
+<div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-gradient-to-br from-primary/10 via-primary-container/5 to-transparent blur-[100px] rounded-full pointer-events-none"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[60%] h-[60%] bg-gradient-to-tl from-tertiary-container/10 via-secondary-container/5 to-transparent blur-[120px] rounded-full pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto w-full px-lg md:px-xl py-2xl flex flex-col gap-2xl relative z-10">
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-lg">
+<div class="flex flex-col gap-sm">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest bg-primary/10 px-md py-xs rounded-full w-max shimmer-border">Intelligence Module</span>
+<h1 class="font-display-lg text-display-lg text-on-surface">Security Reports</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Comprehensive analysis of blocked threats, active alerts, and overall network resilience across all monitored endpoints.</p>
+</div>
+<div class="flex gap-md">
+<button class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-label-md text-label-md px-lg py-sm rounded-lg transition-all flex items-center gap-sm shadow-sm hover:shadow-md hover:scale-[1.02]">
+<span class="material-symbols-outlined text-[20px]">download</span>
+          Export PDF
+        </button>
+<button class="bg-gradient-to-r from-primary to-secondary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg transition-all flex items-center gap-sm shadow-md hover:shadow-lg hover:scale-[1.02] relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+<span class="material-symbols-outlined text-[20px]">auto_awesome</span>
+          Generate Insights
+        </button>
+</div>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<div class="bg-surface/80 backdrop-blur-2xl rounded-xl p-lg flex flex-col gap-md shadow-sm border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Threats Blocked</span>
+<div class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[18px]">shield_locked</span>
+</div>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-[40px] leading-tight font-[800] text-on-surface" id="counter-threats">24,592</span>
+<span class="font-label-sm text-label-sm text-[#10b981] flex items-center bg-[#10b981]/10 px-xs py-[2px] rounded"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 12%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-sm">
+<div class="h-full bg-primary w-[75%] rounded-full relative">
+<div class="absolute inset-0 bg-white/20 animate-[shimmer_2s_infinite]"></div>
+</div>
+</div>
+</div>
+<div class="bg-surface/80 backdrop-blur-2xl rounded-xl p-lg flex flex-col gap-md shadow-sm border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-[#ec4899]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Active Alerts</span>
+<div class="w-8 h-8 rounded-full bg-[#ec4899]/10 flex items-center justify-center text-[#ec4899]">
+<span class="material-symbols-outlined text-[18px]">warning</span>
+</div>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-[40px] leading-tight font-[800] text-on-surface" id="counter-alerts">143</span>
+<span class="font-label-sm text-label-sm text-[#ec4899] flex items-center bg-[#ec4899]/10 px-xs py-[2px] rounded"><span class="material-symbols-outlined text-[14px]">arrow_upward</span> 5%</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-sm">
+<div class="h-full bg-[#ec4899] w-[45%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface/80 backdrop-blur-2xl rounded-xl p-lg flex flex-col gap-md shadow-sm border border-outline-variant/30 hover:scale-[1.02] transition-transform duration-300 relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-br from-[#10b981]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant">Network Health</span>
+<div class="w-8 h-8 rounded-full bg-[#10b981]/10 flex items-center justify-center text-[#10b981]">
+<span class="material-symbols-outlined text-[18px]">monitor_heart</span>
+</div>
+</div>
+<div class="flex items-baseline gap-sm">
+<span class="font-display-lg text-[40px] leading-tight font-[800] text-on-surface" id="counter-health">98.9%</span>
+<span class="font-label-sm text-label-sm text-[#10b981] flex items-center bg-[#10b981]/10 px-xs py-[2px] rounded">Optimal</span>
+</div>
+<div class="w-full h-1 bg-surface-container-high rounded-full overflow-hidden mt-sm">
+<div class="h-full bg-[#10b981] w-[98%] rounded-full"></div>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+<section class="lg:col-span-2 bg-surface/90 backdrop-blur-3xl rounded-2xl p-xl shadow-md border border-outline-variant/20 flex flex-col gap-lg">
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-on-surface">Threat Volume Analytics</h2>
+<select class="bg-surface-container-low text-on-surface font-label-md text-label-md px-md py-xs rounded-lg border border-outline-variant/50 focus:outline-none focus:border-primary">
+<option>Last 7 Days</option>
+<option>Last 30 Days</option>
+<option>This Year</option>
+</select>
+</div>
+<div class="w-full h-[300px] flex items-end justify-between gap-sm relative mt-md pb-md">
+<div class="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20 z-0">
+<div class="w-full h-[1px] bg-outline-variant"></div>
+<div class="w-full h-[1px] bg-outline-variant"></div>
+<div class="w-full h-[1px] bg-outline-variant"></div>
+<div class="w-full h-[1px] bg-outline-variant"></div>
+</div>
+<!-- Bar Chart Simulation -->
+<div class="w-full flex justify-between items-end h-full z-10 px-sm">
+<div class="w-[8%] bg-primary/20 hover:bg-primary/40 rounded-t-sm h-[40%] transition-all cursor-pointer group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">420 Threats</div>
+</div>
+<div class="w-[8%] bg-primary/30 hover:bg-primary/50 rounded-t-sm h-[65%] transition-all cursor-pointer group relative">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-inverse-surface text-inverse-on-surface font-label-sm text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">650 Threats</div>
+</div>
+<div class="w-[8%] bg-primary/20 hover:bg-primary/40 rounded-t-sm h-[30%] transition-all cursor-pointer group relative"></div>
+<div class="w-[8%] bg-[#ec4899]/60 hover:bg-[#ec4899]/80 rounded-t-sm h-[85%] transition-all cursor-pointer group relative shimmer-border">
+<div class="absolute -top-8 left-1/2 -translate-x-1/2 bg-[#ec4899] text-white font-label-sm text-[10px] px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">850 Threats (Peak)</div>
+</div>
+<div class="w-[8%] bg-primary/40 hover:bg-primary/60 rounded-t-sm h-[55%] transition-all cursor-pointer group relative"></div>
+<div class="w-[8%] bg-primary/20 hover:bg-primary/40 rounded-t-sm h-[45%] transition-all cursor-pointer group relative"></div>
+<div class="w-[8%] bg-primary/50 hover:bg-primary/70 rounded-t-sm h-[70%] transition-all cursor-pointer group relative"></div>
+</div>
+</div>
+<div class="flex justify-between px-sm font-label-sm text-label-sm text-on-surface-variant opacity-60">
+<span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span>
+</div>
+</section>
+<section class="bg-surface/90 backdrop-blur-3xl rounded-2xl p-xl shadow-md border border-outline-variant/20 flex flex-col gap-lg overflow-hidden relative">
+<div class="absolute top-0 right-0 w-32 h-32 bg-[#ec4899]/10 rounded-bl-full blur-2xl"></div>
+<h2 class="font-headline-md text-headline-md text-on-surface relative z-10">Recent Alerts</h2>
+<div class="flex flex-col gap-md relative z-10">
+<div class="p-md bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors flex items-start gap-md group">
+<div class="w-2 h-2 rounded-full bg-[#ec4899] mt-2 shadow-[0_0_8px_rgba(236,72,153,0.6)]"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Suspicious Login Attempt</span>
+<span class="font-body-md text-[13px] text-on-surface-variant line-clamp-1">Multiple failed authentications from IP 192.168.1.105</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant opacity-70">2m ago</span>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors flex items-start gap-md group">
+<div class="w-2 h-2 rounded-full bg-[#f59e0b] mt-2 shadow-[0_0_8px_rgba(245,158,11,0.6)]"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Unusual Outbound Traffic</span>
+<span class="font-body-md text-[13px] text-on-surface-variant line-clamp-1">Node JS server communicating with unknown domain.</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant opacity-70">15m ago</span>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors flex items-start gap-md group">
+<div class="w-2 h-2 rounded-full bg-[#10b981] mt-2 shadow-[0_0_8px_rgba(16,185,129,0.6)]"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">Database Backup Complete</span>
+<span class="font-body-md text-[13px] text-on-surface-variant line-clamp-1">Routine automated backup finished successfully.</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant opacity-70">1h ago</span>
+</div>
+<div class="p-md bg-surface-container-low rounded-lg hover:bg-surface-container transition-colors flex items-start gap-md group">
+<div class="w-2 h-2 rounded-full bg-primary mt-2 shadow-[0_0_8px_rgba(99,102,241,0.6)]"></div>
+<div class="flex flex-col flex-1 min-w-0">
+<span class="font-label-md text-label-md text-on-surface truncate">System Update Applied</span>
+<span class="font-body-md text-[13px] text-on-surface-variant line-clamp-1">Security patch v2.4.1 deployed to all active nodes.</span>
+</div>
+<span class="font-label-sm text-[11px] text-on-surface-variant opacity-70">3h ago</span>
+</div>
+</div>
+<button class="mt-auto w-full py-sm text-primary font-label-md text-label-md hover:bg-primary/5 rounded-lg transition-colors flex items-center justify-center gap-xs">
+            View All Alerts <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</section>
+</div>
+</div>
+</div>
+<script>
+  // Simple number counter animation
+  function animateValue(id, start, end, duration) {
+    if (start === end) return;
+    var range = end - start;
+    var current = start;
+    var increment = end > start? 1 : -1;
+    var stepTime = Math.abs(Math.floor(duration / range));
+    var obj = document.getElementById(id);
+    if (!obj) return;
+    
+    // Handle large numbers with commas
+    const isFormatted = obj.innerText.includes(',');
+    
+    var timer = setInterval(function() {
+      current += increment;
+      if (isFormatted) {
+          obj.innerHTML = current.toLocaleString();
+      } else {
+          obj.innerHTML = current + (obj.innerHTML.includes('%') ? '%' : '');
+      }
+      
+      if (current == end) {
+        clearInterval(timer);
+      }
+    }, stepTime > 0 ? stepTime : 10);
+  }
+
+  // Initial staggered animations for cards
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.grid > div');
+    cards.forEach((card, index) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+      
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 100 + (index * 150));
+    });
+
+    // Update active nav state if needed by shell logic
+    const navLinks = document.querySelectorAll('nav a');
+    navLinks.forEach(link => {
+        if(link.getAttribute('data-path') === 'reports') {
+            const activeClasses = link.parentElement.getAttribute('data-active-classes');
+            if(activeClasses) {
+                 link.className = `${link.className} ${activeClasses}`;
+            }
+        } else {
+            link.className = link.className.replace(/bg-primary-container\/20|text-primary|border-primary\/30/g, '');
+        }
+    });
+  });
+</script></main></body></html>

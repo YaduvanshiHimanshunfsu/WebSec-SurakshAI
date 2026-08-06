@@ -1,0 +1,354 @@
+/*
+ * WebSec-SurakshAI — Global Design System
+ * Matches the Stitch "Plus Jakarta Sans + Inter + light" design system.
+ * Tailwind CSS v4 is loaded via the @tailwindcss/vite plugin.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ── Tailwind directives ───────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ── Custom design tokens matching Stitch screens ──────────────── */
+@theme {
+  /* Stitch colour palette */
+  --color-primary: #4648d4;
+  --color-primary-container: #6063ee;
+  --color-secondary: #6b38d4;
+  --color-secondary-container: #8455ef;
+  --color-tertiary-container: #b55d00;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-on-error-container: #93000a;
+  --color-success: #10b981;
+
+  --color-background: #fcf8ff;
+  --color-surface: #fcf8ff;
+  --color-surface-dim: #dbd8e4;
+  --color-surface-variant: #e4e1ed;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #f5f2fe;
+  --color-surface-container: #efecf8;
+  --color-surface-container-high: #e9e6f3;
+  --color-surface-container-highest: #e4e1ed;
+  --color-surface-bright: #fcf8ff;
+
+  --color-on-background: #1b1b23;
+  --color-on-surface: #1b1b23;
+  --color-on-surface-variant: #464554;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #fffbff;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #fffbff;
+  --color-outline: #767586;
+  --color-outline-variant: #c7c4d7;
+  --color-inverse-surface: #303038;
+  --color-inverse-on-surface: #f2effb;
+  --color-inverse-primary: #c0c1ff;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing tokens */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 40px;
+  --spacing-2xl: 64px;
+  --spacing-gutter: 24px;
+  --spacing-margin-desktop: 48px;
+  --spacing-margin-mobile: 16px;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Animations */
+  --animate-shimmer: shimmer 3s infinite linear;
+  --animate-fade-in-up: fade-in-up 0.5s ease forwards;
+  --animate-pulse-slow: pulse 4s ease-in-out infinite;
+  --animate-spin-slow: spin 10s linear infinite;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0);    }
+}
+
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1);    }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes dash {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0;   }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to   { width: var(--target-width, 100%); }
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes bounce-dot {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ── Base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+
+/* Hide scrollbar globally like Stitch screens */
+::-webkit-scrollbar          { display: none; }
+::-webkit-scrollbar-track    { display: none; }
+
+#root {
+  min-height: 100vh;
+}
+
+/* ── Stitch Utility Classes ─────────────────────────────────────── */
+
+/* Shimmer border effect used across Stitch cards */
+.shimmer-border {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(70, 72, 212, 0.15),
+    transparent
+  );
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite linear;
+}
+
+/* Glass card — the primary card style in all Stitch screens */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 24px rgba(70, 72, 212, 0.08);
+}
+
+/* Stitch primary gradient button */
+.btn-stitch-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 0.5rem;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+  color: white;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+  box-shadow: 0 4px 16px rgba(70, 72, 212, 0.3);
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+.btn-stitch-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.15);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.btn-stitch-primary:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(70,72,212,0.4); }
+.btn-stitch-primary:hover::after { opacity: 1; }
+.btn-stitch-primary:active { transform: scale(0.97); }
+.btn-stitch-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+
+/* Stitch ghost/secondary button */
+.btn-stitch-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 0.5rem;
+  background: var(--color-surface-container);
+  color: var(--color-on-surface-variant);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 13px;
+  border: 1px solid rgba(199,196,215,0.3);
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  text-decoration: none;
+}
+.btn-stitch-secondary:hover { background: var(--color-surface-container-high); color: var(--color-on-surface); }
+
+/* Severity badge pills */
+.badge-severity {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.badge-critical { background: var(--color-error-container); color: var(--color-on-error-container); border: 1px solid rgba(186,26,26,0.2); }
+.badge-high     { background: rgba(181,93,0,0.1); color: var(--color-tertiary-container); border: 1px solid rgba(181,93,0,0.25); }
+.badge-medium   { background: rgba(107,56,212,0.1); color: var(--color-secondary); border: 1px solid rgba(107,56,212,0.2); }
+.badge-low      { background: rgba(16,185,129,0.1); color: #059669; border: 1px solid rgba(16,185,129,0.25); }
+.badge-info     { background: var(--color-surface-container-low); color: var(--color-on-surface-variant); border: 1px solid rgba(199,196,215,0.3); }
+.badge-safe     { background: rgba(16,185,129,0.1); color: #059669; border: 1px solid rgba(16,185,129,0.25); }
+.badge-scam     { background: rgba(186,26,26,0.1); color: var(--color-error); border: 1px solid rgba(186,26,26,0.2); }
+.badge-suspicious { background: rgba(181,93,0,0.1); color: var(--color-tertiary-container); border: 1px solid rgba(181,93,0,0.25); }
+
+/* Stitch finding accent strip colors */
+.accent-critical { background: var(--color-error); }
+.accent-high     { background: var(--color-tertiary-container); }
+.accent-medium   { background: var(--color-secondary); }
+.accent-low      { background: var(--color-success); }
+.accent-info     { background: var(--color-outline); }
+
+/* Animation utilities */
+.animate-shimmer    { animation: var(--animate-shimmer); }
+.animate-fade-in-up { animation: var(--animate-fade-in-up); }
+.animate-fade-in    { animation: fade-in 0.4s ease forwards; }
+.animate-scale-in   { animation: scale-in 0.3s ease forwards; }
+.animate-spin       { animation: spin 1s linear infinite; }
+.animate-spin-slow  { animation: spin 10s linear infinite; }
+.animate-ping       { animation: ping 1s cubic-bezier(0,0,0.2,1) infinite; }
+.animate-pulse-slow { animation: pulse 4s ease-in-out infinite; }
+
+/* Stagger animation delays */
+.stagger-1 { animation-delay: 50ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 150ms; }
+.stagger-4 { animation-delay: 200ms; }
+.stagger-5 { animation-delay: 250ms; }
+
+/* Transition utilities */
+.transition-smooth { transition: all 0.2s ease; }
+.hover-lift { transition: transform 0.2s ease; }
+.hover-lift:hover { transform: translateY(-2px); }
+.hover-scale { transition: transform 0.2s ease; }
+.hover-scale:hover { transform: scale(1.02); }
+
+/* Material Symbols icon class */
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  font-size: 20px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Stitch nav active link */
+.nav-link-active {
+  background: rgba(96,99,238,0.15);
+  color: var(--color-primary);
+  border: 1px solid rgba(70,72,212,0.25);
+  border-radius: 0.5rem;
+}
+
+/* Code/terminal block */
+.code-block {
+  background: #f8fafc;
+  border: 1px solid var(--color-outline-variant);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.code-block-header {
+  background: #f1f5f9;
+  padding: 8px 16px;
+  border-bottom: 1px solid rgba(199,196,215,0.5);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.code-block-dot { width: 10px; height: 10px; border-radius: 50%; }
+.code-block-content {
+  padding: 16px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  overflow-x: auto;
+  color: #334155;
+}
+
+/* Decorative gradient blobs used across pages */
+.blob-primary {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(70,72,212,0.1);
+  filter: blur(100px);
+  pointer-events: none;
+}
+.blob-secondary {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(107,56,212,0.08);
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+/* Circular SVG gauge */
+.gauge-ring-bg   { color: var(--color-surface-container-high); }
+.gauge-ring-fill { stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+
+/* Responsive helpers */
+@media (max-width: 768px) {
+  .hidden-mobile   { display: none !important; }
+  .show-mobile     { display: flex !important; }
+  .stack-mobile    { flex-direction: column !important; }
+  .full-mobile     { width: 100% !important; }
+}
+@media (min-width: 769px) {
+  .show-mobile     { display: none !important; }
+}
+
+/* Toast overrides */
+.react-hot-toast-container {
+  font-family: var(--font-sans) !important;
+  font-size: 14px !important;
+}

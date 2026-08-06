@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px;">
+    <div>
+        <h2>Scan Report: {{ target.domain }}</h2>
+        <p style="color: var(--text-secondary);">
+            {{ scan.scan_type | title }} Scan • {{ scan.started_at.strftime('%Y-%m-%d %H:%M') }}
+        </p>
+    </div>
+    <div style="display: flex; gap: 10px;">
+        <a href="{{ url_for('reports.export_json', scan_id=scan.id) }}" class="btn btn-secondary">JSON</a>
+        <a href="{{ url_for('reports.export_pdf', scan_id=scan.id) }}" class="btn btn-secondary">PDF</a>
+        
+        {% if scan.scan_type == 'passive' and target.verified %}
+            <form action="{{ url_for('active.start_scan', target_id=target.id) }}" method="POST" style="display: inline;">
+                <button type="submit" style="background-color: var(--warning);">Run Active Scan</button>
+            </form>
+        {% elif scan.scan_type == 'passive' %}
+            <!-- For v1, active scans are triggered via manual target verification -->
+            <button disabled title="Target not verified" style="opacity: 0.5; cursor: not-allowed;">Active Scan</button>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Score Card -->
+<div class="card" style="display: flex; align-items: center; gap: 40px; margin-bottom: 30px;">
+    <div style="text-align: center;">
+        <div style="font-size: 4rem; font-weight: bold; line-height: 1; 
+            color: {% if score_data.grade in ['A','B'] %}var(--success){% elif score_data.grade == 'C' %}var(--warning){% else %}var(--danger){% endif %};">
+            {{ score_data.grade }}
+        </div>
+        <div style="font-size: 1.2rem; color: var(--text-secondary);">{{ score_data.label }}</div>
+    </div>
+    <div style="flex-grow: 1;">
+        <p><strong>Risk Score:</strong> {{ score_data.score }} / 100 <em>(Lower is better)</em></p>
+        <div style="display: flex; gap: 15px; margin-top: 15px;">
+            <span class="badge badge-critical">{{ score_data.by_severity.get('critical', 0) }} Critical</span>
+            <span class="badge badge-high">{{ score_data.by_severity.get('high', 0) }} High</span>
+            <span class="badge badge-medium">{{ score_data.by_severity.get('medium', 0) }} Medium</span>
+            <span class="badge badge-low">{{ score_data.by_severity.get('low', 0) }} Low</span>
+        </div>
+    </div>
+</div>
+
+<!-- Findings -->
+<h3>Findings</h3>
+{% if findings %}
+    {% for finding in findings %}
+    <div class="finding-card">
+        <div class="finding-header">
+            <strong>{{ finding.title }}</strong>
+            <span class="badge badge-{{ finding.severity }}">{{ finding.severity }}</span>
+        </div>
+        <div class="finding-body">
+            <p>{{ finding.description }}</p>
+            
+            {% if finding.what_it_means %}
+                <h4>What it means:</h4>
+                <p>{{ finding.what_it_means }}</p>
+            {% endif %}
+            
+            {% if finding.remediation %}
+                <h4>How to fix it:</h4>
+                <p>{{ finding.remediation }}</p>
+            {% endif %}
+            
+            {% if finding.evidence %}
+                <h4>Evidence:</h4>
+                <pre class="evidence">{{ finding.evidence }}</pre>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="card">
+        <p style="color: var(--success);">No issues found! Your site posture looks excellent.</p>
+    </div>
+{% endif %}
+{% endblock %}

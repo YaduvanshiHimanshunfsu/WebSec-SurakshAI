@@ -1,0 +1,369 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-high": "#e9e6f3",
+                "inverse-surface": "#303038",
+                "inverse-on-surface": "#f2effb",
+                "outline-variant": "#c7c4d7",
+                "surface-tint": "#494bd6",
+                "on-secondary-fixed": "#23005c",
+                "error": "#ba1a1a",
+                "tertiary-fixed": "#ffdcc5",
+                "tertiary": "#904900",
+                "on-background": "#1b1b23",
+                "surface-dim": "#dbd8e4",
+                "surface-container": "#efecf8",
+                "background": "#fcf8ff",
+                "on-tertiary": "#ffffff",
+                "secondary-fixed-dim": "#d0bcff",
+                "on-tertiary-fixed-variant": "#703700",
+                "surface": "#fcf8ff",
+                "inverse-primary": "#c0c1ff",
+                "on-tertiary-container": "#fffbff",
+                "primary-fixed": "#e1e0ff",
+                "tertiary-container": "#b55d00",
+                "primary-container": "#6063ee",
+                "on-surface-variant": "#464554",
+                "primary-fixed-dim": "#c0c1ff",
+                "surface-bright": "#fcf8ff",
+                "secondary-container": "#8455ef",
+                "on-primary-fixed-variant": "#2f2ebe",
+                "on-tertiary-fixed": "#301400",
+                "on-error": "#ffffff",
+                "surface-variant": "#e4e1ed",
+                "tertiary-fixed-dim": "#ffb783",
+                "secondary": "#6b38d4",
+                "surface-container-low": "#f5f2fe",
+                "on-primary-fixed": "#07006c",
+                "surface-container-lowest": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-error-container": "#93000a",
+                "surface-container-highest": "#e4e1ed",
+                "outline": "#767586",
+                "on-primary": "#ffffff",
+                "primary": "#4648d4",
+                "on-surface": "#1b1b23",
+                "on-secondary": "#ffffff",
+                "on-secondary-container": "#fffbff",
+                "on-primary-container": "#fffbff",
+                "on-secondary-fixed-variant": "#5516be",
+                "secondary-fixed": "#e9ddff"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "gutter": "24px",
+                "2xl": "64px",
+                "base": "4px",
+                "md": "16px",
+                "margin-mobile": "16px",
+                "lg": "24px",
+                "margin-desktop": "48px",
+                "xs": "4px",
+                "xl": "40px",
+                "sm": "8px"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "800"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container z-50 flex flex-col pt-lg pb-xl"><div class="px-lg mb-xl flex flex-col gap-xs"><div class="flex items-center gap-sm text-primary"><span class="material-symbols-outlined text-[28px]">shield</span><span class="font-display-lg text-[16px] font-[800] tracking-tight text-on-background">WebSec-SurakshAI</span></div><div class="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant px-sm opacity-70">NFSU · Tripura Campus</div></div><nav class="flex-1 px-sm flex flex-col gap-base" data-active-classes="bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary"><a aria-current="page" class="flex items-center px-md py-sm rounded-lg transition-all group bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary" data-path="security-scanner" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">security</span><span class="font-label-md">Security Scanner</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">psychology</span><span class="font-label-md">AI Scam Analyzer</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="reports" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">assessment</span><span class="font-label-md">Reports</span></a></nav><div class="px-lg pt-lg border-t border-outline-variant"><div class="p-md rounded-xl bg-surface-container-low flex flex-col gap-xs"><span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Status</span><div class="flex items-center gap-sm"><div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div><span class="text-label-sm text-on-surface">Monitoring Active</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-[#0b0f19]/85 backdrop-blur-[16px] z-40 flex items-center justify-end px-xl gap-lg shadow-sm border-b border-white/5"><div class="flex items-center gap-md border-r border-white/20 pr-lg"><span class="material-symbols-outlined text-white/80 cursor-pointer hover:text-primary transition-colors">search</span><span class="material-symbols-outlined text-white/80 cursor-pointer hover:text-primary transition-colors">notifications</span></div><div class="flex items-center gap-sm"><div class="flex flex-col items-end"><span class="text-label-sm text-white">NFSU Administrator</span><span class="text-[10px] text-white/60">himanshu.yadav@nfsu.ac.in</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center border border-primary-fixed/20"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 min-h-screen bg-[#0b0f19]"><div class="flex flex-col w-full font-body-md text-white bg-[#0b0f19]">
+<!-- Hero Section -->
+<section class="relative bg-[#0b0f19] pt-24 pb-16 flex flex-col items-center justify-center overflow-hidden">
+<!-- Decorative background elements -->
+<div class="absolute inset-0 pointer-events-none">
+<div class="absolute top-[-10%] right-[-10%] w-[600px] h-[600px] rounded-full bg-primary/20 blur-[120px] mix-blend-screen"></div>
+<div class="absolute bottom-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-secondary/10 blur-[100px] mix-blend-screen"></div>
+</div>
+<div class="relative z-10 w-full max-w-[1200px] px-lg flex flex-col items-center text-center gap-md">
+<!-- Pill Badge -->
+<div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 shadow-sm border border-white/10 backdrop-blur-md transform transition-transform hover:scale-105 cursor-default">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<span class="font-label-sm text-primary-fixed-dim tracking-widest uppercase">Passive Scanner Active</span>
+</div>
+<!-- Headline -->
+<h1 class="font-display-lg text-display-lg text-white max-w-3xl mt-sm tracking-tight">
+        Enterprise-Grade <br/> <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#818cf8] to-[#c084fc]">Security Scanner</span>
+</h1>
+<!-- Description -->
+<p class="font-body-lg text-body-lg text-white/70 max-w-2xl mt-sm">
+        Instantly analyze any domain for misconfigurations, exposed records, and potential attack vectors. Our passive scan gathers intelligence without alerting the target, examining TLS certificates, security headers, SPF/DMARC policies, and known phishing indicators.
+      </p>
+</div>
+</section>
+<!-- Capability Chips Section -->
+<section class="w-full max-w-[1200px] mx-auto px-lg mb-2xl relative z-10">
+<div class="flex flex-wrap justify-center gap-sm">
+<!-- Chip 1 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">lock</span>
+<span class="font-label-md text-white/90">TLS Certificates</span>
+</div>
+<!-- Chip 2 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">http</span>
+<span class="font-label-md text-white/90">Security Headers</span>
+</div>
+<!-- Chip 3 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">mark_email_read</span>
+<span class="font-label-md text-white/90">SPF/DMARC</span>
+</div>
+<!-- Chip 4 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">lan</span>
+<span class="font-label-md text-white/90">Subdomain Enum</span>
+</div>
+<!-- Chip 5 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">phishing</span>
+<span class="font-label-md text-white/90">Phishing Intel</span>
+</div>
+<!-- Chip 6 -->
+<div class="flex items-center gap-xs px-md py-sm rounded-lg bg-white/5 backdrop-blur-md shadow-sm border border-white/10 transition-all hover:-translate-y-1 hover:shadow-md hover:bg-white/10 group cursor-default">
+<span class="material-symbols-outlined text-primary-fixed-dim text-[20px] group-hover:scale-110 transition-transform">folder_open</span>
+<span class="font-label-md text-white/90">Exposed Files</span>
+</div>
+</div>
+</section>
+<!-- Scan Form Section -->
+<section class="w-full max-w-[800px] mx-auto px-lg mb-2xl relative z-20">
+<div class="relative bg-[#151a2a]/80 backdrop-blur-xl rounded-2xl p-xl shadow-2xl border border-white/10 overflow-hidden group">
+<!-- Animated Gradient Border (Simulated via overlay) -->
+<div class="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-1000 pointer-events-none"></div>
+<div class="relative z-10 flex flex-col gap-lg">
+<div class="flex flex-col gap-xs">
+<h2 class="font-headline-lg text-headline-lg text-white flex items-center gap-sm">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-[32px]">radar</span>
+            Run a Passive Scan
+          </h2>
+<p class="font-body-md text-body-md text-white/70">
+            Enter a target URL or domain to begin reconnaissance. The scan is completely non-intrusive.
+          </p>
+</div>
+<form class="flex flex-col gap-md mt-sm" id="scan-form" onsubmit="event.preventDefault(); handleScanSubmit();">
+<div class="relative group/input">
+<div class="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-white/40 group-focus-within/input:text-primary-fixed-dim transition-colors text-[24px]">language</span>
+</div>
+<input class="w-full pl-14 pr-5 py-5 bg-[#0b0f19]/50 border border-white/20 rounded-xl text-white font-body-lg placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary-fixed-dim transition-all shadow-inner backdrop-blur-sm" id="target-url" placeholder="e.g., nfsu.ac.in or https://target.com" required="" type="text"/>
+<!-- Optional: Loading indicator inside input (hidden by default) -->
+<div class="absolute inset-y-0 right-0 pr-5 flex items-center hidden" id="input-loading">
+<span class="material-symbols-outlined text-primary-fixed-dim animate-spin">autorenew</span>
+</div>
+</div>
+<button class="relative w-full py-5 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-label-md text-[18px] font-bold tracking-wide shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 transition-all overflow-hidden flex items-center justify-center gap-sm group/btn" id="scan-btn" type="submit">
+<!-- Button Shimmer Effect -->
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover/btn:animate-[shimmer_1.5s_infinite] pointer-events-none"></div>
+<span class="material-symbols-outlined text-[24px]" id="btn-icon">policy</span>
+<span id="btn-text">Initiate Scan</span>
+</button>
+</form>
+<div class="flex items-center justify-center gap-2 mt-2">
+<span class="material-symbols-outlined text-[14px] text-white/50">info</span>
+<span class="font-label-sm text-[11px] text-white/50 uppercase tracking-wider">By scanning, you confirm authorization to assess this target.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Bottom Section: Recent & Posture -->
+<section class="w-full max-w-[1200px] mx-auto px-lg mb-2xl relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+<!-- Recent Operations Log -->
+<div class="md:col-span-2 bg-[#151a2a]/60 backdrop-blur-md rounded-xl border border-white/5 p-lg flex flex-col gap-md">
+<div class="flex items-center justify-between border-b border-white/10 pb-sm">
+<h3 class="font-headline-md text-[18px] text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary-fixed-dim">history</span> Recent Operations
+      </h3>
+<button class="text-primary-fixed-dim text-label-sm hover:underline">View All</button>
+</div>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between py-2 border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span class="font-body-md text-white/90">nfsu.ac.in</span>
+</div>
+<span class="font-mono text-xs text-white/50">10 mins ago</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-white/5">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-emerald-400 text-[18px]">check_circle</span>
+<span class="font-body-md text-white/90">auth.tripura.gov.in</span>
+</div>
+<span class="font-mono text-xs text-white/50">2 hours ago</span>
+</div>
+<div class="flex items-center justify-between py-2">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-amber-400 text-[18px]">warning</span>
+<span class="font-body-md text-white/90">dev.internal.net</span>
+</div>
+<span class="font-mono text-xs text-white/50">Yesterday</span>
+</div>
+</div>
+</div>
+<!-- Global Posture Score Widget -->
+<div class="bg-[#151a2a]/60 backdrop-blur-md rounded-xl border border-white/5 p-lg flex flex-col items-center justify-center gap-md text-center">
+<h3 class="font-headline-md text-[18px] text-white w-full text-left border-b border-white/10 pb-sm">Global Posture</h3>
+<div class="relative w-32 h-32 flex items-center justify-center mt-sm">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-white/10" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-width="8"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="transparent" r="40" stroke="currentColor" stroke-dasharray="251.2" stroke-dashoffset="45" stroke-width="8"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display-lg text-[28px] font-bold text-white">82</span>
+<span class="text-[10px] text-white/60 uppercase tracking-widest">Score</span>
+</div>
+</div>
+<p class="text-label-sm text-white/70 mt-2">Overall security posture across analyzed domains is <span class="text-emerald-400 font-bold">Good</span>.</p>
+</div>
+</div>
+</section>
+</div>
+<style>
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+</style>
+<script>
+  function handleScanSubmit() {
+    const btn = document.getElementById('scan-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnIcon = document.getElementById('btn-icon');
+    const inputLoading = document.getElementById('input-loading');
+    const urlInput = document.getElementById('target-url');
+    
+    if(!urlInput.value) return;
+
+    // Loading State
+    btn.classList.add('cursor-wait', 'opacity-90');
+    btnText.innerText = 'Scanning Target...';
+    btnIcon.innerText = 'autorenew';
+    btnIcon.classList.add('animate-spin');
+    
+    inputLoading.classList.remove('hidden');
+    urlInput.setAttribute('disabled', 'true');
+    urlInput.classList.add('opacity-70');
+
+    // Simulate API Call / Scan Progress
+    setTimeout(() => {
+      // Reset State (in a real app, this would route to results)
+      btn.classList.remove('cursor-wait', 'opacity-90');
+      btnText.innerText = 'View Results';
+      btnIcon.classList.remove('animate-spin');
+      btnIcon.innerText = 'arrow_forward';
+      
+      inputLoading.classList.add('hidden');
+      urlInput.removeAttribute('disabled');
+      urlInput.classList.remove('opacity-70');
+      
+      // Optional: Add a success flash to the button
+      btn.classList.remove('from-primary', 'to-secondary');
+      btn.classList.add('from-emerald-500', 'to-emerald-600');
+      
+      setTimeout(() => {
+        btn.classList.add('from-primary', 'to-secondary');
+        btn.classList.remove('from-emerald-500', 'to-emerald-600');
+        btnText.innerText = 'Initiate Scan';
+        btnIcon.innerText = 'policy';
+      }, 3000);
+
+    }, 2500);
+  }
+</script></main><footer class="w-full py-lg border-t border-outline-variant bg-surface-container-lowest"><div class="px-xl flex justify-between items-center"><p class="text-label-sm text-on-surface-variant">Developed by <span class="font-bold">Himanshu Yadav</span> · National Forensic Sciences University, Tripura Campus</p><div class="flex gap-md"><span class="text-[10px] font-mono text-outline uppercase">v1.0.4-stable</span><span class="text-[10px] font-mono text-outline uppercase">Secure Core</span></div></div></footer></div></body></html>

@@ -1,0 +1,151 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;background-color:#0b0f19;background-image:radial-gradient(circle at center,rgba(70,72,212,0.15) 0%,rgba(11,15,25,1) 70%);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"surface-bright":"#fcf8ff","surface-variant":"#e4e1ed","on-secondary-container":"#fffbff","primary-container":"#6063ee","secondary-fixed-dim":"#d0bcff","inverse-on-surface":"#f2effb","surface-tint":"#494bd6","on-tertiary-fixed-variant":"#703700","on-primary-container":"#fffbff","surface-container":"#efecf8","on-primary-fixed-variant":"#2f2ebe","on-primary":"#ffffff","outline-variant":"#c7c4d7","surface-container-lowest":"#ffffff","on-background":"#1b1b23","on-tertiary":"#ffffff","inverse-primary":"#c0c1ff","error":"#ba1a1a","on-primary-fixed":"#07006c","on-surface":"#1b1b23","secondary":"#6b38d4","tertiary-fixed-dim":"#ffb783","tertiary-fixed":"#ffdcc5","surface-dim":"#dbd8e4","primary":"#4648d4","on-secondary":"#ffffff","on-secondary-fixed-variant":"#5516be","outline":"#767586","inverse-surface":"#303038","on-surface-variant":"#464554","surface-container-high":"#e9e6f3","on-tertiary-fixed":"#301400","surface":"#fcf8ff","on-error-container":"#93000a","on-error":"#ffffff","secondary-fixed":"#e9ddff","on-tertiary-container":"#fffbff","background":"#fcf8ff","secondary-container":"#8455ef","primary-fixed-dim":"#c0c1ff","primary-fixed":"#e1e0ff","tertiary-container":"#b55d00","surface-container-low":"#f5f2fe","tertiary":"#904900","error-container":"#ffdad6","on-secondary-fixed":"#23005c","surface-container-highest":"#e4e1ed"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xs":"4px","2xl":"64px","gutter":"24px","margin-desktop":"48px","sm":"8px","base":"4px","margin-mobile":"16px","lg":"24px","xl":"40px","md":"16px"},"fontFamily":{"headline-lg-mobile":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Inter"],"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Inter"]},"fontSize":{"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="min-h-screen flex items-center justify-center p-gutter"><main class="w-full max-w-md bg-surface/10 backdrop-blur-2xl rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.4)] border border-surface-variant/20 p-xl flex flex-col gap-lg"><div class="flex flex-col w-full" id="registration-container">
+<!-- Header -->
+<div class="flex flex-col items-center text-center mb-xl stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<div class="relative w-14 h-14 rounded-xl bg-gradient-to-br from-primary-container to-secondary-container flex items-center justify-center mb-md shadow-lg overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+<span class="material-symbols-outlined text-[32px] text-on-primary-container" style="font-variation-settings: 'FILL' 1;">shield_person</span>
+</div>
+<h1 class="text-headline-md font-headline-md text-surface-bright tracking-tight mb-xs">Create your account</h1>
+<p class="text-body-md font-body-md text-surface-variant/80">Join the secure perimeter today.</p>
+</div>
+<!-- Form -->
+<form class="flex flex-col gap-lg w-full" onsubmit="event.preventDefault();">
+<!-- Row 1: Name -->
+<div class="grid grid-cols-2 gap-md w-full stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-surface-variant/70 uppercase">First Name</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg bg-surface-bright/5 text-surface-bright text-body-md font-body-md placeholder:text-surface-variant/30 outline-none transition-all duration-300 focus:bg-surface-bright/10 focus:ring-2 focus:ring-primary/40 focus:border-primary shadow-sm border border-surface-bright/10 hover:border-surface-bright/20" placeholder="Himanshu" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="text-label-sm font-label-sm text-surface-variant/70 uppercase">Last Name</label>
+<div class="relative">
+<input class="w-full h-12 px-4 rounded-lg bg-surface-bright/5 text-surface-bright text-body-md font-body-md placeholder:text-surface-variant/30 outline-none transition-all duration-300 focus:bg-surface-bright/10 focus:ring-2 focus:ring-primary/40 focus:border-primary shadow-sm border border-surface-bright/10 hover:border-surface-bright/20" placeholder="Yadav" type="text"/>
+</div>
+</div>
+</div>
+<!-- Email -->
+<div class="flex flex-col gap-xs stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<label class="text-label-sm font-label-sm text-surface-variant/70 uppercase">Corporate Email</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-surface-variant/40 group-focus-within:text-primary transition-colors text-[20px]">mail</span>
+<input class="w-full h-12 pl-10 pr-4 rounded-lg bg-surface-bright/5 text-surface-bright text-body-md font-body-md placeholder:text-surface-variant/30 outline-none transition-all duration-300 focus:bg-surface-bright/10 focus:ring-2 focus:ring-primary/40 focus:border-primary shadow-sm border border-surface-bright/10 hover:border-surface-bright/20" placeholder="you@example.com" type="email"/>
+</div>
+</div>
+<!-- Username -->
+<div class="flex flex-col gap-xs stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<label class="text-label-sm font-label-sm text-surface-variant/70 uppercase">Username</label>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-surface-variant/40 group-focus-within:text-primary transition-colors text-[20px]">alternate_email</span>
+<input class="w-full h-12 pl-10 pr-4 rounded-lg bg-surface-bright/5 text-surface-bright text-body-md font-body-md placeholder:text-surface-variant/30 outline-none transition-all duration-300 focus:bg-surface-bright/10 focus:ring-2 focus:ring-primary/40 focus:border-primary shadow-sm border border-surface-bright/10 hover:border-surface-bright/20" placeholder="secure_user" type="text"/>
+</div>
+</div>
+<!-- Password -->
+<div class="flex flex-col gap-xs stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<div class="flex justify-between items-end">
+<label class="text-label-sm font-label-sm text-surface-variant/70 uppercase">Passphrase</label>
+<span class="text-[10px] text-surface-variant/50 font-label-sm tracking-wider">MIN. 12 CHARS</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-surface-variant/40 group-focus-within:text-primary transition-colors text-[20px]">key</span>
+<input class="w-full h-12 pl-10 pr-10 rounded-lg bg-surface-bright/5 text-surface-bright text-body-md font-body-md placeholder:text-surface-variant/30 outline-none transition-all duration-300 focus:bg-surface-bright/10 focus:ring-2 focus:ring-primary/40 focus:border-primary shadow-sm border border-surface-bright/10 hover:border-surface-bright/20" id="pwd-input" placeholder="••••••••••••" type="password"/>
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-surface-variant/40 hover:text-surface-bright transition-colors outline-none" onclick="togglePassword('pwd-input', 'pwd-icon')" type="button">
+<span class="material-symbols-outlined text-[20px]" id="pwd-icon">visibility</span>
+</button>
+</div>
+<!-- Strength Meter -->
+<div class="flex gap-1 mt-1 h-1 w-full" id="strength-meter">
+<div class="h-full flex-1 rounded-full bg-surface-bright/10 transition-colors duration-300" id="sm-1"></div>
+<div class="h-full flex-1 rounded-full bg-surface-bright/10 transition-colors duration-300" id="sm-2"></div>
+<div class="h-full flex-1 rounded-full bg-surface-bright/10 transition-colors duration-300" id="sm-3"></div>
+<div class="h-full flex-1 rounded-full bg-surface-bright/10 transition-colors duration-300" id="sm-4"></div>
+</div>
+</div>
+<!-- Terms -->
+<div class="flex items-center gap-3 stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out mt-sm">
+<div class="relative flex items-center justify-center w-5 h-5">
+<input class="peer appearance-none w-5 h-5 rounded border border-surface-bright/30 checked:bg-primary checked:border-primary transition-all cursor-pointer outline-none focus:ring-2 focus:ring-primary/40 focus:ring-offset-1 focus:ring-offset-transparent" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-[16px] text-on-primary opacity-0 peer-checked:opacity-100 pointer-events-none transition-opacity">check</span>
+</div>
+<label class="text-label-md font-label-md text-surface-variant/80 cursor-pointer">
+        I agree to the <a class="text-primary-fixed hover:text-primary-fixed-dim transition-colors underline decoration-primary/30 underline-offset-4" href="#">Terms of Service</a>
+</label>
+</div>
+<!-- CTA -->
+<div class="stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out mt-2">
+<button class="relative w-full h-12 rounded-lg bg-gradient-to-r from-primary to-secondary text-on-primary text-label-md font-label-md tracking-wide overflow-hidden group shadow-[0_4px_14px_0_rgba(70,72,212,0.39)] hover:shadow-[0_6px_20px_rgba(70,72,212,0.23)] hover:scale-[1.02] transition-all duration-300 flex items-center justify-center gap-2">
+<div class="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12"></div>
+<span>Create Account</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</form>
+<!-- Footer -->
+<div class="mt-lg text-center stagger-item opacity-0 translate-y-4 transition-all duration-700 ease-out">
+<p class="text-label-md font-label-md text-surface-variant/60">
+      Already have an account? 
+      <a class="text-primary-fixed hover:text-primary-fixed-dim transition-colors ml-1 font-semibold group flex inline-flex items-center gap-1" href="#">
+        Sign in
+        <span class="material-symbols-outlined text-[14px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+</a>
+</p>
+</div>
+</div>
+<script>
+  // Staggered Entrance Animation
+  document.addEventListener('DOMContentLoaded', () => {
+    const items = document.querySelectorAll('.stagger-item');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.remove('opacity-0', 'translate-y-4');
+      }, 50 * index);
+    });
+
+    // Password Strength Logic
+    const pwdInput = document.getElementById('pwd-input');
+    const sm1 = document.getElementById('sm-1');
+    const sm2 = document.getElementById('sm-2');
+    const sm3 = document.getElementById('sm-3');
+    const sm4 = document.getElementById('sm-4');
+
+    pwdInput.addEventListener('input', (e) => {
+      const val = e.target.value;
+      const len = val.length;
+      
+      // Reset
+      [sm1, sm2, sm3, sm4].forEach(el => {
+        el.className = 'h-full flex-1 rounded-full bg-surface-bright/10 transition-colors duration-300';
+      });
+
+      if (len > 0) {
+        sm1.classList.add('bg-error');
+        sm1.classList.remove('bg-surface-bright/10');
+      }
+      if (len > 5) {
+        sm1.className = sm2.className = 'h-full flex-1 rounded-full bg-tertiary-fixed-dim transition-colors duration-300';
+      }
+      if (len > 9) {
+        sm1.className = sm2.className = sm3.className = 'h-full flex-1 rounded-full bg-primary-fixed transition-colors duration-300';
+      }
+      if (len >= 12 && /[A-Z]/.test(val) && /[0-9]/.test(val)) {
+        sm1.className = sm2.className = sm3.className = sm4.className = 'h-full flex-1 rounded-full bg-[#34d399] transition-colors duration-300'; // Success green simulation via hex due to lack of distinct semantic success token in config
+      }
+    });
+  });
+
+  // Toggle Password Visibility
+  function togglePassword(inputId, iconId) {
+    const input = document.getElementById(inputId);
+    const icon = document.getElementById(iconId);
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.innerText = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.innerText = 'visibility';
+    }
+  }
+</script></main></body></html>

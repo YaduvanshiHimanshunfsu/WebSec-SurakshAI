@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="text-align: center; margin: 60px 0;">
+    <h1 style="font-size: 2.5rem; margin-bottom: 20px;">WebSec Auditor</h1>
+    <p style="color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 40px;">
+        Consolidated security scanning for modern web applications.
+    </p>
+
+    <div class="card" style="max-width: 600px; margin: 0 auto; text-align: left;">
+        <h3>Run a Passive Scan</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 20px; font-size: 0.9rem;">
+            Checks TLS certificates, security headers, WHOIS records, and phishing databases. Safe to run against any public URL.
+        </p>
+        
+        <form action="{{ url_for('passive.start_scan') }}" method="POST" class="scan-form">
+            <input type="text" name="url" placeholder="https://example.com" required autocomplete="off">
+            <button type="submit">Scan Now</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

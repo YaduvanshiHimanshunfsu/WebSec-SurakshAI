@@ -1,0 +1,193 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}.shimmer-border{background:linear-gradient(90deg,transparent,rgba(59,130,246,0.3),transparent);background-size:200% 100%;animation:shimmer 3s infinite linear;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"secondary-fixed-dim":"#d0bcff","primary-fixed-dim":"#c0c1ff","on-surface-variant":"#464554","on-tertiary":"#ffffff","secondary-fixed":"#e9ddff","outline-variant":"#c7c4d7","background":"#fcf8ff","on-primary":"#ffffff","inverse-primary":"#c0c1ff","inverse-surface":"#303038","on-error":"#ffffff","on-tertiary-fixed-variant":"#703700","on-background":"#1b1b23","surface-container-lowest":"#ffffff","on-secondary-container":"#fffbff","tertiary-container":"#b55d00","surface-variant":"#e4e1ed","on-primary-container":"#fffbff","tertiary-fixed-dim":"#ffb783","surface-dim":"#dbd8e4","tertiary-fixed":"#ffdcc5","surface-bright":"#fcf8ff","secondary":"#6b38d4","on-tertiary-fixed":"#301400","on-secondary-fixed":"#23005c","primary":"#4648d4","primary-container":"#6063ee","secondary-container":"#8455ef","error":"#ba1a1a","surface-container-low":"#f5f2fe","surface-container":"#efecf8","surface-container-high":"#e9e6f3","outline":"#767586","on-primary-fixed":"#07006c","surface-container-highest":"#e4e1ed","on-surface":"#1b1b23","surface-tint":"#494bd6","primary-fixed":"#e1e0ff","inverse-on-surface":"#f2effb","on-tertiary-container":"#fffbff","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","error-container":"#ffdad6","on-error-container":"#93000a","on-primary-fixed-variant":"#2f2ebe","on-secondary-fixed-variant":"#5516be"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"xl":"40px","margin-mobile":"16px","base":"4px","sm":"8px","xs":"4px","md":"16px","gutter":"24px","2xl":"64px","lg":"24px","margin-desktop":"48px"},"fontFamily":{"headline-lg":["Plus Jakarta Sans"],"label-md":["Inter"],"body-md":["Inter"],"headline-md":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><header class="fixed top-0 w-full z-[100] h-16 bg-surface-container-highest/85 backdrop-blur-xl border-b border-outline-variant"><div class="max-w-[1200px] mx-auto h-full px-lg flex items-center justify-between"><div class="flex items-center gap-md"><div class="w-9 h-9 rounded-[10px] bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[20px]">shield</span></div><div class="flex flex-col"><span class="font-headline-lg-mobile text-[16px] leading-tight text-on-surface font-[800]">WebSec-SurakshAI</span><span class="font-mono text-[11px] text-on-surface-variant uppercase tracking-wider">NFSU · Tripura Campus</span></div></div><nav class="hidden md:flex items-center gap-sm" data-active-classes="bg-primary-container/20 text-primary border border-primary/30 rounded-lg"><a aria-current="page" class="flex items-center gap-sm px-md py-sm font-label-md transition-all bg-primary-container/20 text-primary border border-primary/30 rounded-lg" data-path="security-scanner" href="#"><span class="material-symbols-outlined text-[18px]">search_check</span>Security Scanner</a><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined text-[18px]">auto_awesome</span>AI Scam Analyzer</a><a class="flex items-center gap-sm px-md py-sm font-label-md text-on-surface-variant hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[18px]">bar_chart</span>Reports</a></nav><div class="flex items-center gap-md"><button class="md:hidden text-on-surface"><span class="material-symbols-outlined">menu</span></button><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="relative pt-16 min-h-screen"><div class="flex flex-col w-full relative min-h-[calc(100vh-64px)] overflow-hidden">
+<div class="absolute top-[-20%] left-[-10%] w-[60%] h-[60%] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
+<div class="absolute bottom-[-20%] right-[-10%] w-[50%] h-[50%] bg-secondary/10 rounded-full blur-[100px] pointer-events-none"></div>
+<div class="max-w-[1200px] w-full mx-auto px-lg py-2xl flex flex-col gap-2xl z-10">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-lg stagger-1">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-sm">Security Scanner</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-[600px]">Initiate deep AI analysis of web properties. Detect zero-day vulnerabilities, phishing vectors, and structural anomalies in real-time.</p>
+</div>
+<div class="flex items-center gap-md">
+<div class="flex flex-col items-end">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">System Status</span>
+<div class="flex items-center gap-xs mt-base">
+<div class="w-2 h-2 rounded-full bg-[#10B981] animate-pulse"></div>
+<span class="font-label-md text-label-md text-[#10B981]">All Systems Operational</span>
+</div>
+</div>
+</div>
+</div>
+<div class="relative w-full rounded-2xl bg-surface-container/50 backdrop-blur-2xl border border-outline-variant/30 p-2xl shadow-xl overflow-hidden group stagger-2">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-primary/5 to-transparent shimmer-border opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+<div class="relative z-10 flex flex-col items-center justify-center gap-lg">
+<div class="w-24 h-24 rounded-full bg-primary-container/20 flex items-center justify-center mb-md relative">
+<div class="absolute inset-0 border-2 border-primary border-dashed rounded-full animate-[spin_10s_linear_infinite]"></div>
+<span class="material-symbols-outlined text-[48px] text-primary">radar</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface text-center">New Scan Directive</h2>
+<div class="w-full max-w-[800px] relative mt-md">
+<input class="w-full h-[72px] pl-lg pr-[140px] rounded-xl bg-surface font-body-lg text-body-lg text-on-surface placeholder-on-surface-variant/50 focus:outline-none focus:ring-2 focus:ring-primary/50 shadow-inner transition-all" placeholder="Enter target URL, IP address, or domain..." type="text"/>
+<button class="absolute right-xs top-xs bottom-xs px-lg bg-gradient-to-r from-primary to-secondary rounded-lg font-label-md text-label-md text-on-primary hover:scale-[1.02] transition-transform overflow-hidden group/btn shadow-md">
+<div class="absolute inset-0 bg-white/20 -translate-x-[150%] skew-x-12 group-hover/btn:animate-[shimmer_1.5s_infinite]"></div>
+<span class="relative flex items-center gap-sm">
+<span class="material-symbols-outlined text-[20px]">search</span>
+                    Analyze Target
+                 </span>
+</button>
+</div>
+<div class="flex flex-wrap items-center justify-center gap-md mt-sm">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Quick Options:</span>
+<button class="px-md py-sm rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 hover:text-primary transition-colors">Deep Scan</button>
+<button class="px-md py-sm rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 hover:text-primary transition-colors">Lightweight Recon</button>
+<button class="px-md py-sm rounded-full bg-surface-variant text-on-surface-variant font-label-md text-label-md hover:bg-primary-container/20 hover:text-primary transition-colors">OSINT Only</button>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-lg mt-md">
+<div class="lg:col-span-2 flex flex-col gap-lg">
+<div class="flex items-center justify-between stagger-3">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">history</span>
+                    Recent Operations
+                 </h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View All Logs</button>
+</div>
+<div class="flex flex-col gap-sm stagger-4">
+<div class="p-md rounded-xl bg-surface-container/60 backdrop-blur-md border border-white/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-md hover:scale-[1.01] transition-transform shadow-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-[#10B981]/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#10B981]">check_circle</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">api.payment-gateway.internal</span>
+<span class="font-body-md text-[13px] text-on-surface-variant">Scheduled Deep Scan · 2 mins ago</span>
+</div>
+</div>
+<div class="flex items-center gap-lg w-full md:w-auto justify-between md:justify-end">
+<div class="flex flex-col items-end hidden md:flex">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Duration</span>
+<span class="font-label-md text-label-md text-on-surface">4m 12s</span>
+</div>
+<div class="px-sm py-xs rounded bg-[#10B981]/10 text-[#10B981] font-label-sm text-label-sm whitespace-nowrap">Clean (98/100)</div>
+</div>
+</div>
+<div class="p-md rounded-xl bg-surface-container/60 backdrop-blur-md border border-white/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-md hover:scale-[1.01] transition-transform shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1 bg-error"></div>
+<div class="flex items-center gap-md pl-sm">
+<div class="w-12 h-12 rounded-lg bg-error/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-error">warning</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">auth.legacy-portal.com</span>
+<span class="font-body-md text-[13px] text-on-surface-variant">Manual Scan · 1 hour ago</span>
+</div>
+</div>
+<div class="flex items-center gap-lg w-full md:w-auto justify-between md:justify-end">
+<div class="flex flex-col items-end hidden md:flex">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Duration</span>
+<span class="font-label-md text-label-md text-on-surface">12m 05s</span>
+</div>
+<div class="px-sm py-xs rounded bg-error/10 text-error font-label-sm text-label-sm whitespace-nowrap flex items-center gap-xs">
+                              3 Critical Flags
+                          </div>
+</div>
+</div>
+<div class="p-md rounded-xl bg-surface-container/60 backdrop-blur-md border border-white/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-md hover:scale-[1.01] transition-transform shadow-sm">
+<div class="flex items-center gap-md">
+<div class="w-12 h-12 rounded-lg bg-[#F59E0B]/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-[#F59E0B]">sync</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-md text-label-md text-on-surface">staging.ecommerce.app</span>
+<span class="font-body-md text-[13px] text-on-surface-variant">Continuous Monitor · Scanning...</span>
+</div>
+</div>
+<div class="flex items-center gap-lg w-full md:w-auto justify-between md:justify-end flex-1 md:flex-none">
+<div class="w-full md:w-[150px] h-2 bg-surface rounded-full overflow-hidden">
+<div class="h-full bg-[#F59E0B] w-[65%] rounded-full relative overflow-hidden">
+<div class="absolute inset-0 bg-white/30 animate-[shimmer_2s_infinite]"></div>
+</div>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant min-w-[40px] text-right">65%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-lg stagger-5">
+<h3 class="font-headline-md text-headline-md text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">donut_large</span>
+                Global Posture
+            </h3>
+<div class="p-lg rounded-2xl bg-surface-container/80 backdrop-blur-xl border border-white/50 shadow-md flex flex-col items-center text-center">
+<div class="relative w-48 h-48 flex items-center justify-center">
+<svg class="w-full h-full -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface stroke-[8]" cx="50" cy="50" fill="none" r="40" stroke="currentColor"></circle>
+<circle class="text-[#10B981] stroke-[8] [stroke-dasharray:251] [stroke-dashoffset:45] transition-all duration-1000 ease-out" cx="50" cy="50" fill="none" r="40" stroke="currentColor"></circle>
+</svg>
+<div class="absolute flex flex-col items-center">
+<span class="font-display-lg text-[40px] text-on-surface leading-none">82</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-xs">Score</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-md">Overall security posture is <strong class="text-[#10B981]">Healthy</strong>. 2 targets require attention.</p>
+<div class="w-full flex justify-between mt-lg pt-lg border-t border-outline-variant/30">
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-on-surface">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Monitored</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-error">3</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Vulnerabilities</span>
+</div>
+<div class="flex flex-col items-center">
+<span class="font-headline-md text-headline-md text-[#10B981]">0</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Breaches</span>
+</div>
+</div>
+</div>
+<div class="p-md rounded-xl bg-inverse-surface text-inverse-on-surface shadow-lg relative overflow-hidden group">
+<div class="absolute -right-4 -top-4 w-24 h-24 bg-primary/20 rounded-full blur-xl group-hover:bg-primary/40 transition-colors"></div>
+<div class="relative z-10 flex flex-col gap-sm">
+<div class="flex items-center gap-xs text-primary-fixed-dim">
+<span class="material-symbols-outlined text-[18px]">auto_awesome</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider">AI Insight</span>
+</div>
+<p class="font-body-md text-body-md text-inverse-on-surface">Predictive models suggest a 15% increased risk of credential stuffing attacks on legacy authentication endpoints over the weekend.</p>
+<button class="self-start mt-xs text-primary-fixed font-label-md text-label-md hover:underline flex items-center gap-xs">
+                         Deploy Countermeasures <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<style>
+  .stagger-1 { opacity: 0; animation: fadeUp 0.6s ease-out 0.1s forwards; }
+  .stagger-2 { opacity: 0; animation: fadeUp 0.6s ease-out 0.2s forwards; }
+  .stagger-3 { opacity: 0; animation: fadeUp 0.6s ease-out 0.3s forwards; }
+  .stagger-4 { opacity: 0; animation: fadeUp 0.6s ease-out 0.4s forwards; }
+  .stagger-5 { opacity: 0; animation: fadeUp 0.6s ease-out 0.5s forwards; }
+  
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Set active nav state in shell
+    const navLinks = document.querySelectorAll('header nav a');
+    navLinks.forEach(link => {
+       if(link.getAttribute('data-path') === 'security-scanner') {
+           const activeClasses = link.parentElement.getAttribute('data-active-classes');
+           if(activeClasses) {
+               link.className = `flex items-center gap-sm px-md py-sm font-label-md transition-all ${activeClasses}`;
+               link.querySelector('.material-symbols-outlined').classList.add('text-primary');
+           }
+       }
+    });
+  });
+</script></main></body></html>

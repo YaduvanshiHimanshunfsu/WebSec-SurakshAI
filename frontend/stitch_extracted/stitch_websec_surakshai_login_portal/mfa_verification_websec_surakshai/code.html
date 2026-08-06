@@ -1,0 +1,268 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base {
+    html, body {
+        margin: 0;
+        padding: 0;
+        } body {
+        overscroll-behavior: none;
+        } main >: first-child {
+        margin-top: 0 ! important;
+        } main >: last-child {
+        margin-bottom: 0 ! important;
+        }
+    }
+::-webkit-scrollbar {
+    display: none
+    }
+.aurora-bg {
+    background: radial-gradient(circle at 0% 0%, #4648d4 0%, transparent 50%), radial-gradient(circle at 100% 0%, #6b38d4 0%, transparent 50%), radial-gradient(circle at 100% 100%, #904900 0%, transparent 50%), radial-gradient(circle at 0% 100%, #494bd6 0%, transparent 50%);
+    filter: blur(80px);
+    opacity: 0.4
+    }
+.morph-blob {
+    animation: morph 15s ease-in-out infinite alternate
+    }
+@keyframes morph {
+    0% {
+        border-radius: 40% 60% 60% 40%/40% 40% 60% 60%;
+        transform: translate(0, 0) rotate(0deg);
+        } 50% {
+        border-radius: 60% 40% 40% 60%/60% 60% 40% 40%;
+        transform: translate(20px, 30px) rotate(90deg);
+        } 100% {
+        border-radius: 40% 60% 60% 40%/40% 40% 60% 60%;
+        transform: translate(-20px, 10px) rotate(180deg);
+        }
+    }
+.noise-overlay {
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDKQpHtFbBqiUGzP5sldGQmoGjl9RMgMB-y7Xy-crFHp7N0rLvibeYFHImlBVLDW174moIxwztqRJjzJXrYYXxF1CwHwRphjX27le1ADIFMERwyGEaUwJMB5oFalOKxNTtPwvHr-KczaJZp3Wk065jwC4XnK2ir-zBzCYaOT8HB0DmlD2hiJQsmTMzt171H55brHc8uw67i0RbkdswCWSWEevk5yIGFb5kbwvSJ8DcA8Jj6YD67tucX);
+    opacity: 0.05;
+    pointer-events: none
+    }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"surface":"#fcf8ff","surface-dim":"#dbd8e4","error-container":"#ffdad6","on-secondary-fixed-variant":"#5516be","inverse-primary":"#c0c1ff","on-tertiary-fixed-variant":"#703700","on-secondary":"#ffffff","primary":"#4648d4","tertiary-container":"#b55d00","secondary-fixed":"#e9ddff","background":"#fcf8ff","secondary":"#6b38d4","surface-container-low":"#f5f2fe","tertiary":"#904900","on-tertiary-container":"#fffbff","on-secondary-container":"#fffbff","error":"#ba1a1a","on-background":"#1b1b23","on-error-container":"#93000a","surface-container-high":"#e9e6f3","surface-container-lowest":"#ffffff","surface-container":"#efecf8","inverse-surface":"#303038","on-surface-variant":"#464554","inverse-on-surface":"#f2effb","secondary-container":"#8455ef","on-tertiary":"#ffffff","on-secondary-fixed":"#23005c","surface-tint":"#494bd6","surface-bright":"#fcf8ff","on-error":"#ffffff","outline":"#767586","on-primary-fixed-variant":"#2f2ebe","surface-variant":"#e4e1ed","on-tertiary-fixed":"#301400","tertiary-fixed-dim":"#ffb783","primary-fixed-dim":"#c0c1ff","primary-container":"#6063ee","surface-container-highest":"#e4e1ed","on-primary-fixed":"#07006c","outline-variant":"#c7c4d7","on-primary":"#ffffff","on-primary-container":"#fffbff","on-surface":"#1b1b23","tertiary-fixed":"#ffdcc5","secondary-fixed-dim":"#d0bcff","primary-fixed":"#e1e0ff"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"lg":"24px","sm":"8px","xl":"40px","base":"4px","md":"16px","gutter":"24px","margin-mobile":"16px","margin-desktop":"48px","2xl":"64px","xs":"4px"},"fontFamily":{"headline-lg-mobile":["Plus Jakarta Sans"],"label-sm":["Inter"],"display-lg":["Plus Jakarta Sans"],"body-lg":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Inter"]},"fontSize":{"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Plus+Jakarta+Sans:wght@100..900&display=swap" rel="stylesheet"/></head><body class="bg-surface font-body-md text-on-surface overflow-x-hidden"><div class="fixed inset-0 z-0 overflow-hidden"><div class="aurora-bg absolute inset-0"></div><div class="morph-blob absolute top-1/4 -left-20 w-[500px] h-[500px] bg-primary/20 mix-blend-multiply filter blur-3xl"></div><div class="morph-blob absolute bottom-1/4 -right-20 w-[600px] h-[600px] bg-secondary/20 mix-blend-multiply filter blur-3xl"></div><div class="noise-overlay absolute inset-0"></div></div><main class="relative z-10 min-h-screen flex items-center justify-center p-gutter"><div class="flex flex-col w-full h-full items-center justify-center py-2xl px-gutter relative z-10">
+<div class="w-full max-w-[440px] rounded-xl bg-surface/70 backdrop-blur-2xl shadow-xl overflow-hidden relative opacity-0 translate-y-4" id="mfa-card">
+<div class="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none"></div>
+<div class="absolute -inset-[1px] bg-gradient-to-r from-primary via-secondary to-primary bg-[length:200%_100%] rounded-xl z-[-1] animate-[shimmer_3s_linear_infinite] opacity-50"></div>
+<div class="relative p-xl flex flex-col gap-xl">
+<!-- Header -->
+<div class="flex flex-col items-center text-center gap-sm stagger-item opacity-0 translate-y-4">
+<div class="w-16 h-16 rounded-full bg-primary-container/20 flex items-center justify-center mb-md relative">
+<div class="absolute inset-0 rounded-full border-2 border-primary animate-ping opacity-30"></div>
+<span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<h1 class="font-headline-lg text-[28px] bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Verify Your Identity</h1>
+<p class="font-body-md text-on-surface-variant text-sm">Enter the 6-digit code sent to your registered device.</p>
+</div>
+<!-- MFA Input Area -->
+<div class="flex flex-col gap-lg stagger-item opacity-0 translate-y-4">
+<div class="flex justify-between gap-sm" id="otp-container">
+<input autofocus="" class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+<input class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+<input class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+<input class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+<input class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+<input class="w-12 h-14 text-center font-headline-md text-2xl bg-surface-container rounded-lg border-2 border-transparent focus:border-primary focus:bg-surface focus:shadow-[0_0_15px_rgba(70,72,212,0.2)] outline-none transition-all duration-200 text-on-surface select-none otp-input" inputmode="numeric" maxlength="1" pattern="[0-9]*" type="text"/>
+</div>
+<div class="text-error font-label-sm text-center opacity-0 transition-opacity duration-300 h-4" id="error-message">Invalid code. Please try again.</div>
+</div>
+<!-- Timer & Resend -->
+<div class="flex flex-col items-center gap-md stagger-item opacity-0 translate-y-4">
+<div class="flex items-center gap-sm text-on-surface-variant font-label-md">
+<div class="relative w-5 h-5">
+<svg class="w-5 h-5 transform -rotate-90" viewbox="0 0 24 24">
+<circle class="opacity-20" cx="12" cy="12" fill="none" r="10" stroke="currentColor" stroke-width="2"></circle>
+<circle class="transition-all duration-1000 ease-linear text-primary" cx="12" cy="12" fill="none" id="timer-ring" r="10" stroke="currentColor" stroke-dasharray="62.8" stroke-dashoffset="0" stroke-width="2"></circle>
+</svg>
+</div>
+<span>Code expires in <span class="font-mono font-medium" id="timer-text">01:59</span></span>
+</div>
+<button class="font-label-md text-primary opacity-50 cursor-not-allowed hover:underline transition-all" disabled="" id="resend-btn">Didn't get the code? Resend</button>
+</div>
+<!-- Action Button -->
+<div class="stagger-item opacity-0 translate-y-4">
+<button class="w-full relative overflow-hidden bg-gradient-to-r from-primary to-secondary text-on-primary font-headline-md text-lg py-md rounded-lg shadow-md hover:shadow-lg hover:-translate-y-[1px] transition-all duration-300 group flex items-center justify-center gap-sm" id="verify-btn">
+<span class="relative z-10 flex items-center gap-sm" id="btn-text">
+            Verify & Access
+            <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+<div class="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/20 to-transparent z-0" id="btn-shimmer"></div>
+</button>
+</div>
+<!-- Footer -->
+<div class="text-center stagger-item opacity-0 translate-y-4">
+<a class="font-label-sm text-on-surface-variant hover:text-primary transition-colors" href="#">Having trouble? Contact Security Support</a>
+</div>
+</div>
+</div>
+<!-- Toast Notification -->
+<div class="fixed top-lg left-1/2 -translate-x-1/2 bg-error text-on-error px-lg py-md rounded-lg shadow-lg font-label-md flex items-center gap-sm opacity-0 -translate-y-full transition-all duration-300 z-50 pointer-events-none" id="toast">
+<span class="material-symbols-outlined">error</span>
+<span>Authentication failed. Code incorrect.</span>
+</div>
+</div>
+<style>
+  @keyframes shimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
+  }
+  @keyframes sweep {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+  .animate-sweep {
+    animation: sweep 1.5s infinite linear;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+  }
+  .shake-anim {
+    animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+  }
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Staggered Entrance
+    const card = document.getElementById('mfa-card');
+    const staggerItems = document.querySelectorAll('.stagger-item');
+    
+    setTimeout(() => {
+      card.style.transition = 'opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+      
+      staggerItems.forEach((item, index) => {
+        setTimeout(() => {
+          item.style.transition = 'opacity 0.5s ease-out, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1)';
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, 100 + (index * 100));
+      });
+    }, 100);
+
+    // OTP Input Logic
+    const inputs = document.querySelectorAll('.otp-input');
+    
+    inputs.forEach((input, index) => {
+      input.addEventListener('input', (e) => {
+        if (e.target.value.length === 1) {
+          if (index < inputs.length - 1) {
+            inputs[index + 1].focus();
+          }
+        }
+      });
+      
+      input.addEventListener('keydown', (e) => {
+        if (e.key === 'Backspace' && !e.target.value) {
+          if (index > 0) {
+            inputs[index - 1].focus();
+          }
+        }
+      });
+      
+      // Allow paste
+      input.addEventListener('paste', (e) => {
+        e.preventDefault();
+        const pastedData = e.clipboardData.getData('text').slice(0, 6).replace(/\D/g, '');
+        if (pastedData) {
+          for(let i=0; i<pastedData.length; i++) {
+            if(inputs[i]) {
+              inputs[i].value = pastedData[i];
+              if(i < inputs.length - 1) inputs[i+1].focus();
+              else inputs[i].focus();
+            }
+          }
+        }
+      });
+    });
+
+    // Timer Logic
+    let timeLeft = 119; // 1:59
+    const timerText = document.getElementById('timer-text');
+    const timerRing = document.getElementById('timer-ring');
+    const resendBtn = document.getElementById('resend-btn');
+    const totalDash = 62.8;
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      
+      const minutes = Math.floor(timeLeft / 60);
+      const seconds = timeLeft % 60;
+      timerText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+      
+      const dashoffset = totalDash - (timeLeft / 119) * totalDash;
+      timerRing.style.strokeDashoffset = dashoffset;
+
+      if (timeLeft <= 0) {
+        clearInterval(timer);
+        resendBtn.disabled = false;
+        resendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        timerRing.classList.remove('text-primary');
+        timerRing.classList.add('text-error');
+      }
+    }, 1000);
+
+    // Verification Logic (Simulation)
+    const verifyBtn = document.getElementById('verify-btn');
+    const btnText = document.getElementById('btn-text');
+    const btnShimmer = document.getElementById('btn-shimmer');
+    const errorMessage = document.getElementById('error-message');
+    const toast = document.getElementById('toast');
+    const otpContainer = document.getElementById('otp-container');
+
+    verifyBtn.addEventListener('click', () => {
+      const code = Array.from(inputs).map(i => i.value).join('');
+      
+      // Loading State
+      btnText.innerHTML = 'Verifying... <span class="material-symbols-outlined animate-spin text-sm">autorenew</span>';
+      btnShimmer.classList.add('animate-sweep');
+      verifyBtn.disabled = true;
+      errorMessage.style.opacity = '0';
+      inputs.forEach(i => i.classList.remove('border-error', 'border-primary'));
+
+      setTimeout(() => {
+        btnShimmer.classList.remove('animate-sweep');
+        
+        // Mock validation: fail if not '123456', success otherwise (if all filled)
+        if (code === '123456' || code.length === 6 && code !== '000000') {
+          // Success
+          btnText.innerHTML = '✓ Verified';
+          verifyBtn.classList.remove('from-primary', 'to-secondary');
+          verifyBtn.classList.add('bg-[#146c2e]', 'bg-none'); // Using inline for specific success color if not in tokens, but ideally use theme if available. Falling back to primary for safety or valid token if we had one. Let's use generic green hex for pure success visual as it's common, but sticking to tokens is better. Let's use tertiary container just to stay strictly within tokens if possible, but the prompt says 'flashes green'. I'll add a temporary class.
+          verifyBtn.style.background = 'linear-gradient(to right, #2e7d32, #4caf50)';
+          
+          inputs.forEach(i => {
+            i.style.borderColor = '#4caf50';
+            i.style.color = '#4caf50';
+            i.style.backgroundColor = 'rgba(76, 175, 80, 0.1)';
+          });
+          
+          setTimeout(() => {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.95)';
+          }, 1000);
+          
+        } else {
+          // Error
+          verifyBtn.disabled = false;
+          btnText.innerHTML = `Verify & Access <span class="material-symbols-outlined transform group-hover:translate-x-1 transition-transform">arrow_forward</span>`;
+          
+          card.classList.add('shake-anim');
+          setTimeout(() => card.classList.remove('shake-anim'), 500);
+          
+          errorMessage.style.opacity = '1';
+          inputs.forEach(i => i.classList.add('border-error', 'text-error'));
+          
+          // Show toast
+          toast.style.opacity = '1';
+          toast.style.transform = 'translate(-50%, 0)';
+          setTimeout(() => {
+            toast.style.opacity = '0';
+            toast.style.transform = 'translate(-50%, -100%)';
+          }, 3000);
+        }
+      }, 1500);
+    });
+  });
+</script></main></body></html>

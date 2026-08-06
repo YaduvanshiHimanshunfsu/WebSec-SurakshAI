@@ -1,0 +1,17 @@
+id: xss-reflected-001
+category: xss
+technique: reflected
+severity: high
+payloads:
+  - "<script>alert('XSS')</script>"
+  - "<img src=x onerror=alert('XSS')>"
+  - "\"'><script>alert(1)</script>"
+  - "<svg onload=alert('XSS')>"
+  - "javascript:alert('XSS')"
+match:
+  type: string_in_response
+  check: "payload_in_response_unescaped"
+remediation: >
+  Encode all user-supplied output using HTML entity encoding before rendering.
+  Use a template engine with auto-escaping (Jinja2 with autoescaping=True, React JSX, etc.).
+  Apply a Content-Security-Policy header to restrict script sources.

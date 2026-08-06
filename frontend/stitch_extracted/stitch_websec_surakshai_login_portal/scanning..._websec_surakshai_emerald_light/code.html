@@ -1,0 +1,160 @@
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}
+  
+  @keyframes scanline {
+    0% { transform: translateY(-100%); opacity: 0; }
+    50% { opacity: 0.5; }
+    100% { transform: translateY(100vh); opacity: 0; }
+  }
+  .animate-scanline {
+    animation: scanline 4s linear infinite;
+  }
+  
+  .terminal-font {
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  }
+</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={theme:{extend:{"colors":{"background":"#fcf8ff","surface-container":"#efecf8","secondary":"#6b38d4","on-tertiary":"#ffffff","on-secondary-fixed":"#23005c","secondary-container":"#8455ef","surface-dim":"#dbd8e4","outline-variant":"#c7c4d7","surface-tint":"#494bd6","on-primary-fixed":"#07006c","primary-fixed":"#e1e0ff","tertiary-container":"#b55d00","on-tertiary-fixed-variant":"#703700","on-primary-container":"#fffbff","on-primary-fixed-variant":"#2f2ebe","inverse-primary":"#c0c1ff","primary-fixed-dim":"#c0c1ff","on-primary":"#ffffff","on-tertiary-fixed":"#301400","on-secondary-fixed-variant":"#5516be","primary":"#4648d4","tertiary-fixed":"#ffdcc5","on-secondary-container":"#fffbff","surface-container-highest":"#e4e1ed","secondary-fixed-dim":"#d0bcff","surface-variant":"#e4e1ed","surface-container-lowest":"#ffffff","surface-container-low":"#f5f2fe","surface-container-high":"#e9e6f3","on-background":"#1b1b23","outline":"#767586","on-error-container":"#93000a","error":"#ba1a1a","on-error":"#ffffff","on-tertiary-container":"#fffbff","error-container":"#ffdad6","inverse-on-surface":"#f2effb","on-surface":"#1b1b23","surface-bright":"#fcf8ff","secondary-fixed":"#e9ddff","primary-container":"#6063ee","inverse-surface":"#303038","on-secondary":"#ffffff","surface":"#fcf8ff","tertiary":"#904900","tertiary-fixed-dim":"#ffb783","on-surface-variant":"#464554"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"margin-desktop":"48px","lg":"24px","md":"16px","xs":"4px","2xl":"64px","margin-mobile":"16px","base":"4px","sm":"8px","xl":"40px","gutter":"24px"},"fontFamily":{"display-lg":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-md":["Inter"],"body-lg":["Inter"],"label-md":["Inter"],"label-sm":["Inter"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]},"fontSize":{"display-lg":["48px",{"lineHeight":"1.1","letterSpacing":"-0.02em","fontWeight":"800"}],"headline-md":["24px",{"lineHeight":"1.3","fontWeight":"600"}],"body-md":["16px",{"lineHeight":"1.5","fontWeight":"400"}],"body-lg":["18px",{"lineHeight":"1.6","fontWeight":"400"}],"label-md":["14px",{"lineHeight":"1.4","fontWeight":"500"}],"label-sm":["12px",{"lineHeight":"1.2","letterSpacing":"0.05em","fontWeight":"600"}],"headline-lg":["32px",{"lineHeight":"1.2","letterSpacing":"-0.01em","fontWeight":"700"}],"headline-lg-mobile":["24px",{"lineHeight":"1.2","fontWeight":"700"}]}}}}</script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;family=Plus+Jakarta+Sans:wght@100..900&amp;family=JetBrains+Mono:wght@400;600;700&amp;display=swap" rel="stylesheet"/></head><body class="bg-background font-body-md text-on-surface"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container z-50 flex flex-col pt-lg pb-xl"><div class="px-lg mb-xl flex flex-col gap-xs"><div class="flex items-center gap-sm text-primary"><span class="material-symbols-outlined text-[28px]">shield</span><span class="font-display-lg text-[16px] font-[800] tracking-tight text-on-background">WebSec-SurakshAI</span></div><div class="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant px-sm opacity-70">NFSU · Tripura Campus</div></div><nav class="flex-1 px-sm flex flex-col gap-base" data-active-classes="bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary"><a aria-current="page" class="flex items-center px-md py-sm rounded-lg transition-all group bg-primary-container text-on-primary-container shadow-sm border-r-4 border-primary" data-path="security-scanner" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">security</span><span class="font-label-md">Security Scanner</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="ai-scam-analyzer" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">psychology</span><span class="font-label-md">AI Scam Analyzer</span></a><a class="flex items-center px-md py-sm rounded-lg text-on-surface-variant hover:bg-surface-container-highest hover:text-on-surface transition-all group" data-path="reports" href="#"><span class="material-symbols-outlined mr-md group-hover:scale-110 transition-transform">assessment</span><span class="font-label-md">Reports</span></a></nav><div class="px-lg pt-lg border-t border-outline-variant"><div class="p-md rounded-xl bg-surface-container-low flex flex-col gap-xs"><span class="text-[10px] font-bold uppercase tracking-tighter text-on-surface-variant">Status</span><div class="flex items-center gap-sm"><div class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></div><span class="text-label-sm text-on-surface">Monitoring Active</span></div></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-[#0b0f19] z-40 flex items-center justify-end px-xl gap-lg shadow-sm"><div class="flex items-center gap-md border-r border-outline/20 pr-lg"><span class="material-symbols-outlined text-surface text-[20px] cursor-pointer hover:text-primary transition-colors">search</span><span class="material-symbols-outlined text-surface text-[20px] cursor-pointer hover:text-primary transition-colors">notifications</span></div><div class="flex items-center gap-sm"><div class="flex flex-col items-end"><span class="text-label-sm text-surface">NFSU Administrator</span><span class="text-[10px] text-surface/60">himanshu.yadav@nfsu.ac.in</span></div><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center border border-primary-fixed/20"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></header><main class="relative pt-16 min-h-screen bg-[#0b0f19] flex justify-center items-center py-xl overflow-hidden"><div class="flex flex-col w-full relative max-w-4xl px-md">
+<!-- Subtle Background Scan Animation -->
+<div class="absolute inset-0 z-0 pointer-events-none opacity-20">
+<div class="w-full h-1 bg-primary blur-[2px] animate-scanline"></div>
+<div class="w-full h-full bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
+</div>
+<!-- Decorative Ambient Background Blobs -->
+<div class="absolute top-20 right-20 w-96 h-96 bg-primary-fixed/20 rounded-full blur-[100px] pointer-events-none z-0"></div>
+<div class="absolute bottom-10 left-10 w-[500px] h-[500px] bg-secondary-fixed/10 rounded-full blur-[120px] pointer-events-none z-0"></div>
+<!-- Top: Scan Form Card (Locked/Progress State) -->
+<div class="relative z-10 w-full bg-surface-container-highest/20 backdrop-blur-md rounded-2xl shadow-sm p-lg mb-lg overflow-hidden flex flex-col gap-md border border-outline-variant/20">
+<!-- Animated Shimmer Progress Bar at the top of the card -->
+<div class="absolute top-0 left-0 h-1 w-full bg-surface-container-highest/30 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-primary via-secondary to-primary w-1/2 animate-[pulse_2s_infinite] relative shadow-[0_0_10px_rgba(107,56,212,0.8)]">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/50 to-transparent w-full animate-[translateX_1s_infinite]"></div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<h2 class="font-headline-md text-headline-md text-surface">Target Analysis</h2>
+<div class="flex items-center gap-sm px-md py-xs bg-secondary/20 rounded-full border border-secondary/30">
+<div class="w-2 h-2 rounded-full bg-secondary animate-ping"></div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-widest">Scanning Active</span>
+</div>
+</div>
+<!-- Target Display -->
+<div class="bg-surface/5 rounded-xl p-md flex items-center justify-between group border border-outline-variant/10">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-outline-variant text-[20px]">radar</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-surface-variant uppercase mb-xs">Target URL</span>
+<span class="font-body-lg text-body-lg text-surface font-semibold tracking-tight terminal-font">https://secure-login.suspicious-domain-verify.com/auth</span>
+</div>
+</div>
+<div class="flex items-center justify-center w-8 h-8 rounded-full bg-surface/10 hover:bg-surface/20 cursor-pointer transition-colors text-surface-variant">
+<span class="material-symbols-outlined text-[18px]">content_copy</span>
+</div>
+</div>
+</div>
+<!-- Bottom: Scan Progress Card -->
+<div class="relative z-10 w-full bg-[#1b1b23]/90 backdrop-blur-3xl shadow-2xl border border-outline/20 rounded-3xl p-xl flex flex-col gap-xl transform translate-y-8 opacity-0 transition-all duration-700 ease-out" id="progress-card">
+<div class="flex items-end justify-between w-full">
+<div class="flex flex-col gap-xs">
+<h3 class="font-headline-lg text-headline-lg text-surface">Execution Log</h3>
+<span class="font-body-md text-body-md text-surface-variant terminal-font text-sm">&gt; Deep heuristic analysis in progress. Please do not close this window.</span>
+</div>
+<div class="flex flex-col items-end">
+<span class="font-display-lg text-display-lg text-primary tracking-tighter">68%</span>
+<span class="font-label-sm text-label-sm text-outline uppercase tracking-widest">Elapsed: 00:14s</span>
+</div>
+</div>
+<!-- Vertical Timeline -->
+<div class="relative py-md px-sm bg-[#111116] rounded-xl border border-outline/10 h-80 overflow-y-auto terminal-font text-sm">
+<div class="flex flex-col gap-sm p-sm" id="timeline-items">
+<!-- Item 1: Done -->
+<div class="timeline-item flex items-start gap-md opacity-0 translate-y-4 transition-all duration-500">
+<span class="text-surface-variant w-24 shrink-0">[10:04:12]</span>
+<div class="flex flex-col">
+<span class="text-primary font-semibold">✓ [OK] Resolving target infrastructure</span>
+<span class="text-surface-variant text-xs mt-1">DNS records successfully mapped. IP: 192.168.45.112</span>
+</div>
+</div>
+<!-- Item 2: Done -->
+<div class="timeline-item flex items-start gap-md opacity-0 translate-y-4 transition-all duration-500 delay-100">
+<span class="text-surface-variant w-24 shrink-0">[10:04:14]</span>
+<div class="flex flex-col">
+<span class="text-primary font-semibold">✓ [OK] Checking TLS &amp; SSL certificates</span>
+<span class="text-surface-variant text-xs mt-1">Certificate issued by Let's Encrypt. Valid for 89 days.</span>
+</div>
+</div>
+<!-- Item 3: Done -->
+<div class="timeline-item flex items-start gap-md opacity-0 translate-y-4 transition-all duration-500 delay-200">
+<span class="text-surface-variant w-24 shrink-0">[10:04:15]</span>
+<div class="flex flex-col">
+<span class="text-primary font-semibold">✓ [OK] Analysing HTTP security headers</span>
+<span class="text-surface-variant text-xs mt-1">Missing CSP and Strict-Transport-Security flags detected.</span>
+</div>
+</div>
+<!-- Item 4: In Progress -->
+<div class="timeline-item flex items-start gap-md opacity-0 translate-y-4 transition-all duration-500 delay-300">
+<span class="text-surface-variant w-24 shrink-0">[10:04:18]</span>
+<div class="flex flex-col">
+<span class="text-secondary font-bold flex items-center gap-2">
+  &gt; Checking global phishing databases
+  <span class="flex gap-1"><div class="w-1.5 h-1.5 bg-secondary rounded-full animate-bounce"></div><div class="w-1.5 h-1.5 bg-secondary rounded-full animate-bounce [animation-delay:0.2s]"></div><div class="w-1.5 h-1.5 bg-secondary rounded-full animate-bounce [animation-delay:0.4s]"></div></span>
+</span>
+<span class="text-surface-variant text-xs mt-1">Querying WebSec Threat Intel &amp; OpenPhish feeds.</span>
+</div>
+</div>
+<!-- Item 5: Pending -->
+<div class="timeline-item flex items-start gap-md opacity-0 translate-y-4 transition-all duration-500 delay-500">
+<span class="text-outline w-24 shrink-0">[--:--:--]</span>
+<div class="flex flex-col opacity-50">
+<span class="text-outline">⋯ [ ] Machine Learning DOM analysis</span>
+<span class="text-outline-variant text-xs mt-1">Awaiting previous module completion.</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div class="w-full h-[1px] bg-outline/20"></div>
+<!-- Footer Action Buttons -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-sm">
+<div class="w-3 h-3 rounded-full bg-tertiary-container animate-pulse"></div>
+<span class="font-label-md text-label-md text-tertiary-container">Generating Report Assets...</span>
+</div>
+<!-- Buttons visible and active -->
+<div class="flex items-center gap-md transition-opacity duration-1000" id="action-buttons">
+<button class="px-md py-sm rounded-lg border border-outline/30 text-surface font-label-md text-label-md flex items-center gap-sm transition-colors hover:bg-surface/10">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Export JSON
+        </button>
+<button class="px-md py-sm rounded-lg border border-outline/30 text-surface font-label-md text-label-md flex items-center gap-sm transition-colors hover:bg-surface/10">
+<span class="material-symbols-outlined text-[18px]">download</span>
+          Export PDF
+        </button>
+<button class="px-lg py-sm rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-sm shadow-md transition-all hover:scale-[1.02] hover:shadow-lg relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]"></div>
+          View Full Report
+          <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    setTimeout(() => {
+      const card = document.getElementById('progress-card');
+      card.classList.remove('translate-y-8', 'opacity-0');
+      card.classList.add('translate-y-0', 'opacity-100');
+    }, 100);
+
+    const items = document.querySelectorAll('.timeline-item');
+    items.forEach((item, index) => {
+      setTimeout(() => {
+        item.classList.remove('translate-y-4', 'opacity-0');
+        item.classList.add('translate-y-0', 'opacity-100');
+      }, 300 + (index * 150));
+    });
+  });
+</script></main><footer class="w-full py-lg border-t border-outline/20 bg-[#0b0f19] pl-72"><div class="px-xl flex justify-between items-center"><p class="text-label-sm text-surface-variant">Developed by <span class="font-bold text-surface">Himanshu Yadav</span> · National Forensic Sciences University, Tripura Campus</p><div class="flex gap-md"><span class="text-[10px] font-mono text-outline uppercase">v1.0.4-stable</span><span class="text-[10px] font-mono text-outline uppercase">Secure Core</span></div></div></footer></div></body></html>

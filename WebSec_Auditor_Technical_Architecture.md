@@ -1,0 +1,459 @@
+# WebSec Auditor — Technical Architecture Document
+
+**Project type:** Web application (Flask backend + server-rendered dashboard)
+**Status:** Design specification for implementation
+**Author's note:** This doc is written to be handed to yourself (or a teammate) and implemented directly — every folder, file, and library choice is justified, not just listed.
+
+---
+
+## 1. Problem Statement
+
+Website owners and students learning appsec have no single, beginner-friendly tool that checks the basics of a site's security posture in one place. Today they need to visit 4–5 different tools separately:
+
+- SSL Labs for TLS/certificate health
+- SecurityHeaders.com / Mozilla Observatory for HTTP header hygiene
+- Google Safe Browsing / PhishTank manually for phishing/reputation status
+- A separate DAST tool (ZAP/Burp) — usually too complex for a non-specialist — for injection vulnerabilities
+
+There is no small, self-hosted, explainable tool that consolidates read-only checks into one report **and** treats active vulnerability testing as a privileged, authorization-gated action rather than something you can point at any URL. WebSec Auditor solves the first problem directly and solves the second problem by design, not by omission — the authorization gate is a core architectural feature, not a warning label.
+
+**Non-goals (explicitly out of scope for v1):**
+- Replacing Burp Suite / OWASP ZAP for professional pentesting
+- Multi-tenant SaaS with billing
+- Distributed/high-volume scanning (this is a single-operator tool)
+
+---
+
+## 2. Feature List
+
+### Passive module (safe on any public URL, no authorization required)
+| Feature | Description |
+|---|---|
+| TLS/Certificate check | Protocol version, cipher strength, cert chain validity, expiry |
+| Security header audit | CSP, HSTS, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy |
+| Phishing/reputation check | Cross-references Google Safe Browsing + PhishTank |
+| WHOIS/domain age lookup | Flags very recently registered domains (common phishing signal) |
+
+### Active module (gated — authorized/sandbox targets only)
+| Feature | Description |
+|---|---|
+| SQL Injection tester | Error/boolean/time-based payload templates |
+| XSS tester | Reflected/stored payload templates |
+| Command Injection tester | OS command separator payload templates |
+| Authorization gate | DNS TXT-record domain-ownership verification, or redirect to bundled sandbox |
+
+### Shared
+| Feature | Description |
+|---|---|
+| Unified report | Combined risk-scored report (Critical/High/Medium/Low) |
+| Export | PDF and JSON |
+| Scan history | Stores past scans per target for trend comparison |
+| Scheduled re-scans | Optional weekly re-check of saved, authorized targets |
+
+---
+
+## 3. System Architecture (high level)
+
+```
+                    ┌─────────────────────┐
+                    │   Browser (User)    │
+                    │  Jinja2 templates    │
+                    │  + vanilla JS/fetch  │
+                    └──────────┬───────────┘
+                               │ HTTPS
+                    ┌──────────▼───────────┐
+                    │     Flask App        │
+                    │  (app factory, blueprints) │
+                    └──┬────────┬───────┬──┘
+           ┌───────────┘        │       └────────────┐
+   ┌───────▼───────┐   ┌────────▼────────┐   ┌────────▼────────┐
+   │ Passive module │   │  Active module   │   │  Reports module │
+   │ (headers, TLS,  │   │ (authorization   │   │ (risk scoring,  │
+   │  phishing,      │   │  gate + payload  │   │  PDF/JSON export)│
+   │  WHOIS)         │   │  templates)      │   │                  │
+   └───────┬────────┘   └────────┬────────┘   └────────┬─────────┘
+           │                     │                       │
+           │            ┌────────▼─────────┐             │
+           │            │ Sandbox target   │             │
+           │            │ (OWASP Juice Shop│             │
+           │            │  via Docker)     │             │
+           │            └──────────────────┘             │
+           └─────────────────────┬───────────────────────┘
+                                  │
+                        ┌─────────▼─────────┐
+                        │   SQLite/Postgres  │
+                        │  (targets, scans,   │
+                        │   findings, users)   │
+                        └────────────────────┘
+```
+
+The key architectural decision: **the active module cannot execute without passing through the authorization gate first** — it's not a checkbox in the UI, it's a function call every active scan route is forced through server-side (detailed in Section 9).
+
+---
+
+## 4. Folder & File Structure
+
+```
+websec-auditor/
+│
+├── README.md
+├── requirements.txt
+├── .env.example
+├── .gitignore
+├── config.py
+├── run.py
+├── Dockerfile
+├── docker-compose.yml
+│
+├── sandbox/
+│   └── docker-compose.sandbox.yml
+│
+├── migrations/                        # Flask-Migrate / Alembic autogenerated
+│
+├── app/
+│   ├── __init__.py                    # App factory
+│   ├── extensions.py                  # db, login_manager, scheduler, limiter instances
+│   │
+│   ├── models/
+│   │   ├── __init__.py
+│   │   ├── user.py
+│   │   ├── target.py
+│   │   ├── scan.py
+│   │   └── finding.py
+│   │
+│   ├── auth/
+│   │   ├── __init__.py                # Blueprint registration
+│   │   ├── routes.py
+│   │   └── forms.py
+│   │
+│   ├── passive/
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   ├── headers_checker.py
+│   │   ├── tls_checker.py
+│   │   ├── whois_lookup.py
+│   │   └── phishing_checker.py
+│   │
+│   ├── active/
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   ├── authorization.py           # The gate — see Section 9
+│   │   ├── scanner_engine.py          # Loads + runs YAML templates
+│   │   ├── sqli_scanner.py
+│   │   ├── xss_scanner.py
+│   │   └── cmdi_scanner.py
+│   │
+│   ├── payload_templates/             # Data, not code — YAML check definitions
+│   │   ├── sqli/
+│   │   │   ├── error_based.yaml
+│   │   │   ├── boolean_based.yaml
+│   │   │   └── time_based.yaml
+│   │   ├── xss/
+│   │   │   ├── reflected.yaml
+│   │   │   └── stored.yaml
+│   │   └── cmdi/
+│   │       └── separators.yaml
+│   │
+│   ├── reports/
+│   │   ├── __init__.py
+│   │   ├── routes.py
+│   │   ├── risk_scoring.py
+│   │   └── pdf_generator.py
+│   │
+│   ├── scheduler/
+│   │   ├── __init__.py
+│   │   └── jobs.py
+│   │
+│   ├── api/
+│   │   ├── __init__.py
+│   │   └── routes.py                  # JSON REST API
+│   │
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css
+│   │   ├── js/
+│   │   │   ├── scan_form.js
+│   │   │   ├── dashboard.js
+│   │   │   └── charts.js
+│   │   └── img/
+│   │
+│   ├── templates/
+│   │   ├── base.html
+│   │   ├── dashboard.html
+│   │   ├── new_scan.html
+│   │   ├── scan_result.html
+│   │   ├── auth/
+│   │   │   ├── login.html
+│   │   │   └── register.html
+│   │   └── partials/
+│   │       ├── navbar.html
+│   │       └── finding_card.html
+│   │
+│   └── utils/
+│       ├── __init__.py
+│       ├── validators.py
+│       └── rate_limiter.py
+│
+└── tests/
+    ├── conftest.py
+    ├── test_passive.py
+    ├── test_authorization_gate.py
+    └── test_active_sandbox.py
+```
+
+---
+
+## 5. Backend — Design Rationale
+
+**Framework: Flask, not Django.** Django's batteries-included ORM/admin/auth are overkill for a single-operator security tool and add complexity the "blueprints + SQLAlchemy" pattern doesn't need. Flask's blueprint system maps cleanly onto the passive/active/reports module split, which mirrors the project's actual security boundary (this is the same reasoning `project-system-design-mentor` guidance emphasizes: prefer the simplest architecture that fits the real requirement).
+
+**App factory pattern (`app/__init__.py`).** Rather than a single global Flask app, use `create_app()` so tests can spin up isolated app instances with a test database — this is what makes `tests/test_authorization_gate.py` possible without touching your real DB.
+
+**Blueprints, not one giant `routes.py`.** Each module (`auth`, `passive`, `active`, `reports`, `api`) registers its own blueprint. This is what lets the active module's authorization check live in exactly one place (`active/authorization.py`) and be impossible to bypass by adding a new route elsewhere.
+
+---
+
+## 6. Frontend — Design Rationale
+
+**Server-rendered Jinja2 templates + vanilla JS, not a separate React SPA.** For a solo/portfolio-scale project, a full SPA adds a build pipeline, API-versioning overhead, and CORS configuration for no real benefit — this app doesn't need SPA-level interactivity. Jinja2 templates keep the whole stack in one language (Python + minimal JS) and one deploy artifact.
+
+**Where JS is actually used:**
+- `scan_form.js` — submits scan requests via `fetch()`, polls scan status, updates the page without a full reload
+- `dashboard.js` — renders the target list and scan history table
+- `charts.js` — draws the risk-score breakdown (Chart.js, loaded from CDN) on the report page
+
+**Styling:** minimal custom CSS (`style.css`) rather than a heavy framework — a security tool's UI should look intentional and readable, not templated (see the `frontend-design` principle of avoiding default, generic styling).
+
+---
+
+## 7. Database Schema
+
+```
+User
+ ├─ id (PK)
+ ├─ email
+ ├─ password_hash
+ └─ created_at
+
+Target
+ ├─ id (PK)
+ ├─ user_id (FK → User)
+ ├─ domain
+ ├─ verified (bool)             ← set true only after authorization gate passes
+ ├─ verification_token          ← random token the user must publish as a DNS TXT record
+ ├─ verification_method         ← 'dns_txt' | 'sandbox'
+ └─ created_at
+
+Scan
+ ├─ id (PK)
+ ├─ target_id (FK → Target)
+ ├─ scan_type                   ← 'passive' | 'active'
+ ├─ status                      ← 'queued' | 'running' | 'complete' | 'failed'
+ ├─ started_at
+ └─ finished_at
+
+Finding
+ ├─ id (PK)
+ ├─ scan_id (FK → Scan)
+ ├─ category                    ← 'tls' | 'headers' | 'phishing' | 'sqli' | 'xss' | 'cmdi'
+ ├─ severity                    ← 'critical' | 'high' | 'medium' | 'low'
+ ├─ description
+ ├─ evidence                    ← raw request/response snippet, truncated
+ └─ remediation
+```
+
+---
+
+## 8. REST API Design
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| `POST` | `/api/targets` | Register a new target domain |
+| `POST` | `/api/targets/<id>/verify` | Check DNS TXT record, mark target verified |
+| `POST` | `/api/scans` | Start a new scan (`target_id`, `scan_type`) |
+| `GET` | `/api/scans/<id>` | Poll scan status/results |
+| `GET` | `/api/scans/<id>/report.pdf` | Download PDF report |
+| `GET` | `/api/scans/<id>/report.json` | Machine-readable results (for CI/CD use) |
+
+The active-scan branch of `POST /api/scans` is the one route in the whole app that calls `active/authorization.py` before doing anything else — see Section 9.
+
+---
+
+## 9. The Authorization Gate — Technical Design
+
+This is the single most important piece of the project, technically and legally (see the earlier deep-dive discussion on IT Act Section 43/66 exposure for unauthorized scanning).
+
+**Two paths to unlock active scanning for a target:**
+
+1. **DNS TXT-record verification** (same principle SSL certificate authorities use for domain-control validation):
+   - System generates a random token, stores it on the `Target` row
+   - User is asked to publish `websec-auditor-verify=<token>` as a TXT record on their domain
+   - `active/authorization.py` queries DNS (via `dnspython`) for that record before allowing any active scan on that target
+   - This proves the requester controls the domain's DNS, which is a reasonable proxy for "authorized to test this"
+
+2. **Sandbox mode:**
+   - Bundled `docker-compose.sandbox.yml` spins up OWASP Juice Shop locally
+   - Any user can run active scans against `localhost:3000` with zero verification, since it's a self-hosted, intentionally vulnerable target the user is running themselves
+
+```python
+# app/active/authorization.py (structure, not full implementation)
+
+def is_authorized(target: Target) -> bool:
+    if target.verification_method == "sandbox":
+        return target.domain in ALLOWED_SANDBOX_HOSTS  # e.g. localhost:3000
+    if target.verification_method == "dns_txt":
+        return dns_txt_record_matches(target.domain, target.verification_token)
+    return False
+
+# Every active-scan route calls this FIRST, and only this function
+# decides whether scanning proceeds — no other code path may skip it.
+```
+
+Every active scanner module (`sqli_scanner.py`, `xss_scanner.py`, `cmdi_scanner.py`) is written so it **cannot be called directly from a route** — only through `active/routes.py`, which always calls `is_authorized()` first and aborts with `403` if it returns `False`.
+
+---
+
+## 10. Payload Templates — Why Data, Not Code
+
+Instead of hardcoding injection payloads inside Python functions, they live as YAML files under `payload_templates/`. This mirrors how modern scanners like Nuclei separate the scanning engine from detection logic, so new checks can be added by writing a YAML file, not editing Python.
+
+```yaml
+# app/payload_templates/sqli/error_based.yaml
+id: sqli-error-based-001
+category: sqli
+severity: high
+payloads:
+  - "' OR '1'='1"
+  - "1' OR 1=1--"
+match:
+  type: "regex"
+  pattern: "(SQL syntax|mysql_fetch|ORA-\\d{5})"
+remediation: "Use parameterized queries / prepared statements instead of string concatenation."
+```
+
+`active/scanner_engine.py` loads every YAML file in the relevant category folder at scan time, sends each payload, and checks the response against the `match` pattern — adding a new detection is a YAML pull request, not a code change.
+
+---
+
+## 11. Libraries & Technologies (with justification)
+
+| Library | Purpose | Why this one |
+|---|---|---|
+| **Flask** | Web framework | Lightweight, blueprint system fits the passive/active module split |
+| **Flask-SQLAlchemy** | ORM | Standard, well-documented Flask companion |
+| **Flask-Migrate** | DB migrations | Alembic under the hood, avoids hand-written schema changes |
+| **Flask-Login** | Session auth | Minimal, does exactly what's needed (no need for a heavier auth framework here) |
+| **Flask-Limiter** | Rate limiting | Prevents the scan endpoints from being hammered/abused, even by the tool's own operator by accident |
+| **APScheduler** | Scheduled re-scans | In-process cron-like scheduler — avoids standing up Celery + Redis for a feature this small |
+| **requests** | HTTP client | Standard for all passive HTTP checks |
+| **BeautifulSoup4** | HTML parsing | Used by the active module to discover form fields/inputs before injecting payloads |
+| **sslyze** | Deep TLS/cert analysis | Purpose-built, battle-tested TLS scanning library with a documented Python API — far more reliable than hand-rolled `ssl` socket code for cipher/protocol-level checks |
+| **dnspython** | DNS queries | Needed for the authorization gate's TXT-record check |
+| **python-whois** | WHOIS/domain age lookup | Simple wrapper, avoids parsing raw WHOIS text manually |
+| **PyYAML** | Load payload templates | Human-editable, git-diffable check definitions |
+| **WeasyPrint** | PDF report generation | Converts an HTML report template straight to PDF — reuses the same template design as the web report page |
+| **python-dotenv** | Env config | Keeps API keys (Safe Browsing, PhishTank) out of source control |
+| **pytest / pytest-flask** | Testing | Standard, integrates with the app factory pattern |
+| **gunicorn** | Production WSGI server | Standard production server for Flask, used behind Docker |
+| **Docker / Docker Compose** | Sandbox isolation | Runs OWASP Juice Shop as an isolated, disposable target |
+
+**External APIs used (not libraries, but worth listing):**
+- Google Safe Browsing API — phishing/malware URL reputation (free tier)
+- PhishTank API — community-sourced phishing URL database (free)
+
+---
+
+## 12. Role of Each File
+
+| File | Role |
+|---|---|
+| `run.py` | Entry point — creates the app via the factory and runs the dev server |
+| `config.py` | Environment-based config classes (Dev/Test/Prod) — DB URI, secret key, API keys |
+| `app/__init__.py` | `create_app()` factory — initializes extensions, registers all blueprints |
+| `app/extensions.py` | Single place where `db`, `login_manager`, `scheduler`, `limiter` are instantiated (avoids circular imports) |
+| `models/user.py` | User table + password hashing methods |
+| `models/target.py` | Target table + verification state/logic helpers |
+| `models/scan.py` | Scan table + status transitions |
+| `models/finding.py` | Finding table — one row per detected issue |
+| `passive/headers_checker.py` | Fetches a URL, inspects response headers against the known-good baseline list |
+| `passive/tls_checker.py` | Wraps `sslyze` calls, normalizes results into `Finding` rows |
+| `passive/whois_lookup.py` | Domain age/registrar lookup |
+| `passive/phishing_checker.py` | Calls Safe Browsing + PhishTank, merges verdicts |
+| `active/authorization.py` | **The gate** — the only function allowed to say "yes, scan this" |
+| `active/scanner_engine.py` | Loads YAML templates, sends payloads, matches responses |
+| `active/sqli_scanner.py` / `xss_scanner.py` / `cmdi_scanner.py` | Thin wrappers that call `scanner_engine.py` with the right template category |
+| `reports/risk_scoring.py` | Aggregates findings into an overall Critical/High/Medium/Low score |
+| `reports/pdf_generator.py` | Renders the report HTML template to PDF via WeasyPrint |
+| `scheduler/jobs.py` | Defines the weekly re-scan job registered with APScheduler |
+| `api/routes.py` | JSON REST endpoints (Section 8) |
+| `utils/validators.py` | URL/domain input sanitization (reject malformed input before it reaches any scanner) |
+| `utils/rate_limiter.py` | Shared rate-limit decorator config used across scan routes |
+| `static/js/scan_form.js` | Submits scans via `fetch`, polls status |
+| `static/js/dashboard.js` | Renders target/scan list tables |
+| `static/js/charts.js` | Chart.js risk-score visualization |
+| `templates/base.html` | Shared layout (nav, footer, CSS/JS includes) |
+| `templates/scan_result.html` | Report view — also the template WeasyPrint renders to PDF |
+| `tests/test_authorization_gate.py` | Proves active scans are blocked for unverified targets and allowed for verified/sandbox ones — the most important test in the suite |
+
+---
+
+## 13. Security Considerations for the Tool Itself
+
+A security tool that is itself insecure is a bad look — and a real risk. Baseline requirements:
+- Store password hashes with Argon2id (see the CryptoVault deep-dive — same reasoning applies here), never plaintext
+- All scan input (URLs/domains) validated and sanitized before use — this tool sends network requests based on user input, so SSRF is a real risk to guard against (block scans targeting `localhost`, `169.254.169.254`, private IP ranges, unless explicitly in sandbox mode)
+- Rate-limit scan submission per user to prevent the tool being used as an unwitting DDoS/scanning proxy
+- API keys (Safe Browsing, PhishTank) stored via environment variables, never committed
+
+---
+
+## 14. Testing Strategy
+
+| Test file | What it verifies |
+|---|---|
+| `test_passive.py` | Header/TLS/phishing checks return expected structure against known test URLs |
+| `test_authorization_gate.py` | Active scan requests are rejected (`403`) for unverified targets, accepted for sandbox/verified ones |
+| `test_active_sandbox.py` | Full active-scan flow runs correctly against the bundled Juice Shop sandbox, finds at least the known seeded vulnerabilities |
+
+Run the sandbox in CI via `docker-compose.sandbox.yml` so `test_active_sandbox.py` can run in an automated pipeline, not just manually.
+
+---
+
+## 15. Deployment Notes
+
+- `Dockerfile` + `docker-compose.yml` for the main app (Flask + gunicorn + SQLite/Postgres)
+- `sandbox/docker-compose.sandbox.yml` is separate and optional — only spun up when a user wants sandbox-mode active scanning
+- Environment variables (`.env`, not committed) hold `SECRET_KEY`, `DATABASE_URL`, `SAFE_BROWSING_API_KEY`, `PHISHTANK_API_KEY`
+
+---
+
+## 16. Roadmap / Future Enhancements
+
+- Swap APScheduler for Celery + Redis if scan volume grows beyond single-process capacity
+- Add SARIF export for CI/CD pipeline integration
+- Add a second passive check: CORS misconfiguration detection
+- Optional React frontend if the dashboard's interactivity needs outgrow Jinja2 + vanilla JS
+
+---
+
+## 17. `requirements.txt` (draft)
+
+```
+Flask
+Flask-SQLAlchemy
+Flask-Migrate
+Flask-Login
+Flask-Limiter
+APScheduler
+requests
+beautifulsoup4
+sslyze
+dnspython
+python-whois
+PyYAML
+WeasyPrint
+python-dotenv
+pytest
+pytest-flask
+gunicorn
+```
