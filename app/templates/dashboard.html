@@ -122,7 +122,7 @@
 <span class="inline-flex items-center justify-center w-6 h-6 rounded {{ grade_bg }} font-headline-md text-sm">{{ grade }}</span>
 </td>
 <td class="p-md text-right">
-<a href="{{ url_for('reports.scan_report', scan_id=scan.id) }}" class="font-label-md text-primary hover:text-primary-container transition-colors">View Details</a>
+<a href="{{ url_for('reports.view_report', scan_id=scan.id) }}" class="font-label-md text-primary hover:text-primary-container transition-colors">View Details</a>
 </td>
 </tr>
 {% else %}

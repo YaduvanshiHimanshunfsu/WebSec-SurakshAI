@@ -128,7 +128,8 @@ def export_pdf_new(scan_id):
 
 # ─── Legacy routes ────────────────────────────────────────────────
 
-@reports_bp.route('/<int:scan_id>')
+@reports_bp.route('/<int:scan_id>', endpoint='view_report')
+@reports_bp.route('/<int:scan_id>', endpoint='scan_report')
 def view_report(scan_id):
     scan = db.get_or_404(Scan, scan_id)
     target = db.session.get(Target, scan.target_id)
