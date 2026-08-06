@@ -762,17 +762,10 @@ def main():
 
     # ── Default / Dev mode: Start Full-Stack System (Frontend + Backend) ─────
     if not args.prod:
-<<<<<<< HEAD
-        box("🚀  WebSec-SurakshAI  —  Starting System", GREEN)
-        info(f"Web App URL → {c('http://localhost:5173/', GREEN, BOLD)}   ← Open this in your browser")
-        info(f"Backend API → {c('http://127.0.0.1:5000/api', DIM)}")
-        info(f"Database    → {c('sqlite:///websec.db', DIM)}")
-=======
         box("🚀  WebSec-SurakshAI  —  Main System Online", GREEN)
         info(f"Main Website  → {c('http://localhost:5173/', CYAN, BOLD)}  (React SPA Application)")
         info(f"Backend API   → {c('http://localhost:5000/api', DIM)}  (REST Services)")
         info(f"Database      → {c('sqlite:///websec.db', DIM)}")
->>>>>>> c867a4e (feat: complete Phase 1-3 production upgrade for Vercel, Supabase PostgreSQL, PyOTP 2FA, Celery queues, and DAST probes)
         
         print(f"\n  {c('Starting Vite frontend dev server...', DIM)}")
         frontend_process = start_frontend()
